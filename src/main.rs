@@ -58,10 +58,10 @@ fn main() -> ! {
     let maxc3 = ch3.get_max_duty();
     let maxc4 = ch4.get_max_duty();
 
-    ch1.set_duty(maxc1 * (80/100));  // to set duty cycle to an arbitary value just multiply max_duty by desired percentage kiran
-    ch2.set_duty(maxc2 * (70/100));
-    ch3.set_duty(maxc3 * (60/100));
-    ch4.set_duty(maxc4 * (50/100));
+    ch1.set_duty((maxc1 * 80)/100);  // to set duty cycle to an arbitary value just multiply max_duty by desired percentage kiran
+    ch2.set_duty((maxc2 * 70)/100);
+    ch3.set_duty((maxc3 * 60)/100);
+    ch4.set_duty((maxc4 * 50)/100);
     debug!("PWM channels configured");
 
     // USB initialization
