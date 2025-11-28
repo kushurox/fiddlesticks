@@ -1,0 +1,32 @@
+[package]
+name = "fiddlesticks"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.5"
+defmt = "1.0.1"
+defmt-rtt = "1.0.0"
+panic-probe = "1.0.0"
+static_cell = "2.1.1"
+stm32f4xx-hal = { version = "0.22.1", features = ["stm32f411", "defmt", "usb_fs"] }
+usb-device = "0.3.2"
+usbd-serial = "0.2.2"
+
+
+[features]
+default = ["stm32f411"]
+stm32f411 = []
+
+
+[[bin]]
+name = "fiddlesticks"
+path = "src/main.rs"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
