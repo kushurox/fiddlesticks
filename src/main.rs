@@ -7,14 +7,18 @@ use cortex_m::interrupt::Mutex;
 use cortex_m_rt::entry;
 use defmt::{debug, info};
 use panic_probe as _;
-use static_cell::{ConstStaticCell, StaticCell};
-use stm32f4xx_hal::{self as _, ClearFlags, dwt::DwtExt, hal_02::blocking::serial, otg_fs::{USB, UsbBus}, pac::{self, NVIC, TIM2}, timer::{CounterHz, Event, Flag}}; 
+use static_cell::StaticCell;
+use stm32f4xx_hal::{ClearFlags, dwt::DwtExt, gpio::Speed, hal::spi, otg_fs::{USB, UsbBus}, pac::{NVIC, TIM2}, timer::{CounterHz, Event, Flag}}; 
 use defmt_rtt as _; 
 use stm32f4xx_hal::prelude::*;
 use usb_device::{bus::UsbBusAllocator, device::{StringDescriptors, UsbDevice, UsbDeviceBuilder, UsbVidPid}};
 use usbd_serial::SerialPort;
 use stm32f4xx_hal::interrupt;
-use usb_device::device::UsbDeviceState::{Configured, Default, Addressed, Suspend};
+use usb_device::device::UsbDeviceState::{Configured, Addressed, Suspend};
+
+use crate::mpu_spi::{MpuSpi, convert_raw};
+
+mod mpu_spi;
 
 type SharedObj<T> = Mutex<RefCell<Option<T>>>;
 
@@ -28,10 +32,9 @@ static USB_IS_CONNECTED: AtomicBool = AtomicBool::new(false);
 
 static TIMER2: SharedObj<CounterHz<TIM2>> = SharedObj::new(RefCell::new(None));
 
+
 #[entry]
 fn main() -> ! {
-
-
     let dp = stm32f4xx_hal::pac::Peripherals::take().unwrap();
     let cp = cortex_m::Peripherals::take().unwrap();
 
@@ -44,7 +47,7 @@ fn main() -> ! {
 
     let gpioa = dp.GPIOA.split();
 
-    let (pwm_mng,(ch1, ch2, ch3, ch4)) = dp.TIM5.pwm_hz(60.kHz(), &clocks);
+    let (_pwm_mng,(ch1, ch2, ch3, ch4)) = dp.TIM5.pwm_hz(60.kHz(), &clocks);
 
     
     // 4 channel PWM driver for DC motor control
@@ -95,13 +98,41 @@ fn main() -> ! {
 
         TIMER2.borrow(cs).replace(Some(tim2));
     });
-
-
     debug!("USB device configured");
 
     let dwt = cp.DWT.constrain(cp.DCB, &clocks);
 
-    loop {}
+    // MPU9250 initialization can be done here
+
+    let gpiob = dp.GPIOB.split();
+    let mut pa8 = gpioa.pa8.into_push_pull_output().speed(Speed::High); // ncs
+    let pb14 = gpiob.pb14.into_alternate().speed(Speed::VeryHigh); // AD0/MISO
+    let pb15 = gpiob.pb15.into_alternate().speed(Speed::VeryHigh); // MOSI
+    let pb13 = gpiob.pb13.into_alternate().speed(Speed::VeryHigh); // SCLK
+
+    pa8.set_high();
+
+    let mode = spi::Mode {
+        polarity: spi::Polarity::IdleLow,
+        phase: spi::Phase::CaptureOnFirstTransition,
+    };
+
+    let spi = stm32f4xx_hal::spi::Spi::new(dp.SPI2, (pb13, pb14, pb15), mode, 1.MHz(), &clocks);
+    let ncs = pa8;
+
+
+
+    let mut mpu_spi = MpuSpi::new(spi, ncs, dwt.delay());
+    mpu_spi.get_status();
+
+    loop {
+        // let (accelx, accely, accelz, temp, gyrox, gyroy, gyroz) = mpu_spi.read_sensors();
+        // info!("Acc X: {} g, Acc Y: {} g, Acc Z: {} g", accelx, accely, accelz);
+        // info!("Temp: {} C", temp);
+        // info!("Gyro X: {} dps, Gyro Y: {} dps, Gyro Z: {} dps", gyrox, gyroy, gyroz);
+        // mpu_spi.d.delay_ms(500);
+
+    }
 }
 
 #[interrupt]
