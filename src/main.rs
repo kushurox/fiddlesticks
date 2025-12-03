@@ -17,7 +17,7 @@ use stm32f4xx_hal::interrupt;
 use usb_device::device::UsbDeviceState::{Configured, Addressed, Suspend};
 use heapless::spsc::{Producer, Queue};
 
-use crate::{calib::{Calibrator, CalibratorStateWrapper, PACKET_SIZE, UsbPacket}, mpu_spi::MpuSpi};
+use crate::{calib::{AccelCalib, Calibrator, CalibratorResponse, CalibratorStateWrapper, PACKET_SIZE, Unconnected, UsbPacket}, mpu_spi::MpuSpi};
 
 mod mpu_spi;
 mod calib;
@@ -137,8 +137,8 @@ fn main() -> ! {
     let mut mpu_spi = MpuSpi::new(spi, ncs, dwt.delay());
     mpu_spi.get_status();
 
-    let usb_calibrator = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
-    let is_calibrated = false; // later read from rtc
+    let mut usb_calibrator = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
+    let mut is_calibrated = false; // later read from rtc
     let is_loading = false;
 
     loop {
@@ -146,7 +146,35 @@ fn main() -> ! {
             if usb_consumer.is_empty() {
                 continue;
             }
+            use CalibratorStateWrapper::*;
             let packet = usb_consumer.dequeue().unwrap();
+            let mut response_packet = UsbPacket { data: [0u8; PACKET_SIZE], len:0 };
+
+            usb_calibrator = match usb_calibrator {
+                AccelCalib(calib) => {
+                    let (calib, response) = calib.process(packet);
+                    if let CalibratorResponse::Data(data, len) = response {
+                        response_packet.data[..len].copy_from_slice(&data[..len]);
+                        response_packet.len = len;
+                        is_calibrated = true; // for testing, assume accel calib is only step
+
+                    } else {
+                        response_packet.data[0] = response.get_id();
+                        response_packet.len = 1;
+                    }
+                    calib
+                }
+                _ => usb_calibrator,
+            };
+
+            let usb_raw_packet: [u8; PACKET_SIZE + core::mem::size_of::<usize>()] = unsafe { core::mem::transmute(response_packet) };
+
+            cortex_m::interrupt::free(|cs| {
+                USB_SERIAL.borrow(cs).borrow_mut().as_mut().map(|serial| {
+                    serial.write(&usb_raw_packet).unwrap();
+                }).unwrap();
+            })
+
         }
     }
 }

@@ -27,6 +27,22 @@ pub enum CalibratorResponse {
     Disconnect
 }
 
+impl CalibratorResponse {
+    pub const ACK_ID: u8 = 0x70;
+    pub const NACK_ID: u8 = 0x71;
+    pub const DATA_ID: u8 = 0x72;
+    pub const DISCONNECT_ID: u8 = 0x73;
+
+    pub fn get_id(&self) -> u8 {
+        match self {
+            CalibratorResponse::ACK => CalibratorResponse::ACK_ID,
+            CalibratorResponse::NACK => CalibratorResponse::NACK_ID,
+            CalibratorResponse::Data(_, _) => CalibratorResponse::DATA_ID,
+            CalibratorResponse::Disconnect => CalibratorResponse::DISCONNECT_ID,
+        }
+    }
+}
+
 
 // 6-point accel calibration positions
 pub enum AccelCommand {
@@ -49,7 +65,9 @@ pub enum CalibCommand {
 }
 
 
+
 #[derive(Debug)]
+#[repr(C)]
 pub struct UsbPacket {
     pub data: [u8; PACKET_SIZE],
     pub len: usize,
