@@ -3,7 +3,7 @@ use stm32f4xx_hal::{gpio::{Output, Pin}, spi::{Instance, Spi}};
 use embedded_hal::delay::DelayNs;
 
 
-#[macro_export]
+
 macro_rules! select_write {
     ($sp:expr,$ncs:expr,$data:expr) => {
         $ncs.set_low();
@@ -12,7 +12,7 @@ macro_rules! select_write {
     };
 }
 
-#[macro_export]
+
 macro_rules! select_read {
     ($sp:expr, $ncs:expr, $addr:expr) => {
         {
@@ -28,7 +28,7 @@ macro_rules! select_read {
 
 
 #[inline(always)]
-pub fn convert_raw(h: u8, l: u8, sf: f32) -> f32 {
+fn convert_raw(h: u8, l: u8, sf: f32) -> f32 {
     // high byte, low byte, scale factor
 
     let raw = (((h as u16) << 8) | (l as u16)) as i16;
@@ -72,11 +72,11 @@ where
         MpuSpi { spi, ncs, d }
     }
 
-    pub fn write(&mut self, data: &mut [u8]) {
+    fn write(&mut self, data: &mut [u8]) {
         select_write!(self.spi, self.ncs, data);
     }
 
-    pub fn read(&mut self, addr: u8) -> u8 {
+    fn read(&mut self, addr: u8) -> u8 {
         select_read!(self.spi, self.ncs, addr)
     }
 
@@ -107,5 +107,64 @@ where
         let gyro_z = convert_raw(sensor_readings[13], sensor_readings[14], 16.4);
 
         (acc_x, acc_y, acc_z, temp, gyro_x, gyro_y, gyro_z)
+    }
+
+    pub fn read_accel(&mut self) -> (f32, f32, f32) {
+        let mut sensor_readings = [0u8; 7]; // first byte is
+        sensor_readings[0] = 0x3B | 0x80;
+        self.ncs.set_low();
+        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        self.ncs.set_high();
+        let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
+        let acc_y = convert_raw(sensor_readings[3], sensor_readings[4], 2048.0);
+        let acc_z = convert_raw(sensor_readings[5], sensor_readings[6], 2048.0);
+
+        (acc_x, acc_y, acc_z)
+    }
+
+    pub fn read_accelx(&mut self) -> f32 {
+        let mut sensor_readings = [0u8; 3]; // first byte is
+        sensor_readings[0] = 0x3B | 0x80;
+        self.ncs.set_low();
+        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        self.ncs.set_high();
+        let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
+
+        acc_x
+    }
+
+    pub fn read_accely(&mut self) -> f32 {
+        let mut sensor_readings = [0u8; 3]; // first byte is
+        sensor_readings[0] = 0x3D | 0x80;
+        self.ncs.set_low();
+        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        self.ncs.set_high();
+        let acc_y = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
+
+        acc_y
+    }
+
+    pub fn read_accelz(&mut self) -> f32 {
+        let mut sensor_readings = [0u8; 3]; // first byte is
+        sensor_readings[0] = 0x3F | 0x80;
+        self.ncs.set_low();
+        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        self.ncs.set_high();
+        let acc_z = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
+
+        acc_z
+    }
+
+    pub fn read_gyro(&mut self) -> (f32, f32, f32) { // TODO: confirm if the register addresses are correct
+        let mut sensor_readings = [0u8; 7]; // first byte is
+        sensor_readings[0] = 0x43 | 0x80;
+        self.ncs.set_low();
+        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        self.ncs.set_high();
+        let gyro_x = convert_raw(sensor_readings[1], sensor_readings[2], 16.4);
+        let gyro_y = convert_raw(sensor_readings[3], sensor_readings[4], 16.4);
+        let gyro_z = convert_raw(sensor_readings[5], sensor_readings[6], 16.4);
+
+        (gyro_x, gyro_y, gyro_z)
     }
 }

@@ -7,7 +7,7 @@ use cortex_m::interrupt::Mutex;
 use cortex_m_rt::entry;
 use defmt::{debug, info};
 use panic_probe as _;
-use static_cell::StaticCell;
+use static_cell::{ConstStaticCell, StaticCell};
 use stm32f4xx_hal::{ClearFlags, dwt::DwtExt, gpio::Speed, hal::spi, otg_fs::{USB, UsbBus}, pac::{NVIC, TIM2}, timer::{CounterHz, Event, Flag}}; 
 use defmt_rtt as _; 
 use stm32f4xx_hal::prelude::*;
@@ -15,22 +15,26 @@ use usb_device::{bus::UsbBusAllocator, device::{StringDescriptors, UsbDevice, Us
 use usbd_serial::SerialPort;
 use stm32f4xx_hal::interrupt;
 use usb_device::device::UsbDeviceState::{Configured, Addressed, Suspend};
+use heapless::spsc::{Producer, Queue};
 
-use crate::mpu_spi::{MpuSpi, convert_raw};
+use crate::{calib::{Calibrator, CalibratorStateWrapper, PACKET_SIZE, UsbPacket}, mpu_spi::MpuSpi};
 
 mod mpu_spi;
+mod calib;
 
 type SharedObj<T> = Mutex<RefCell<Option<T>>>;
 
+// USB Shared Resources
 static USB_BUS: StaticCell<UsbBusAllocator<UsbBus<USB>>> = StaticCell::new();
-
 static USB_MEMORY: StaticCell<[u32; 1024]> = StaticCell::new(); // 1KB buffer for USB driver
-
 static USB_SERIAL: SharedObj<SerialPort<UsbBus<USB>>> = SharedObj::new(RefCell::new(None));
 static USB_DEVICE: SharedObj<UsbDevice<UsbBus<USB>>> = SharedObj::new(RefCell::new(None));
 static USB_IS_CONNECTED: AtomicBool = AtomicBool::new(false);
-
 static TIMER2: SharedObj<CounterHz<TIM2>> = SharedObj::new(RefCell::new(None));
+static USB_QUEUE: ConstStaticCell<Queue<UsbPacket, 256>> = ConstStaticCell::new(Queue::new());
+static USB_PRODUCER: SharedObj<Producer<UsbPacket>> = SharedObj::new(RefCell::new(None));
+
+// FC Shared Resources
 
 
 #[entry]
@@ -40,6 +44,8 @@ fn main() -> ! {
 
     let rcc = dp.RCC.constrain();
     let clocks = rcc.cfgr.use_hse(25.MHz()).sysclk(48.MHz()).require_pll48clk().freeze();
+
+    let dwt = cp.DWT.constrain(cp.DCB, &clocks);
 
     debug!("HCLK: {} MHz", clocks.hclk().raw() / 1_000_000);
     debug!("PCLK1: {} MHz", clocks.pclk1().raw() / 1_000_000);
@@ -81,11 +87,16 @@ fn main() -> ! {
     let usb_bus = USB_BUS.init(UsbBus::new(usb, usb_mem));
     // note to future, call this before building UsbDevice, else HardFault occurs cause usebuilder freezes the bus
     let usb_serial_port = SerialPort::new(usb_bus); 
+
     let usb_dev = UsbDeviceBuilder::new(usb_bus, UsbVidPid(0x16c0, 0x27dd))
     .device_class(usbd_serial::USB_CLASS_CDC)
     .strings(&[descriptors])
     .unwrap()
     .build();
+
+    let usb_queue = USB_QUEUE.take();
+    let (usb_producer, mut usb_consumer) = usb_queue.split();
+
 
     let mut tim2 = dp.TIM2.counter_hz(&clocks);
     tim2.listen(Event::Update);
@@ -95,12 +106,13 @@ fn main() -> ! {
 
         USB_DEVICE.borrow(cs).replace(Some(usb_dev));
         USB_SERIAL.borrow(cs).replace(Some(usb_serial_port));
+        USB_PRODUCER.borrow(cs).replace(Some(usb_producer));
 
         TIMER2.borrow(cs).replace(Some(tim2));
     });
+
     debug!("USB device configured");
 
-    let dwt = cp.DWT.constrain(cp.DCB, &clocks);
 
     // MPU9250 initialization can be done here
 
@@ -121,17 +133,21 @@ fn main() -> ! {
     let ncs = pa8;
 
 
-
+    // for my board X -> -X, Y -> -Y, Z -> Z
     let mut mpu_spi = MpuSpi::new(spi, ncs, dwt.delay());
     mpu_spi.get_status();
 
-    loop {
-        // let (accelx, accely, accelz, temp, gyrox, gyroy, gyroz) = mpu_spi.read_sensors();
-        // info!("Acc X: {} g, Acc Y: {} g, Acc Z: {} g", accelx, accely, accelz);
-        // info!("Temp: {} C", temp);
-        // info!("Gyro X: {} dps, Gyro Y: {} dps, Gyro Z: {} dps", gyrox, gyroy, gyroz);
-        // mpu_spi.d.delay_ms(500);
+    let usb_calibrator = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
+    let is_calibrated = false; // later read from rtc
+    let is_loading = false;
 
+    loop {
+        while !is_calibrated {
+            if usb_consumer.is_empty() {
+                continue;
+            }
+            let packet = usb_consumer.dequeue().unwrap();
+        }
     }
 }
 
@@ -154,14 +170,16 @@ fn OTG_FS() {
     if usb_dev.poll(&mut [&mut usb_serial]) {
         let ustate = usb_dev.state();
         if let Configured = ustate {
-            let mut buf = [0u8; 64];
-            if let Ok(count) = usb_serial.read(&mut buf) {
+            let mut packet = UsbPacket { data: [0u8; PACKET_SIZE], len:0 };
+            if let Ok(count) = usb_serial.read(&mut packet.data) {
                 if count > 0 { 
-                    info!("Received {} bytes: {:?}", count, &buf[..count]);
+                    packet.len = count;
+                    cortex_m::interrupt::free(|cs| {
+                        USB_PRODUCER.borrow(cs).borrow_mut().as_mut().map(|queue| {
+                            queue.enqueue(packet).unwrap(); // panic if queue full
+                        }).unwrap(); // panic if queue not available
+                    });
                 }
-            }
-            else {
-                info!("USB read error");
             }
         } else if let Addressed = ustate {
             use core::sync::atomic::Ordering::{Relaxed, Acquire};
