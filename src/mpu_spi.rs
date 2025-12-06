@@ -1,4 +1,4 @@
-use defmt::debug;
+use defmt::{debug, warn};
 use stm32f4xx_hal::{gpio::{Output, Pin}, spi::{Instance, Spi}};
 use embedded_hal::delay::DelayNs;
 
@@ -43,6 +43,7 @@ pub struct MpuSpi<Spi, CS> {
     pub spi: Spi,
     pub ncs: CS,
     pub d: stm32f4xx_hal::dwt::Delay,
+    pub gyro_bias: (f32, f32, f32),
 }
 
 
@@ -69,7 +70,7 @@ where
         d.delay_ms(10);
         select_write!(spi, ncs, &mut [0x19, 0x00]); // setting sample rate to 1kHz
         d.delay_ms(10);
-        MpuSpi { spi, ncs, d }
+        MpuSpi { spi, ncs, d, gyro_bias: (0.0, 0.0, 0.0) }
     }
 
     fn write(&mut self, data: &mut [u8]) {
@@ -95,9 +96,11 @@ where
         // reads all sensors and returns a tuple of them, performs conversion internally
         let mut sensor_readings = [0u8; 15]; // first byte is
         sensor_readings[0] = 0x3B | 0x80;
-        self.ncs.set_low();
-        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
-        self.ncs.set_high();
+        cortex_m::interrupt::free(|cs| {
+            self.ncs.set_low();
+            self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+            self.ncs.set_high();
+        });
         let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
         let acc_y = convert_raw(sensor_readings[3], sensor_readings[4], 2048.0);
         let acc_z = convert_raw(sensor_readings[5], sensor_readings[6], 2048.0);
@@ -112,9 +115,13 @@ where
     pub fn read_accel(&mut self) -> (f32, f32, f32) {
         let mut sensor_readings = [0u8; 7]; // first byte is
         sensor_readings[0] = 0x3B | 0x80;
+        let mut res = Ok(());  
         self.ncs.set_low();
-        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
+        res = self.spi.transfer_in_place(&mut sensor_readings);
         self.ncs.set_high();
+        if let Err(e) = res {
+            warn!("SPI transfer error: {:?}", e);
+        }
         let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
         let acc_y = convert_raw(sensor_readings[3], sensor_readings[4], 2048.0);
         let acc_z = convert_raw(sensor_readings[5], sensor_readings[6], 2048.0);
@@ -122,40 +129,7 @@ where
         (acc_x, acc_y, acc_z)
     }
 
-    pub fn read_accelx(&mut self) -> f32 {
-        let mut sensor_readings = [0u8; 3]; // first byte is
-        sensor_readings[0] = 0x3B | 0x80;
-        self.ncs.set_low();
-        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
-        self.ncs.set_high();
-        let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
-
-        acc_x
-    }
-
-    pub fn read_accely(&mut self) -> f32 {
-        let mut sensor_readings = [0u8; 3]; // first byte is
-        sensor_readings[0] = 0x3D | 0x80;
-        self.ncs.set_low();
-        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
-        self.ncs.set_high();
-        let acc_y = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
-
-        acc_y
-    }
-
-    pub fn read_accelz(&mut self) -> f32 {
-        let mut sensor_readings = [0u8; 3]; // first byte is
-        sensor_readings[0] = 0x3F | 0x80;
-        self.ncs.set_low();
-        self.spi.transfer_in_place(&mut sensor_readings).unwrap();
-        self.ncs.set_high();
-        let acc_z = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
-
-        acc_z
-    }
-
-    pub fn read_gyro(&mut self) -> (f32, f32, f32) { // TODO: confirm if the register addresses are correct
+    pub fn read_gyro_raw(&mut self) -> (f32, f32, f32) { // TODO: confirm if the register addresses are correct
         let mut sensor_readings = [0u8; 7]; // first byte is
         sensor_readings[0] = 0x43 | 0x80;
         self.ncs.set_low();
@@ -165,6 +139,35 @@ where
         let gyro_y = convert_raw(sensor_readings[3], sensor_readings[4], 16.4);
         let gyro_z = convert_raw(sensor_readings[5], sensor_readings[6], 16.4);
 
+        (gyro_x, gyro_y, gyro_z)
+    }
+
+    pub fn read_gyro(&mut self) -> (f32, f32, f32) {
+        let raw_gyro = self.read_gyro_raw();
+        let gyro_x = raw_gyro.0 - self.gyro_bias.0;
+        let gyro_y = raw_gyro.1 - self.gyro_bias.1;
+        let gyro_z = raw_gyro.2 - self.gyro_bias.2;
+        (gyro_x, gyro_y, gyro_z)
+    }
+
+    pub fn calibrate_gyro(&mut self) -> (f32, f32, f32) {
+        debug!("Starting gyro calibration...");
+
+        let mut gyro_x: f32 = 0.0;
+        let mut gyro_y: f32 = 0.0;
+        let mut gyro_z: f32 = 0.0;
+
+        let n = 1.0f32;
+
+        for _ in 0..1000 {
+            let (gx, gy, gz) = self.read_gyro_raw();
+            gyro_x += (gx - gyro_x) / n;
+            gyro_y += (gy - gyro_y) / n;
+            gyro_z += (gz - gyro_z) / n;
+            self.d.delay_us(1500); // wait 1.5ms between samples
+        }
+
+        self.gyro_bias = (gyro_x, gyro_y, gyro_z);
         (gyro_x, gyro_y, gyro_z)
     }
 }

@@ -5,7 +5,8 @@ use core::{cell::RefCell, sync::atomic::AtomicBool};
 
 use cortex_m::interrupt::Mutex;
 use cortex_m_rt::entry;
-use defmt::{debug, info};
+use defmt::{debug, info, println, warn};
+use nalgebra::{SMatrix, SVector};
 use panic_probe as _;
 use static_cell::{ConstStaticCell, StaticCell};
 use stm32f4xx_hal::{ClearFlags, dwt::DwtExt, gpio::Speed, hal::spi, otg_fs::{USB, UsbBus}, pac::{NVIC, TIM2}, timer::{CounterHz, Event, Flag}}; 
@@ -17,7 +18,7 @@ use stm32f4xx_hal::interrupt;
 use usb_device::device::UsbDeviceState::{Configured, Addressed, Suspend};
 use heapless::spsc::{Producer, Queue};
 
-use crate::{calib::{AccelCalib, Calibrator, CalibratorResponse, CalibratorStateWrapper, PACKET_SIZE, Unconnected, UsbPacket}, mpu_spi::MpuSpi};
+use crate::{calib::{AccelCalib, Calibrator, CalibratorResponse, CalibratorStateWrapper, Connected, GyroCalib, PACKET_SIZE, Unconnected, UsbPacket}, mpu_spi::MpuSpi};
 
 mod mpu_spi;
 mod calib;
@@ -136,46 +137,136 @@ fn main() -> ! {
     // for my board X -> -X, Y -> -Y, Z -> Z
     let mut mpu_spi = MpuSpi::new(spi, ncs, dwt.delay());
     mpu_spi.get_status();
+    mpu_spi.calibrate_gyro();
+    info!("MPU6050 initialized and gyro calibrated");
 
     let mut usb_calibrator = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
-    let mut is_calibrated = false; // later read from rtc
-    let is_loading = false;
+    const IS_CALIBRATED: bool = false;
+    let mut calibrating = !IS_CALIBRATED; // runtime flag to break out of calibration loop
+
+    let mut inv_sens_matrix: SMatrix::<f32, 3, 3>;
+    let mut accel_bias: SVector::<f32, 3>;
+
+
+    if IS_CALIBRATED {
+        // hardcoded calibration values
+        inv_sens_matrix = SMatrix::<f32, 3, 3>::from_row_slice(&[
+            0.001234, 0.000012, -0.000023,
+            0.000011, 0.001256, 0.000034,
+            -0.000021, 0.000031, 0.001198
+        ]);
+        accel_bias = SVector::<f32, 3>::from_row_slice(&[0.12, -0.08, 0.05]);
+    } else {
+        inv_sens_matrix = SMatrix::<f32, 3, 3>::zeros();
+        accel_bias = SVector::<f32, 3>::zeros();
+    }
 
     loop {
-        while !is_calibrated {
-            if usb_consumer.is_empty() {
-                continue;
-            }
-            use CalibratorStateWrapper::*;
-            let packet = usb_consumer.dequeue().unwrap();
-            let mut response_packet = UsbPacket { data: [0u8; PACKET_SIZE], len:0 };
-
-            usb_calibrator = match usb_calibrator {
-                AccelCalib(calib) => {
-                    let (calib, response) = calib.process(packet);
-                    if let CalibratorResponse::Data(data, len) = response {
-                        response_packet.data[..len].copy_from_slice(&data[..len]);
-                        response_packet.len = len;
-                        is_calibrated = true; // for testing, assume accel calib is only step
-
-                    } else {
-                        response_packet.data[0] = response.get_id();
-                        response_packet.len = 1;
-                    }
-                    calib
+        if !IS_CALIBRATED {
+            while calibrating {
+                if usb_consumer.is_empty() {
+                    continue;
                 }
-                _ => usb_calibrator,
-            };
+                use CalibratorStateWrapper::*;
+                let packet = usb_consumer.dequeue().unwrap();
+                let mut response_data: [u8; PACKET_SIZE] = [0u8; PACKET_SIZE];
+                let response_id: u8;
+                let response_length: usize;
 
-            let usb_raw_packet: [u8; PACKET_SIZE + core::mem::size_of::<usize>()] = unsafe { core::mem::transmute(response_packet) };
+                let recived_str = str::from_utf8(&packet.data[..packet.len]);
+                if let Ok(s) = recived_str {
+                    info!("received packet: {}", s);
+                } else {
+                    info!("received non-UTF8 packet");
+                }
 
-            cortex_m::interrupt::free(|cs| {
-                USB_SERIAL.borrow(cs).borrow_mut().as_mut().map(|serial| {
-                    serial.write(&usb_raw_packet).unwrap();
-                }).unwrap();
-            })
+                usb_calibrator = match usb_calibrator {
+                    AccelCalib(calib) => {
+                        let (calib, response) = calib.process(packet);
+                        if let CalibratorResponse::Data(data, len) = response {
+                            response_id = response.get_id();
+                            response_length = len;
+                            response_data[..len].copy_from_slice(&data[..len]);
+                        } else {
+                            response_id = response.get_id();
+                            response_length = 1;
+                        }
+                        calib
+                    },
+                    GyroCalib(calib) => {
+                        let (calib, response) = calib.process(packet);
+                        if let CalibratorResponse::Data(data, len) = response {
+                            response_id = response.get_id();
+                            response_length = len;
+                            response_data[..len].copy_from_slice(&data[..len]);
+                        } else {
+                            response_id = response.get_id();
+                            response_length = 1;
+                        }
+                        calib
+                    },
+                    Unconnected(calib) => {
+                        let (calib, response) = calib.process(packet);
+                        response_id = response.get_id(); // cause only ACK/NACK expected
+                        response_length = 1;
+                        calib
+                    },
+                    Connected(calib) => {
+                        debug!("In Connected state");
+                        let (calibstate, response) = calib.process(packet);
+                        match response {
+                            CalibratorResponse::Disconnect => {
+                                debug!("Disconnect received, exiting calibration loop");
+                                calibrating = false;
+
+                                if let Unconnected(ref inner_calib) = calibstate {
+                                    if let Some(s_inv) = &inner_calib.s_inv {
+                                        inv_sens_matrix = *s_inv;
+                                        info!("Copied inverse sensitivity matrix");
+                                    } else { warn!("No sensitivity matrix found!"); }
+                                    if let Some(bias) = &inner_calib.b {
+                                        accel_bias = *bias;
+                                        info!("Copied accelerometer bias vector");
+                                    } else { warn!("No accelerometer bias vector found!"); }
+                                }
+                            },
+                            _ => {}
+
+                        };
+                        response_id = response.get_id(); // cause only ACK/NACK expected
+                        response_length = 1;
+                        calibstate
+                    }
+                };
+
+                println!("Response packet length: {}", response_length);
+                const USIZE_SIZE: usize = core::mem::size_of::<usize>();
+                let mut usb_raw_packet: [u8; 1+USIZE_SIZE+PACKET_SIZE] = [0u8; 1+USIZE_SIZE+PACKET_SIZE];
+                usb_raw_packet[0] = response_id; // response ID
+                usb_raw_packet[1..=USIZE_SIZE].copy_from_slice(&response_length.to_le_bytes());
+                usb_raw_packet[1+USIZE_SIZE..1+USIZE_SIZE+response_length].copy_from_slice(&response_data[..response_length]);
+
+
+
+                cortex_m::interrupt::free(|cs| {
+                    let res = USB_SERIAL.borrow(cs).borrow_mut().as_mut().map(|serial| {
+                        if let Err(_) = serial.write(&usb_raw_packet) {
+                            warn!("USB write error");
+                            panic!("USB write error"); // ill spin it later, for now just panic
+                        }
+                    });
+                    if let None = res {
+                        warn!("USB serial port not available");
+                        panic!("USB serial port not available"); 
+                    }
+                });
+
+            }
+
 
         }
+
+
     }
 }
 
@@ -203,9 +294,13 @@ fn OTG_FS() {
                 if count > 0 { 
                     packet.len = count;
                     cortex_m::interrupt::free(|cs| {
-                        USB_PRODUCER.borrow(cs).borrow_mut().as_mut().map(|queue| {
+                        let res = USB_PRODUCER.borrow(cs).borrow_mut().as_mut().map(|queue| {
                             queue.enqueue(packet).unwrap(); // panic if queue full
-                        }).unwrap(); // panic if queue not available
+                        });
+                        if let None = res {
+                            warn!("USB producer queue not available");
+                            panic!("USB producer queue not available");
+                        }
                     });
                 }
             }

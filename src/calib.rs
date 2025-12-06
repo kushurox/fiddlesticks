@@ -1,8 +1,8 @@
 use core::{clone, marker::PhantomData};
 
-use defmt::debug;
+use defmt::{Format, debug, warn};
 use nalgebra::{SMatrix, SVector};
-use stm32f4xx_hal::{gpio, otg_fs::{USB, UsbBus}, spi::Spi};
+use stm32f4xx_hal::{gpio, otg_fs::{USB, UsbBus}, pac::sdio::resp, spi::Spi};
 use embedded_hal::delay::DelayNs;
 
 
@@ -11,13 +11,27 @@ use crate::mpu_spi::MpuSpi;
 pub struct Unconnected;
 pub struct Connected;
 
-pub const PACKET_SIZE: usize = 48;
+pub const PACKET_SIZE: usize = 64;
 
 pub enum CalibratorStateWrapper<SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> {
     Unconnected(Calibrator<Unconnected, SPI, P, N>),
     Connected(Calibrator<Connected, SPI, P, N>),
     AccelCalib(Calibrator<AccelCalib, SPI, P, N>),
     GyroCalib(Calibrator<GyroCalib, SPI, P, N>),
+}
+
+impl<SPI, const P: char, const N: u8> Format for CalibratorStateWrapper<SPI, P, N> 
+where 
+    SPI: stm32f4xx_hal::spi::Instance,
+{
+    fn format(&self, fmt: defmt::Formatter) {
+        match self {
+            CalibratorStateWrapper::Unconnected(_) => defmt::write!(fmt, "Unconnected"),
+            CalibratorStateWrapper::Connected(_) => defmt::write!(fmt, "Connected"),
+            CalibratorStateWrapper::AccelCalib(_) => defmt::write!(fmt, "AccelCalib"),
+            CalibratorStateWrapper::GyroCalib(_) => defmt::write!(fmt, "GyroCalib"),
+        }
+    }
 }
 
 pub enum CalibratorResponse {
@@ -64,9 +78,20 @@ pub enum CalibCommand {
     LOAD,      // Load calibration data from memory
 }
 
+impl Format for AccelCommand {
+    fn format(&self, fmt: defmt::Formatter) {
+        match self {
+            AccelCommand::PX => defmt::write!(fmt, "PX"),
+            AccelCommand::NX => defmt::write!(fmt, "NX"),
+            AccelCommand::PY => defmt::write!(fmt, "PY"),
+            AccelCommand::NY => defmt::write!(fmt, "NY"),
+            AccelCommand::PZ => defmt::write!(fmt, "PZ"),
+            AccelCommand::NZ => defmt::write!(fmt, "NZ"),
+        }
+    }
+}
 
-
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct UsbPacket {
     pub data: [u8; PACKET_SIZE],
@@ -84,8 +109,9 @@ pub struct Calibrator<STATE, SPI: stm32f4xx_hal::spi::Instance, const P: char, c
     mean_ny: Option<SVector<f32, 3>>,
     mean_pz: Option<SVector<f32, 3>>,
     mean_nz: Option<SVector<f32, 3>>,
-    s_inv: Option<SMatrix<f32, 3, 3>>,    // inverse sensitivity matrix
-    b: Option<SVector<f32, 3>>,             // bias vector
+    gyro_bias: Option<SVector<f32, 3>>,
+    pub s_inv: Option<SMatrix<f32, 3, 3>>,    // inverse sensitivity matrix
+    pub b: Option<SVector<f32, 3>>,             // bias vector
 }
 
 impl<STATE, SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calibrator<STATE, SPI, P, N> {
@@ -101,6 +127,7 @@ impl<STATE, SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calib
             mean_ny: self.mean_ny,
             mean_pz: self.mean_pz,
             mean_nz: self.mean_nz,
+            gyro_bias: self.gyro_bias,
             s_inv: self.s_inv,
             b: self.b,
         }
@@ -135,8 +162,15 @@ impl<STATE, SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calib
             s_yx, s_yy, s_yz,
             s_zx, s_zy, s_zz,
         );
-        self.s_inv = Some(s.try_inverse().unwrap());
-        self.b = Some(SVector::<f32, 3>::new(b_x, b_y, b_z));
+        if let Some(s_inv) = s.try_inverse() {
+            debug!("Computed sensitivity matrix S");
+            debug!("Computed inverse sensitivity matrix S_inv");
+            print_matrix(&s_inv);
+            self.s_inv = Some(s_inv);
+            self.b = Some(SVector::<f32, 3>::new(b_x, b_y, b_z));
+        } else {
+            debug!("Warning: Sensitivity matrix is non-invertible!");
+        }
     }
 }
 
@@ -153,6 +187,7 @@ impl<SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calibrator<U
             mean_ny: None,
             mean_pz: None,
             mean_nz: None,
+            gyro_bias: None,
             s_inv: None,
             b: None,
         }
@@ -160,7 +195,6 @@ impl<SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calibrator<U
 
     #[allow(unused_mut)]
     pub fn process(mut self, data: UsbPacket) -> (CalibratorStateWrapper<SPI, P, N>, CalibratorResponse) {
-        debug!("Calibrator<Unconnected> received data: {:?}", &data.data[..data.len]);
         if data.data[..data.len].starts_with(b"CONNECT") {
             debug!("Calibrator START command received");
             (CalibratorStateWrapper::Connected(self.transition_to()), CalibratorResponse::ACK)
@@ -175,7 +209,6 @@ impl<SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calibrator<U
 
 impl<SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> Calibrator<Connected, SPI, P, N> {
     pub fn process(mut self, data: UsbPacket) -> (CalibratorStateWrapper<SPI, P, N>, CalibratorResponse) {
-        debug!("Calibrator<Connected> received data: {:?}", &data.data[..data.len]);
         if data.data.starts_with(b"ACCELPX") {
             debug!("Calibrator ACCEL PX command received");
             self.accel_type = AccelCommand::PX;
@@ -199,13 +232,17 @@ where
 
 {
     pub fn process(mut self, data: UsbPacket) -> (CalibratorStateWrapper<SPI, P, N>, CalibratorResponse) {
-        debug!("Calibrator<AccelCalib> received data: {:?}", &data.data[..data.len]);
 
-        let mut calibdata = [0u8; PACKET_SIZE]; // placeholder for actual calibration data processing
+        if data.data.starts_with(b"DISCONNECT") {
+            warn!("Calibrator DISCONNECT command received during accel calibration, aborting calibration");
+            return (CalibratorStateWrapper::Unconnected(self.transition_to()), CalibratorResponse::Disconnect);
+        }
+
         let (mut mean_x, mut mean_y, mut mean_z) = self.mpu_spi.read_accel();
         let mut n = 1.0f32;
+        debug!("Starting accel calibration for position {:?}", self.accel_type);
 
-        for i in 0..1000 {
+        for _i in 0..1000 {
             let x = self.mpu_spi.read_accel();
             n += 1.0;
             mean_x = mean_x + (x.0 - mean_x) / n;
@@ -217,31 +254,37 @@ where
         debug!("Accel calib mean values: X: {}, Y: {}, Z: {}", mean_x, mean_y, mean_z);
         match self.accel_type {
             AccelCommand::PX => {
+                debug!("Calibrator Accel PX command performed");
                 self.mean_px = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.accel_type = AccelCommand::NX;
                 (CalibratorStateWrapper::AccelCalib(self), CalibratorResponse::ACK)
             },
             AccelCommand::NX => {
+                debug!("Calibrator Accel NX command performed");
                 self.mean_nx = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.accel_type = AccelCommand::PY;
                 (CalibratorStateWrapper::AccelCalib(self), CalibratorResponse::ACK)
             },
             AccelCommand::PY => {
+                debug!("Calibrator Accel PY command performed");
                 self.mean_py = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.accel_type = AccelCommand::NY;
                 (CalibratorStateWrapper::AccelCalib(self), CalibratorResponse::ACK)
             },
             AccelCommand::NY => {
+                debug!("Calibrator Accel NY command performed");
                 self.mean_ny = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.accel_type = AccelCommand::PZ;
                 (CalibratorStateWrapper::AccelCalib(self), CalibratorResponse::ACK)
             },
             AccelCommand::PZ => {
+                debug!("Calibrator Accel PZ command performed");
                 self.mean_pz = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.accel_type = AccelCommand::NZ;
                 (CalibratorStateWrapper::AccelCalib(self), CalibratorResponse::ACK)
             },
             AccelCommand::NZ => {
+                debug!("Calibrator Accel NZ command performed");
                 self.mean_nz = Some(SVector::<f32, 3>::new(mean_x, mean_y, mean_z));
                 self.compute_s_b();
                 let raw_data_s_inv: [u8; 36] = unsafe { core::mem::transmute(self.s_inv.clone().unwrap()) }; // nalgebra stores matrices in column-major order
@@ -252,8 +295,39 @@ where
                     buf[36..48].copy_from_slice(&raw_data_b);
                     buf
                 };
+                debug!("Accel calibration completed, sending S_inv and b to host");
                 (CalibratorStateWrapper::Connected(self.transition_to()), CalibratorResponse::Data(resp, 48))
             },
         }
+    }
+}
+
+impl<SPI, const P: char, const N: u8> Calibrator<GyroCalib, SPI, P, N>
+where 
+    SPI: stm32f4xx_hal::spi::Instance,
+
+{
+    pub fn process(mut self, _data: UsbPacket) -> (CalibratorStateWrapper<SPI, P, N>, CalibratorResponse) {
+        // Gyro calibration not implemented yet
+
+        let (gyro_x, gyro_y, gyro_z) = self.mpu_spi.calibrate_gyro();
+        self.gyro_bias = Some(SVector::<f32, 3>::new(gyro_x, gyro_y, gyro_z));
+
+        let resp : [u8; PACKET_SIZE] = {
+            let mut buf = [0u8; PACKET_SIZE];
+            let raw_data_gyro_bias: [u8; 12] = unsafe { core::mem::transmute(self.gyro_bias.clone().unwrap()) };
+            buf[..12].copy_from_slice(&raw_data_gyro_bias);
+            buf
+        };
+
+        debug!("Gyro calibration completed, sending bias to host");
+        (CalibratorStateWrapper::Connected(self.transition_to()), CalibratorResponse::Data(resp, 12))
+    }
+}
+
+fn print_matrix(s: &SMatrix<f32, 3, 3>) {
+    debug!("Matrix:");
+    for i in 0..3 {
+        debug!("| {}, {}, {} |", s[(i,0)], s[(i,1)], s[(i,2)]);
     }
 }
