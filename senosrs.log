@@ -1,0 +1,41 @@
+[DEBUG] HCLK: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:51)
+[DEBUG] PCLK1: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:52)
+[DEBUG] PCLK2: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:53)
+[DEBUG] PWM channels configured (fiddlesticks fiddlesticks/src/main.rs:75)
+[DEBUG] USB device configured (fiddlesticks fiddlesticks/src/main.rs:115)
+[DEBUG] WHO_AM_I: 0x70 (fiddlesticks fiddlesticks/src/mpu_spi.rs:86)
+[DEBUG] PWR_MGMT_1: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:87)
+[DEBUG] SMPLRT_DIV: 0x0 (fiddlesticks fiddlesticks/src/mpu_spi.rs:88)
+[DEBUG] CONFIG: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:89)
+[DEBUG] GYRO_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:90)
+[DEBUG] ACCEL_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:91)
+[DEBUG] ACCEL_CONFIG2: 0x2 (fiddlesticks fiddlesticks/src/mpu_spi.rs:92)
+[DEBUG] Starting gyro calibration... (fiddlesticks fiddlesticks/src/mpu_spi.rs:154)
+[INFO ] MPU6050 initialized and gyro calibrated. Gyro biases: x: -2.5, y: 0.42682928, z: 0.0 (fiddlesticks fiddlesticks/src/main.rs:141)
+Calibrated Accel: x: 0.063449405, y: 0.006056096, z: 0.99038434
+Gyro: x: 0.24390244, y: 0.06097561, z: 0.18292683
+Raw Gyro: x: -2.2560976, y: 0.4878049, z: 0.18292683
+Calibrated Accel: x: 0.062186003, y: 0.0055372897, z: 0.9943349
+Gyro: x: 0.24390244, y: 0.0, z: 0.06097561
+Raw Gyro: x: -2.2560976, y: 0.42682928, z: 0.06097561
+Calibrated Accel: x: 0.059710532, y: 0.005025321, z: 0.9935266
+Gyro: x: 0.06097555, y: -0.06097561, z: 0.18292683
+Raw Gyro: x: -2.4390244, y: 0.36585367, z: 0.18292683
+Calibrated Accel: x: 0.061199278, y: 0.005037854, z: 0.9939166
+Gyro: x: 0.06097555, y: -0.06097561, z: 0.06097561
+Raw Gyro: x: -2.4390244, y: 0.36585367, z: 0.06097561
+Calibrated Accel: x: 0.06010361, y: 0.0084714, z: 0.99347913
+Gyro: x: 0.24390244, y: 0.0, z: -0.12195122
+Raw Gyro: x: -2.2560976, y: 0.42682928, z: -0.12195122
+Calibrated Accel: x: 0.062166188, y: 0.0045573, z: 0.99337566
+Gyro: x: 0.06097555, y: 0.0, z: 0.0
+Raw Gyro: x: -2.4390244, y: 0.42682928, z: 0.0
+Calibrated Accel: x: 0.061664164, y: 0.005044202, z: 0.9934039
+Gyro: x: 0.1219511, y: -0.18292683, z: -0.06097561
+Raw Gyro: x: -2.378049, y: 0.24390244, z: -0.06097561
+Calibrated Accel: x: 0.059175074, y: 0.005023857, z: 0.9925932
+Gyro: x: 0.304878, y: 0.0, z: 0.12195122
+Raw Gyro: x: -2.195122, y: 0.42682928, z: 0.12195122
+Calibrated Accel: x: 0.060562953, y: 0.0020607712, z: 0.99929446
+Gyro: x: 0.24390244, y: 0.12195122, z: 0.06097561
+Raw Gyro: x: -2.2560976, y: 0.5487805, z: 0.06097561

@@ -100,7 +100,7 @@ pub struct UsbPacket {
 
 pub struct Calibrator<STATE, SPI: stm32f4xx_hal::spi::Instance, const P: char, const N: u8> {
     _state: PhantomData<STATE>,
-    mpu_spi: MpuSpi<Spi<SPI>, gpio::Pin<P, N, gpio::Output>>,
+    pub mpu_spi: MpuSpi<Spi<SPI>, gpio::Pin<P, N, gpio::Output>>,
     accel_type: AccelCommand,
     d: stm32f4xx_hal::dwt::Delay,
     mean_px: Option<SVector<f32, 3>>,
