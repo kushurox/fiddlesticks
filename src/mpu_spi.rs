@@ -73,10 +73,12 @@ where
         MpuSpi { spi, ncs, d, gyro_bias: (0.0, 0.0, 0.0) }
     }
 
+    #[allow(dead_code)]
     fn write(&mut self, data: &mut [u8]) {
         select_write!(self.spi, self.ncs, data);
     }
 
+    #[allow(dead_code)]
     fn read(&mut self, addr: u8) -> u8 {
         select_read!(self.spi, self.ncs, addr)
     }
@@ -92,11 +94,12 @@ where
         debug!("ACCEL_CONFIG2: 0x{:X}", self.read(0x1D));
     }
 
+    #[allow(dead_code)]
     pub fn read_sensors(&mut self) -> (f32, f32, f32, f32, f32, f32, f32) {
         // reads all sensors and returns a tuple of them, performs conversion internally
         let mut sensor_readings = [0u8; 15]; // first byte is
         sensor_readings[0] = 0x3B | 0x80;
-        cortex_m::interrupt::free(|cs| {
+        cortex_m::interrupt::free(|_cs| {
             self.ncs.set_low();
             self.spi.transfer_in_place(&mut sensor_readings).unwrap();
             self.ncs.set_high();
@@ -112,12 +115,11 @@ where
         (acc_x, acc_y, acc_z, temp, gyro_x, gyro_y, gyro_z)
     }
 
-    pub fn read_accel(&mut self) -> (f32, f32, f32) {
+    pub fn read_accel_remapped(&mut self) -> (f32, f32, f32) {
         let mut sensor_readings = [0u8; 7]; // first byte is
         sensor_readings[0] = 0x3B | 0x80;
-        let mut res = Ok(());  
         self.ncs.set_low();
-        res = self.spi.transfer_in_place(&mut sensor_readings);
+        let res = self.spi.transfer_in_place(&mut sensor_readings);
         self.ncs.set_high();
         if let Err(e) = res {
             warn!("SPI transfer error: {:?}", e);
@@ -125,6 +127,28 @@ where
         let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
         let acc_y = convert_raw(sensor_readings[3], sensor_readings[4], 2048.0);
         let acc_z = convert_raw(sensor_readings[5], sensor_readings[6], 2048.0);
+
+        // remapped to body frame
+        let body_x = acc_y; // nose down
+        let body_y = acc_x; // left wing down
+        let body_z = -acc_z; // up
+
+        (body_x, body_y, body_z)
+    }
+
+    pub fn read_accel(&mut self) -> (f32, f32, f32) {
+        let mut sensor_readings = [0u8; 7]; // first byte is
+        sensor_readings[0] = 0x3B | 0x80;
+        self.ncs.set_low();
+        let res = self.spi.transfer_in_place(&mut sensor_readings);
+        self.ncs.set_high();
+        if let Err(e) = res {
+            warn!("SPI transfer error: {:?}", e);
+        }
+        let acc_x = convert_raw(sensor_readings[1], sensor_readings[2], 2048.0);
+        let acc_y = convert_raw(sensor_readings[3], sensor_readings[4], 2048.0);
+        let acc_z = convert_raw(sensor_readings[5], sensor_readings[6], 2048.0);
+
 
         (acc_x, acc_y, acc_z)
     }
@@ -148,6 +172,20 @@ where
         let gyro_y = raw_gyro.1 - self.gyro_bias.1;
         let gyro_z = raw_gyro.2 - self.gyro_bias.2;
         (gyro_x, gyro_y, gyro_z)
+    }
+
+    pub fn read_gyro_remapped(&mut self) -> (f32, f32, f32) {
+        let raw_gyro = self.read_gyro_raw();
+        let gyro_x = raw_gyro.0 - self.gyro_bias.0;
+        let gyro_y = raw_gyro.1 - self.gyro_bias.1;
+        let gyro_z = raw_gyro.2 - self.gyro_bias.2;
+
+        // remapped to body frame
+        let body_x = gyro_y; // nose down
+        let body_y = gyro_x; // left wing down
+        let body_z = -gyro_z; // up
+
+        (body_x, body_y, body_z)
     }
 
     pub fn calibrate_gyro(&mut self) -> (f32, f32, f32) {

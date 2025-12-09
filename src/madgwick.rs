@@ -1,4 +1,4 @@
-use nalgebra::{ComplexField, Quaternion, SimdComplexField, SimdRealField, UnitQuaternion, Vector3};
+use nalgebra::{ComplexField, Quaternion, SimdComplexField, SimdRealField, Vector3};
 
 pub struct MadgwickFilter {
     // The orientation quaternion (w, i, j, k)

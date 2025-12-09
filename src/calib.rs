@@ -1,8 +1,8 @@
-use core::{clone, marker::PhantomData};
+use core::marker::PhantomData;
 
 use defmt::{Format, debug, warn};
 use nalgebra::{SMatrix, SVector};
-use stm32f4xx_hal::{gpio, otg_fs::{USB, UsbBus}, pac::sdio::resp, spi::Spi};
+use stm32f4xx_hal::{gpio, spi::Spi};
 use embedded_hal::delay::DelayNs;
 
 
@@ -71,12 +71,6 @@ pub struct AccelCalib;
 
 // gyro calibration state
 pub struct GyroCalib;
-
-pub enum CalibCommand {
-    ACCEL,
-    GYRO,
-    LOAD,      // Load calibration data from memory
-}
 
 impl Format for AccelCommand {
     fn format(&self, fmt: defmt::Formatter) {
@@ -243,7 +237,7 @@ where
         debug!("Starting accel calibration for position {:?}", self.accel_type);
 
         for _i in 0..1000 {
-            let x = self.mpu_spi.read_accel();
+            let x = self.mpu_spi.read_accel_remapped();
             n += 1.0;
             mean_x = mean_x + (x.0 - mean_x) / n;
             mean_y = mean_y + (x.1 - mean_y) / n;

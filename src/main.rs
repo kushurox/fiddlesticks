@@ -6,7 +6,7 @@ use core::{cell::RefCell, sync::atomic::AtomicBool};
 use cortex_m::interrupt::Mutex;
 use cortex_m_rt::entry;
 use defmt::{debug, info, println, warn};
-use nalgebra::{SMatrix, SVector, geometry::Quaternion};
+use nalgebra::{SMatrix, SVector};
 use panic_probe as _;
 use static_cell::{ConstStaticCell, StaticCell};
 use stm32f4xx_hal::{ClearFlags, dwt::DwtExt, gpio::Speed, hal::spi, otg_fs::{USB, UsbBus}, pac::{NVIC, TIM2}, timer::{CounterHz, Event, Flag}}; 
@@ -23,6 +23,7 @@ use crate::{calib::{Calibrator, CalibratorResponse, CalibratorStateWrapper, PACK
 mod mpu_spi;
 mod calib;
 mod madgwick;
+mod pid;
 
 type SharedObj<T> = Mutex<RefCell<Option<T>>>;
 
@@ -69,10 +70,12 @@ fn main() -> ! {
     let maxc3 = ch3.get_max_duty();
     let maxc4 = ch4.get_max_duty();
 
-    ch1.set_duty((maxc1 * 80)/100);  // to set duty cycle to an arbitary value just multiply max_duty by desired percentage kiran
-    ch2.set_duty((maxc2 * 70)/100);
-    ch3.set_duty((maxc3 * 60)/100);
-    ch4.set_duty((maxc4 * 50)/100);
+    debug!("Max duty cycles: ch1: {}, ch2: {}, ch3: {}, ch4: {}", maxc1, maxc2, maxc3, maxc4);
+
+    ch1.set_duty((maxc1 * 0)/100);  // to set duty cycle to an arbitary value just multiply max_duty by desired percentage kiran
+    ch2.set_duty((maxc2 * 0)/100);
+    ch3.set_duty((maxc3 * 0)/100);
+    ch4.set_duty((maxc4 * 0)/100);
     debug!("PWM channels configured");
 
     // USB initialization
@@ -134,14 +137,13 @@ fn main() -> ! {
     let spi = stm32f4xx_hal::spi::Spi::new(dp.SPI2, (pb13, pb14, pb15), mode, 1.MHz(), &clocks);
     let ncs = pa8;
 
-
-    // for my board X -> -X, Y -> -Y, Z -> Z
     let mut mpu_spi = MpuSpi::new(spi, ncs, dwt.delay());
     mpu_spi.get_status();
+    dwt.delay().delay_ms(100);
     let (gx, gy, gz) = mpu_spi.calibrate_gyro();
     info!("MPU6050 initialized and gyro calibrated. Gyro biases: x: {}, y: {}, z: {}", gx, gy, gz);
 
-    let mut usb_calibrator = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
+    let mut usb_calibrator: CalibratorStateWrapper<stm32f4xx_hal::pac::SPI2, 'A', 8> = CalibratorStateWrapper::Unconnected(Calibrator::new(mpu_spi, dwt.delay()));
     const IS_CALIBRATED: bool = true;
     let mut calibrating = !IS_CALIBRATED; // runtime flag to break out of calibration loop
 
@@ -151,8 +153,8 @@ fn main() -> ! {
 
     if IS_CALIBRATED {
         // hardcoded calibration values
-        inv_sens_matrix = SMatrix::<f32, 3, 3>::from_column_slice(&[1.000258, 0.009667, -0.062812, -0.027891, 1.006843, -0.004916, 0.048179, -0.003334, 0.987162]);
-        accel_bias = SVector::<f32, 3>::from_column_slice(&[0.014957, -0.006752, 0.302356]);
+        inv_sens_matrix = SMatrix::<f32, 3, 3>::from_column_slice(&[-0.999962, 0.075080, 0.004679, -0.095859, -1.002720, -0.075631, 0.033694, 0.016584, -0.986502]);
+        accel_bias = SVector::<f32, 3>::from_column_slice(&[-0.019495, 0.018819, -0.316270]);
     } else {
         inv_sens_matrix = SMatrix::<f32, 3, 3>::zeros();
         accel_bias = SVector::<f32, 3>::zeros();
@@ -268,17 +270,38 @@ fn main() -> ! {
 
     let mut madgwick_filter = madgwick::MadgwickFilter::new(0.1); // beta value can be tuned
 
+    let target_roll = 0.0f32;
+    let target_pitch = 0.0f32;
+    let target_yaw = 0.0f32;
+
+    // takes angle and converts to rate
+    let mut pid_roll_angle = pid::PidController::new(4.0, 0.0, 0.0, 0.0, 100.0); // kp, ki, kd, min_output, max_output
+    let mut pid_pitch_angle = pid::PidController::new(4.0, 0.0, 0.0, 0.0, 100.0);
+
+    let mut pid_roll_rate = pid::PidController::new(1.3, 3.0, 0.001, (maxc1/5) as f32, maxc1 as f32);
+    let mut pid_pitch_rate = pid::PidController::new(1.3, 3.0, 0.001, (maxc2/5) as f32, maxc2 as f32);
+    let mut pid_yaw_rate = pid::PidController::new(3.0, 5.0, 0.0, (maxc3/5) as f32, maxc3 as f32);
+
+    let throttle: f32 = 10.0; // placeholder throttle value
+
+
     loop {
+
         let dt = 0.0025f32; // for 400Hz update rate
-        let (acc_x, acc_y, acc_z) = mpu_spi.read_accel();
-        let (gyro_x, gyro_y, gyro_z) = mpu_spi.read_gyro();
+        let (acc_x, acc_y, acc_z) = mpu_spi.read_accel_remapped();
+        let (gyro_x, gyro_y, gyro_z) = mpu_spi.read_gyro_remapped();
 
         let acc_vector = SVector::<f32, 3>::from_column_slice(&[acc_x, acc_y, acc_z]);
-        let gyro_vector = SVector::<f32, 3>::from_column_slice(&[-gyro_x.to_radians(), -gyro_y.to_radians(), gyro_z.to_radians()]);
+        let mut gyro_vector = SVector::<f32, 3>::from_column_slice(&[gyro_x.to_radians(), gyro_y.to_radians(), gyro_z.to_radians()]);
 
         let mut calibrated_acc = inv_sens_matrix * (acc_vector - accel_bias);
+
+        // hacks if you follow calib.py. and for my board orientation.
         calibrated_acc.x = -calibrated_acc.x;
-        calibrated_acc.y = -calibrated_acc.y;
+        calibrated_acc.z = -calibrated_acc.z;
+
+        gyro_vector.x = -gyro_vector.x;
+        gyro_vector.z = -gyro_vector.z;
 
         madgwick_filter.update_imu(gyro_vector, calibrated_acc, dt);
 
@@ -287,7 +310,27 @@ fn main() -> ! {
         let pitch = angles.y.to_degrees();
         let yaw = angles.z.to_degrees();
 
-        println!("Roll: {}, Pitch: {}, Yaw: {}", roll, pitch, yaw);
+        let target_pitch_rate = pid_pitch_angle.update(0.0, pitch, dt);
+        let target_roll_rate = pid_roll_angle.update(0.0, roll, dt);
+
+        let roll_command = pid_roll_rate.update(target_roll_rate, -gyro_x, dt);
+        let pitch_command = pid_pitch_rate.update(target_pitch_rate, gyro_y, dt);
+        let yaw_command = pid_yaw_rate.update(0.0, -gyro_z, dt);
+
+
+        let m1 = throttle + pitch_command + roll_command - yaw_command; // front left
+        let m2 = throttle + pitch_command - roll_command + yaw_command; // front right
+        let m3 = throttle - pitch_command - roll_command - yaw_command; // rear right
+        let m4 = throttle - pitch_command + roll_command + yaw_command; // rear left
+
+        let safe_m1 = m1.clamp(-200.0, maxc1 as f32 * 0.7) as u16;
+        let safe_m2 = m2.clamp(-200.0, maxc2 as f32 * 0.7) as u16;
+        let safe_m3 = m3.clamp(-200.0, maxc3 as f32 * 0.7) as u16;
+        let safe_m4 = m4.clamp(-200.0, maxc4 as f32 * 0.7) as u16;
+
+        // debug!("m1: {}, m2: {}, m3: {}, m4: {}", safe_m1, safe_m2, safe_m3, safe_m4);
+        // debug!("Roll: {}, Pitch: {}, Yaw: {}", roll, pitch, yaw);
+
 
         dwt.delay().delay_us(2500);
     }

@@ -1,41 +1,2759 @@
-[DEBUG] HCLK: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:51)
-[DEBUG] PCLK1: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:52)
-[DEBUG] PCLK2: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:53)
-[DEBUG] PWM channels configured (fiddlesticks fiddlesticks/src/main.rs:75)
-[DEBUG] USB device configured (fiddlesticks fiddlesticks/src/main.rs:115)
-[DEBUG] WHO_AM_I: 0x70 (fiddlesticks fiddlesticks/src/mpu_spi.rs:86)
-[DEBUG] PWR_MGMT_1: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:87)
-[DEBUG] SMPLRT_DIV: 0x0 (fiddlesticks fiddlesticks/src/mpu_spi.rs:88)
-[DEBUG] CONFIG: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:89)
-[DEBUG] GYRO_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:90)
-[DEBUG] ACCEL_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:91)
-[DEBUG] ACCEL_CONFIG2: 0x2 (fiddlesticks fiddlesticks/src/mpu_spi.rs:92)
-[DEBUG] Starting gyro calibration... (fiddlesticks fiddlesticks/src/mpu_spi.rs:154)
-[INFO ] MPU6050 initialized and gyro calibrated. Gyro biases: x: -2.5, y: 0.42682928, z: 0.0 (fiddlesticks fiddlesticks/src/main.rs:141)
-Calibrated Accel: x: 0.063449405, y: 0.006056096, z: 0.99038434
-Gyro: x: 0.24390244, y: 0.06097561, z: 0.18292683
-Raw Gyro: x: -2.2560976, y: 0.4878049, z: 0.18292683
-Calibrated Accel: x: 0.062186003, y: 0.0055372897, z: 0.9943349
-Gyro: x: 0.24390244, y: 0.0, z: 0.06097561
-Raw Gyro: x: -2.2560976, y: 0.42682928, z: 0.06097561
-Calibrated Accel: x: 0.059710532, y: 0.005025321, z: 0.9935266
-Gyro: x: 0.06097555, y: -0.06097561, z: 0.18292683
-Raw Gyro: x: -2.4390244, y: 0.36585367, z: 0.18292683
-Calibrated Accel: x: 0.061199278, y: 0.005037854, z: 0.9939166
-Gyro: x: 0.06097555, y: -0.06097561, z: 0.06097561
-Raw Gyro: x: -2.4390244, y: 0.36585367, z: 0.06097561
-Calibrated Accel: x: 0.06010361, y: 0.0084714, z: 0.99347913
-Gyro: x: 0.24390244, y: 0.0, z: -0.12195122
-Raw Gyro: x: -2.2560976, y: 0.42682928, z: -0.12195122
-Calibrated Accel: x: 0.062166188, y: 0.0045573, z: 0.99337566
-Gyro: x: 0.06097555, y: 0.0, z: 0.0
-Raw Gyro: x: -2.4390244, y: 0.42682928, z: 0.0
-Calibrated Accel: x: 0.061664164, y: 0.005044202, z: 0.9934039
-Gyro: x: 0.1219511, y: -0.18292683, z: -0.06097561
-Raw Gyro: x: -2.378049, y: 0.24390244, z: -0.06097561
-Calibrated Accel: x: 0.059175074, y: 0.005023857, z: 0.9925932
-Gyro: x: 0.304878, y: 0.0, z: 0.12195122
-Raw Gyro: x: -2.195122, y: 0.42682928, z: 0.12195122
-Calibrated Accel: x: 0.060562953, y: 0.0020607712, z: 0.99929446
-Gyro: x: 0.24390244, y: 0.12195122, z: 0.06097561
-Raw Gyro: x: -2.2560976, y: 0.5487805, z: 0.06097561
+[DEBUG] HCLK: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:53)
+[DEBUG] PCLK1: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:54)
+[DEBUG] PCLK2: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:55)
+[DEBUG] PWM channels configured (fiddlesticks fiddlesticks/src/main.rs:77)
+[DEBUG] USB device configured (fiddlesticks fiddlesticks/src/main.rs:117)
+[DEBUG] WHO_AM_I: 0x70 (fiddlesticks fiddlesticks/src/mpu_spi.rs:88)
+[DEBUG] PWR_MGMT_1: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:89)
+[DEBUG] SMPLRT_DIV: 0x0 (fiddlesticks fiddlesticks/src/mpu_spi.rs:90)
+[DEBUG] CONFIG: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:91)
+[DEBUG] GYRO_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:92)
+[DEBUG] ACCEL_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:93)
+[DEBUG] ACCEL_CONFIG2: 0x2 (fiddlesticks fiddlesticks/src/mpu_spi.rs:94)
+[DEBUG] Starting gyro calibration... (fiddlesticks fiddlesticks/src/mpu_spi.rs:156)
+[INFO ] MPU6050 initialized and gyro calibrated. Gyro biases: x: -2.317073, y: 0.18292683, z: -0.06097561 (fiddlesticks fiddlesticks/src/main.rs:144)
+Roll: 0.0033202686, Pitch: 0.028031433, Yaw: 0.00030569028
+Roll Cmd: -1.7044356, Pitch Cmd: 0.8923594, Yaw Cmd: -0.2445122
+Roll: 0.0076941834, Pitch: 0.05621413, Yaw: 0.00030882246
+Roll Cmd: 0.46585608, Pitch Cmd: -2.914862, Yaw Cmd: -0.0006097561
+Roll: 0.011794543, Pitch: 0.084457025, Yaw: 0.0003135364
+Roll Cmd: -1.0314871, Pitch Cmd: -1.5231576, Yaw Cmd: -0.0006097561
+Roll: 0.014785467, Pitch: 0.11265897, Yaw: 0.0013854656
+Roll Cmd: 0.51413596, Pitch Cmd: -0.8218167, Yaw Cmd: -0.85640246
+Roll: 0.01798895, Pitch: 0.1403649, Yaw: 0.0018496579
+Roll Cmd: 0.53256315, Pitch Cmd: 0.70770645, Yaw Cmd: -0.3695122
+Roll: 0.022279678, Pitch: 0.16800675, Yaw: 0.002014572
+Roll Cmd: 2.0435958, Pitch Cmd: -2.320578, Yaw Cmd: -0.12591463
+Roll: 0.026189897, Pitch: 0.19577666, Yaw: 0.0020267486
+Roll Cmd: -2.447913, Pitch Cmd: -1.6636876, Yaw Cmd: -0.003963415
+Roll: 0.029446457, Pitch: 0.22378133, Yaw: 0.0017335865
+Roll Cmd: -0.22967482, Pitch Cmd: -2.5131311, Yaw Cmd: 0.24054879
+Roll: 0.030743906, Pitch: 0.25194895, Yaw: 0.0012808297
+Roll Cmd: -0.9077361, Pitch Cmd: -1.8599406, Yaw Cmd: 0.36341465
+Roll: 0.035521235, Pitch: 0.28024545, Yaw: 0.0020638634
+Roll Cmd: -1.1238089, Pitch Cmd: -4.24312, Yaw Cmd: -0.6137195
+Roll: 0.036868833, Pitch: 0.3085485, Yaw: 0.0026810914
+Roll Cmd: 2.0738456, Pitch Cmd: -0.5838258, Yaw Cmd: -0.4929878
+Roll: 0.038611002, Pitch: 0.33652326, Yaw: 0.0036059471
+Roll Cmd: -0.14474851, Pitch Cmd: -0.5661692, Yaw Cmd: -0.7387195
+Roll: 0.042183317, Pitch: 0.36433724, Yaw: 0.003627385
+Roll Cmd: -1.0100938, Pitch Cmd: -2.0931702, Yaw Cmd: -0.007012196
+Roll: 0.044071343, Pitch: 0.39233088, Yaw: 0.0037898996
+Roll Cmd: -1.739778, Pitch Cmd: -2.17395, Yaw Cmd: -0.1292683
+Roll: 0.048214477, Pitch: 0.41991484, Yaw: 0.004580856
+Roll Cmd: 1.1413134, Pitch Cmd: -1.4573497, Yaw Cmd: -0.61859757
+Roll: 0.051865686, Pitch: 0.44802344, Yaw: 0.0050655585
+Roll Cmd: -0.30803132, Pitch Cmd: -4.59284, Yaw Cmd: -0.37560976
+Roll: 0.054457694, Pitch: 0.47595647, Yaw: 0.0053895814
+Roll Cmd: -1.0327511, Pitch Cmd: -0.9259702, Yaw Cmd: -0.2542683
+Roll: 0.057246443, Pitch: 0.5041624, Yaw: 0.006022879
+Roll Cmd: 0.45025823, Pitch Cmd: -4.0138674, Yaw Cmd: -0.49939024
+Roll: 0.06207106, Pitch: 0.5319932, Yaw: 0.006673094
+Roll Cmd: -1.928727, Pitch Cmd: -1.8382441, Yaw Cmd: -0.50060976
+Roll: 0.06777085, Pitch: 0.5599453, Yaw: 0.0068782577
+Roll Cmd: 0.24604729, Pitch Cmd: -4.187614, Yaw Cmd: -0.13506098
+Roll: 0.07318815, Pitch: 0.5875879, Yaw: 0.0070858863
+Roll Cmd: 1.0506171, Pitch Cmd: -1.2472265, Yaw Cmd: -0.13536586
+Roll: 0.07604946, Pitch: 0.6156334, Yaw: 0.0077250674
+Roll Cmd: -1.0664119, Pitch Cmd: -2.805841, Yaw Cmd: -0.502439
+Roll: 0.080220334, Pitch: 0.64336455, Yaw: 0.007922511
+Roll Cmd: -0.4087774, Pitch Cmd: -2.0977476, Yaw Cmd: -0.13689025
+Roll: 0.08458424, Pitch: 0.67098075, Yaw: 0.008423649
+Roll Cmd: -2.7353497, Pitch Cmd: -2.1308465, Yaw Cmd: -0.3817073
+Roll: 0.08892871, Pitch: 0.6992093, Yaw: 0.008927298
+Roll Cmd: -0.5517406, Pitch Cmd: -6.0431232, Yaw Cmd: -0.38262194
+Roll: 0.09232832, Pitch: 0.72719526, Yaw: 0.008968904
+Roll Cmd: 1.7889467, Pitch Cmd: -1.6454538, Yaw Cmd: -0.016768292
+Roll: 0.09330257, Pitch: 0.75550723, Yaw: 0.008984889
+Roll Cmd: 1.243545, Pitch Cmd: -3.9716358, Yaw Cmd: -0.016768292
+Roll: 0.09621445, Pitch: 0.78354675, Yaw: 0.009632952
+Roll Cmd: -1.8578899, Pitch Cmd: -2.5369158, Yaw Cmd: -0.5057927
+Roll: 0.099018514, Pitch: 0.8117637, Yaw: 0.010126663
+Roll Cmd: -1.1660401, Pitch Cmd: -4.124874, Yaw Cmd: -0.38475612
+Roll: 0.10209564, Pitch: 0.8399211, Yaw: 0.010629917
+Roll Cmd: 1.0804614, Pitch Cmd: -3.4700317, Yaw Cmd: -0.38567075
+Roll: 0.10580403, Pitch: 0.86821055, Yaw: 0.010985297
+Roll Cmd: -2.7290785, Pitch Cmd: -4.325347, Yaw Cmd: -0.26432928
+Roll: 0.10774333, Pitch: 0.89634174, Yaw: 0.011316846
+Roll Cmd: 0.31275296, Pitch Cmd: -2.1297317, Yaw Cmd: -0.26493904
+Roll: 0.10900393, Pitch: 0.9241948, Yaw: 0.012249955
+Roll Cmd: 0.37725854, Pitch Cmd: -2.1227813, Yaw Cmd: -0.75457317
+Roll: 0.111080885, Pitch: 0.95182484, Yaw: 0.01259197
+Roll Cmd: 1.1367545, Pitch Cmd: -2.886414, Yaw Cmd: -0.26737806
+Roll: 0.11588386, Pitch: 0.9798329, Yaw: 0.013274413
+Roll Cmd: -4.312922, Pitch Cmd: -6.7908955, Yaw Cmd: -0.5125
+Roll: 0.120226234, Pitch: 1.0078171, Yaw: 0.013961383
+Roll Cmd: 2.4288971, Pitch Cmd: -3.944747, Yaw Cmd: -0.5137195
+Roll: 0.121294, Pitch: 1.0361148, Yaw: 0.014140247
+Roll Cmd: 1.192137, Pitch Cmd: -4.0427895, Yaw Cmd: -0.14817074
+Roll: 0.12201664, Pitch: 1.064602, Yaw: 0.01430007
+Roll Cmd: -4.100195, Pitch Cmd: -4.904289, Yaw Cmd: -0.14847562
+Roll: 0.12280741, Pitch: 1.0924773, Yaw: 0.014917313
+Roll Cmd: -0.44912672, Pitch Cmd: -1.1521817, Yaw Cmd: -0.51554877
+Roll: 0.12710722, Pitch: 1.1203612, Yaw: 0.015301276
+Roll Cmd: 0.138277, Pitch Cmd: -5.6990566, Yaw Cmd: -0.2722561
+Roll: 0.130706, Pitch: 1.1483378, Yaw: 0.015978161
+Roll Cmd: -0.5706067, Pitch Cmd: -4.3237724, Yaw Cmd: -0.51737803
+Roll: 0.13449748, Pitch: 1.1761183, Yaw: 0.016815709
+Roll Cmd: 0.1773215, Pitch Cmd: -3.629456, Yaw Cmd: -0.64085364
+Roll: 0.14043094, Pitch: 1.2038981, Yaw: 0.017541585
+Roll Cmd: -2.2105942, Pitch Cmd: -5.9820023, Yaw Cmd: -0.52012193
+Roll: 0.14323643, Pitch: 1.2316395, Yaw: 0.018056557
+Roll Cmd: 0.9306701, Pitch Cmd: -2.2957697, Yaw Cmd: -0.39908537
+Roll: 0.1444152, Pitch: 1.2599659, Yaw: 0.018376397
+Roll Cmd: -2.7652237, Pitch Cmd: -6.9102807, Yaw Cmd: -0.2777439
+Roll: 0.14730838, Pitch: 1.2881391, Yaw: 0.01874811
+Roll Cmd: 2.4118536, Pitch Cmd: -4.794283, Yaw Cmd: -0.27835366
+Roll: 0.14999296, Pitch: 1.3162227, Yaw: 0.019563083
+Roll Cmd: -2.8189921, Pitch Cmd: -4.1081457, Yaw Cmd: -0.6457317
+Roll: 0.15221679, Pitch: 1.3446112, Yaw: 0.020227408
+Roll Cmd: 1.6957334, Pitch Cmd: -6.4791465, Yaw Cmd: -0.525
+Roll: 0.15928292, Pitch: 1.3719039, Yaw: 0.020074187
+Roll Cmd: -4.5935445, Pitch Cmd: -2.7434266, Yaw Cmd: 0.20731708
+Roll: 0.16780457, Pitch: 1.3987905, Yaw: 0.020431332
+Roll Cmd: 2.0453281, Pitch Cmd: -5.772167, Yaw Cmd: -0.15884146
+Roll: 0.17110196, Pitch: 1.4269161, Yaw: 0.020820247
+Roll Cmd: 0.12730354, Pitch Cmd: -5.9566755, Yaw Cmd: -0.28140244
+Roll: 0.17218798, Pitch: 1.4552348, Yaw: 0.02084285
+Roll Cmd: -2.0402625, Pitch Cmd: -5.3235683, Yaw Cmd: -0.037499994
+Roll: 0.1723607, Pitch: 1.4835684, Yaw: 0.020842494
+Roll Cmd: -0.5362363, Pitch Cmd: -5.414087, Yaw Cmd: -0.037499994
+Roll: 0.17104097, Pitch: 1.5117029, Yaw: 0.020798728
+Roll Cmd: -1.2327459, Pitch Cmd: -4.725745, Yaw Cmd: -0.037499994
+Roll: 0.17210655, Pitch: 1.5400214, Yaw: 0.020822173
+Roll Cmd: 0.14738971, Pitch Cmd: -6.3251863, Yaw Cmd: -0.037499994
+Roll: 0.17561114, Pitch: 1.5683438, Yaw: 0.020752097
+Roll Cmd: -2.2497044, Pitch Cmd: -6.453225, Yaw Cmd: 0.084756106
+Roll: 0.18541741, Pitch: 1.5946943, Yaw: 0.020711938
+Roll Cmd: 0.4212669, Pitch Cmd: -3.408235, Yaw Cmd: 0.20731708
+Roll: 0.18773359, Pitch: 1.6227909, Yaw: 0.021380754
+Roll Cmd: -0.6912251, Pitch Cmd: -6.546563, Yaw Cmd: -0.52560973
+Roll: 0.18567096, Pitch: 1.6505781, Yaw: 0.021619784
+Roll Cmd: -0.4791056, Pitch Cmd: -4.353711, Yaw Cmd: -0.28231707
+Roll: 0.19155045, Pitch: 1.6780568, Yaw: 0.021932159
+Roll Cmd: -1.646061, Pitch Cmd: -6.6608186, Yaw Cmd: -0.16067073
+Roll: 0.19638987, Pitch: 1.7056707, Yaw: 0.022073
+Roll Cmd: 0.6575956, Pitch Cmd: -6.0265446, Yaw Cmd: -0.038719505
+Roll: 0.19959712, Pitch: 1.7339556, Yaw: 0.02232564
+Roll Cmd: 0.03035283, Pitch Cmd: -8.4573, Yaw Cmd: -0.1609756
+Roll: 0.20173222, Pitch: 1.7626508, Yaw: 0.022853028
+Roll Cmd: -0.657812, Pitch Cmd: -7.913991, Yaw Cmd: -0.40579268
+Roll: 0.20317703, Pitch: 1.7906301, Yaw: 0.023205096
+Roll Cmd: -0.63096505, Pitch Cmd: -2.6678462, Yaw Cmd: -0.28445122
+Roll: 0.20457552, Pitch: 1.8186318, Yaw: 0.023846896
+Roll Cmd: -2.9405024, Pitch Cmd: -6.4210176, Yaw Cmd: -0.5295732
+Roll: 0.20305231, Pitch: 1.8469334, Yaw: 0.023959126
+Roll Cmd: 2.4691, Pitch Cmd: -8.067181, Yaw Cmd: -0.16402438
+Roll: 0.20462334, Pitch: 1.8750722, Yaw: 0.024765404
+Roll Cmd: -2.9182005, Pitch Cmd: -5.922632, Yaw Cmd: -0.6533537
+Roll: 0.2074888, Pitch: 1.9031035, Yaw: 0.024705878
+Roll Cmd: -0.02690494, Pitch Cmd: -6.7443075, Yaw Cmd: 0.07865855
+Roll: 0.20860043, Pitch: 1.9315662, Yaw: 0.025042158
+Roll Cmd: -1.448751, Pitch Cmd: -8.398661, Yaw Cmd: -0.28780487
+Roll: 0.21391149, Pitch: 1.9591471, Yaw: 0.025209958
+Roll Cmd: -1.7033185, Pitch Cmd: -4.6827006, Yaw Cmd: -0.043902427
+Roll: 0.2199741, Pitch: 1.9867373, Yaw: 0.025711244
+Roll Cmd: -1.0259937, Pitch Cmd: -7.741902, Yaw Cmd: -0.28841463
+Roll: 0.22279388, Pitch: 2.0149238, Yaw: 0.026265558
+Roll Cmd: 0.65613997, Pitch Cmd: -7.904523, Yaw Cmd: -0.41128048
+Roll: 0.21980128, Pitch: 2.042904, Yaw: 0.026451794
+Roll Cmd: -2.061441, Pitch Cmd: -6.4917235, Yaw Cmd: -0.28993902
+Roll: 0.22038904, Pitch: 2.07122, Yaw: 0.02723342
+Roll Cmd: 0.76198816, Pitch Cmd: -8.106417, Yaw Cmd: -0.65731704
+Roll: 0.22250809, Pitch: 2.0994864, Yaw: 0.027145999
+Roll Cmd: -2.3203967, Pitch Cmd: -7.471204, Yaw Cmd: 0.07469514
+Roll: 0.22826837, Pitch: 2.1275606, Yaw: 0.027200516
+Roll Cmd: -0.28094646, Pitch Cmd: -9.097856, Yaw Cmd: 0.07500002
+Roll: 0.22567828, Pitch: 2.1554317, Yaw: 0.027242314
+Roll Cmd: -1.3777521, Pitch Cmd: -4.649832, Yaw Cmd: -0.1692073
+Roll: 0.2286325, Pitch: 2.1834493, Yaw: 0.027200019
+Roll Cmd: 0.61389375, Pitch Cmd: -8.451279, Yaw Cmd: 0.07500002
+Roll: 0.24153854, Pitch: 2.2089424, Yaw: 0.028297488
+Roll Cmd: -2.1303298, Pitch Cmd: -9.22908, Yaw Cmd: -0.5359756
+Roll: 0.24690038, Pitch: 2.236356, Yaw: 0.02833815
+Roll Cmd: -1.8218212, Pitch Cmd: -4.8828764, Yaw Cmd: 0.074085385
+Roll: 0.25422826, Pitch: 2.2633798, Yaw: 0.028629145
+Roll Cmd: 1.0992231, Pitch Cmd: -8.657183, Yaw Cmd: -0.047865838
+Roll: 0.2313236, Pitch: 2.2799735, Yaw: 0.028023185
+Roll Cmd: -0.36152786, Pitch Cmd: -7.497936, Yaw Cmd: -0.29237804
+Roll: 0.21936283, Pitch: 2.30545, Yaw: 0.0275483
+Roll Cmd: 0.6388081, Pitch Cmd: -8.019119, Yaw Cmd: -0.048475593
+Roll: 0.21559645, Pitch: 2.3336723, Yaw: 0.02769991
+Roll Cmd: -1.2487164, Pitch Cmd: -10.5583, Yaw Cmd: -0.2929878
+Roll: 0.24171712, Pitch: 2.345157, Yaw: 0.028141033
+Roll Cmd: -3.5549464, Pitch Cmd: -3.7796917, Yaw Cmd: 0.43993905
+Roll: 0.2526416, Pitch: 2.3715904, Yaw: 0.028577453
+Roll Cmd: -1.3925803, Pitch Cmd: -12.096003, Yaw Cmd: -0.047865838
+Roll: 0.2791663, Pitch: 2.3814662, Yaw: 0.029680964
+Roll Cmd: 0.09586924, Pitch Cmd: -5.396345, Yaw Cmd: -0.047865838
+Roll: 0.30287173, Pitch: 2.364853, Yaw: 0.030350115
+Roll Cmd: -3.5621789, Pitch Cmd: -7.851714, Yaw Cmd: 0.19664636
+Roll: 0.30789715, Pitch: 2.3931093, Yaw: 0.030692153
+Roll Cmd: -2.7560718, Pitch Cmd: -10.182341, Yaw Cmd: -0.16951218
+Roll: 0.30141106, Pitch: 2.364519, Yaw: 0.030743372
+Roll Cmd: 3.8813798, Pitch Cmd: -2.8830466, Yaw Cmd: -0.29207316
+Roll: 0.2804925, Pitch: 2.344649, Yaw: 0.03003467
+Roll Cmd: -2.0749834, Pitch Cmd: -7.7520723, Yaw Cmd: -0.17042682
+Roll: 0.25544658, Pitch: 2.3578281, Yaw: 0.029303294
+Roll Cmd: -0.3939942, Pitch Cmd: -7.1730175, Yaw Cmd: -0.2929878
+Roll: 0.28167716, Pitch: 2.3698978, Yaw: 0.030684208
+Roll Cmd: -2.1909642, Pitch Cmd: -10.989405, Yaw Cmd: -0.29359755
+Roll: 0.27103528, Pitch: 2.3960335, Yaw: 0.030989159
+Roll Cmd: -1.1683611, Pitch Cmd: -6.531061, Yaw Cmd: -0.6609756
+Roll: 0.25725874, Pitch: 2.4206605, Yaw: 0.031169605
+Roll Cmd: 1.2796013, Pitch Cmd: -7.9801993, Yaw Cmd: -0.6625
+Roll: 0.2462029, Pitch: 2.4463253, Yaw: 0.030989163
+Roll Cmd: -1.8286107, Pitch Cmd: -8.090817, Yaw Cmd: -0.29725608
+Roll: 0.2685108, Pitch: 2.4638903, Yaw: 0.031471584
+Roll Cmd: -2.0246792, Pitch Cmd: -7.7434015, Yaw Cmd: 0.31341466
+Roll: 0.29459894, Pitch: 2.451512, Yaw: 0.032735318
+Roll Cmd: -1.5050981, Pitch Cmd: -10.117843, Yaw Cmd: -0.1746951
+Roll: 0.3028261, Pitch: 2.478517, Yaw: 0.033232592
+Roll Cmd: -1.4039941, Pitch Cmd: -7.6461287, Yaw Cmd: -0.17499998
+Roll: 0.286009, Pitch: 2.4550664, Yaw: 0.03248578
+Roll Cmd: -1.7030684, Pitch Cmd: -5.8990183, Yaw Cmd: -0.05304876
+Roll: 0.28163964, Pitch: 2.4260921, Yaw: 0.032428626
+Roll Cmd: -0.83156955, Pitch Cmd: -5.562994, Yaw Cmd: -0.17530486
+Roll: 0.30840176, Pitch: 2.4161272, Yaw: 0.034026723
+Roll Cmd: 1.4471831, Pitch Cmd: -8.75538, Yaw Cmd: -0.42012194
+Roll: 0.309859, Pitch: 2.4444063, Yaw: 0.034391474
+Roll Cmd: -2.5414476, Pitch Cmd: -10.000055, Yaw Cmd: -0.29878047
+Roll: 0.32151446, Pitch: 2.4176245, Yaw: 0.03564406
+Roll Cmd: -1.6003441, Pitch Cmd: -5.0599113, Yaw Cmd: -0.66615856
+Roll: 0.29502478, Pitch: 2.406863, Yaw: 0.034817453
+Roll Cmd: -1.2472725, Pitch Cmd: -7.301659, Yaw Cmd: -0.30091462
+Roll: 0.30372146, Pitch: 2.4337306, Yaw: 0.03578516
+Roll Cmd: -0.7301657, Pitch Cmd: -9.976446, Yaw Cmd: -0.5460366
+Roll: 0.28499523, Pitch: 2.4547946, Yaw: 0.035586834
+Roll Cmd: -0.105133414, Pitch Cmd: -9.052862, Yaw Cmd: -0.5472561
+Roll: 0.31046495, Pitch: 2.4674907, Yaw: 0.036830567
+Roll Cmd: -1.5240284, Pitch Cmd: -8.717995, Yaw Cmd: -0.1817073
+Roll: 0.29215243, Pitch: 2.4890618, Yaw: 0.036639694
+Roll Cmd: -0.8831465, Pitch Cmd: -10.000948, Yaw Cmd: -0.54878044
+Roll: 0.28062397, Pitch: 2.4626396, Yaw: 0.036147527
+Roll Cmd: 1.083203, Pitch Cmd: -7.707135, Yaw Cmd: -0.06097558
+Roll: 0.25342062, Pitch: 2.4539952, Yaw: 0.0355826
+Roll Cmd: -1.1031473, Pitch Cmd: -7.8446083, Yaw Cmd: -0.54999995
+Roll: 0.2712449, Pitch: 2.4306512, Yaw: 0.036490414
+Roll Cmd: -1.0796101, Pitch Cmd: -3.2766314, Yaw Cmd: -0.1844512
+Roll: 0.2459819, Pitch: 2.4428508, Yaw: 0.03539477
+Roll Cmd: -1.9917524, Pitch Cmd: -11.011362, Yaw Cmd: -0.06249997
+Roll: 0.22921944, Pitch: 2.4189286, Yaw: 0.03529688
+Roll Cmd: 2.9055355, Pitch Cmd: -6.2920685, Yaw Cmd: -0.5515244
+Roll: 0.25714374, Pitch: 2.4111948, Yaw: 0.03646469
+Roll Cmd: -3.7739499, Pitch Cmd: -7.817504, Yaw Cmd: -0.06371948
+Roll: 0.27737913, Pitch: 2.4313145, Yaw: 0.03731178
+Roll Cmd: -1.9944203, Pitch Cmd: -10.775355, Yaw Cmd: -0.06371948
+Roll: 0.2631299, Pitch: 2.4557219, Yaw: 0.03714103
+Roll Cmd: -1.846177, Pitch Cmd: -10.381224, Yaw Cmd: -0.43048778
+Roll: 0.24763334, Pitch: 2.4793684, Yaw: 0.037531987
+Roll Cmd: 1.2469399, Pitch Cmd: -8.938204, Yaw Cmd: -0.92042685
+Roll: 0.22634514, Pitch: 2.498176, Yaw: 0.037514083
+Roll Cmd: 0.10899365, Pitch Cmd: -10.288303, Yaw Cmd: -0.8003049
+Roll: 0.24463539, Pitch: 2.4758058, Yaw: 0.03816029
+Roll Cmd: -0.3015226, Pitch Cmd: -6.0262375, Yaw Cmd: 0.053658575
+Roll: 0.25881252, Pitch: 2.450225, Yaw: 0.03891266
+Roll Cmd: -3.1422317, Pitch Cmd: -6.5417156, Yaw Cmd: -0.19054875
+Roll: 0.28745458, Pitch: 2.445111, Yaw: 0.040576983
+Roll Cmd: -3.2149343, Pitch Cmd: -8.2793, Yaw Cmd: -0.43536583
+Roll: 0.25943634, Pitch: 2.4395757, Yaw: 0.03983188
+Roll Cmd: 1.0678821, Pitch Cmd: -9.818514, Yaw Cmd: -0.43628046
+Roll: 0.24623609, Pitch: 2.4644275, Yaw: 0.039703187
+Roll Cmd: -1.8843706, Pitch Cmd: -9.909838, Yaw Cmd: -0.4371951
+Roll: 0.2293675, Pitch: 2.4869437, Yaw: 0.039581105
+Roll Cmd: 2.097046, Pitch Cmd: -8.351576, Yaw Cmd: -0.5603658
+Roll: 0.24376726, Pitch: 2.5110946, Yaw: 0.0408157
+Roll Cmd: -1.637174, Pitch Cmd: -9.988163, Yaw Cmd: -0.5615853
+Roll: 0.27195603, Pitch: 2.5068827, Yaw: 0.042668972
+Roll Cmd: -0.8337371, Pitch Cmd: -7.8848047, Yaw Cmd: -0.5628048
+Roll: 0.28444567, Pitch: 2.480343, Yaw: 0.04366564
+Roll Cmd: -3.1144185, Pitch Cmd: -7.5171566, Yaw Cmd: -0.44176826
+Roll: 0.30962798, Pitch: 2.4660313, Yaw: 0.045201074
+Roll Cmd: -3.0938582, Pitch Cmd: -10.411156, Yaw Cmd: -0.4426829
+Roll: 0.31403482, Pitch: 2.43746, Yaw: 0.0460037
+Roll Cmd: 0.15660214, Pitch Cmd: -7.4991045, Yaw Cmd: -0.5658536
+Roll: 0.33731166, Pitch: 2.4194443, Yaw: 0.046651285
+Roll Cmd: -6.884399, Pitch Cmd: -7.998377, Yaw Cmd: 0.16646346
+Roll: 0.33080724, Pitch: 2.446669, Yaw: 0.04682204
+Roll Cmd: 2.0189373, Pitch Cmd: -8.734457, Yaw Cmd: -0.44420728
+Roll: 0.335232, Pitch: 2.474643, Yaw: 0.04761944
+Roll Cmd: -0.679845, Pitch Cmd: -11.87421, Yaw Cmd: -0.56737804
+Roll: 0.30672765, Pitch: 2.4710803, Yaw: 0.046386905
+Roll Cmd: 0.2328515, Pitch Cmd: -8.156573, Yaw Cmd: -0.079573125
+Roll: 0.28135467, Pitch: 2.4833367, Yaw: 0.04558418
+Roll Cmd: -0.6293025, Pitch Cmd: -8.17654, Yaw Cmd: -0.32408533
+Roll: 0.3002301, Pitch: 2.504526, Yaw: 0.04623702
+Roll Cmd: -2.8400702, Pitch Cmd: -10.924534, Yaw Cmd: 0.04207322
+Roll: 0.32256618, Pitch: 2.4860976, Yaw: 0.047511674
+Roll Cmd: -0.79633427, Pitch Cmd: -9.051844, Yaw Cmd: -0.3243902
+Roll: 0.29687846, Pitch: 2.4989443, Yaw: 0.046704873
+Roll Cmd: 0.87111104, Pitch Cmd: -11.426016, Yaw Cmd: -0.32499996
+Roll: 0.29297075, Pitch: 2.5268345, Yaw: 0.047140338
+Roll Cmd: -1.6693442, Pitch Cmd: -9.252259, Yaw Cmd: -0.5701219
+Roll: 0.26942077, Pitch: 2.510615, Yaw: 0.04670707
+Roll Cmd: -0.71085405, Pitch Cmd: -10.1335, Yaw Cmd: -0.5713414
+Roll: 0.25134993, Pitch: 2.4882498, Yaw: 0.04697695
+Roll Cmd: -0.20277143, Pitch Cmd: -7.589985, Yaw Cmd: -0.93932927
+Roll: 0.25311786, Pitch: 2.4590466, Yaw: 0.04733532
+Roll Cmd: -2.7003427, Pitch Cmd: -6.4227686, Yaw Cmd: -0.33018288
+Roll: 0.27890217, Pitch: 2.4460633, Yaw: 0.048436668
+Roll Cmd: -0.15090269, Pitch Cmd: -9.437866, Yaw Cmd: -0.086280435
+Roll: 0.2953272, Pitch: 2.4687262, Yaw: 0.04973915
+Roll Cmd: -2.7091525, Pitch Cmd: -8.202362, Yaw Cmd: -0.57530487
+Roll: 0.30399972, Pitch: 2.495754, Yaw: 0.050868087
+Roll Cmd: -1.6309268, Pitch Cmd: -13.782009, Yaw Cmd: -0.6987804
+Roll: 0.319435, Pitch: 2.5195796, Yaw: 0.052150976
+Roll Cmd: -1.2290797, Pitch Cmd: -10.795995, Yaw Cmd: -0.5780487
+Roll: 0.2913541, Pitch: 2.5243616, Yaw: 0.051212374
+Roll Cmd: -0.5775118, Pitch Cmd: -10.699297, Yaw Cmd: -0.33475605
+Roll: 0.26533616, Pitch: 2.511406, Yaw: 0.050233535
+Roll Cmd: 2.418974, Pitch Cmd: -8.354025, Yaw Cmd: -0.2131097
+Roll: 0.2374743, Pitch: 2.5056221, Yaw: 0.0491509
+Roll Cmd: -2.6979632, Pitch Cmd: -8.684694, Yaw Cmd: -0.21341458
+Roll: 0.26562074, Pitch: 2.5110016, Yaw: 0.050686665
+Roll Cmd: -0.99447894, Pitch Cmd: -11.539173, Yaw Cmd: -0.33597556
+Roll: 0.2887682, Pitch: 2.494411, Yaw: 0.052172933
+Roll Cmd: 0.027731061, Pitch Cmd: -8.250053, Yaw Cmd: -0.4588414
+Roll: 0.27509853, Pitch: 2.5191803, Yaw: 0.052188557
+Roll Cmd: -1.9078408, Pitch Cmd: -10.2952795, Yaw Cmd: -0.5820122
+Roll: 0.25586128, Pitch: 2.4978178, Yaw: 0.051650424
+Roll Cmd: -0.90314424, Pitch Cmd: -10.335216, Yaw Cmd: -0.33871946
+Roll: 0.24310346, Pitch: 2.5226972, Yaw: 0.05077107
+Roll Cmd: -1.9925214, Pitch Cmd: -8.883184, Yaw Cmd: 0.14969519
+Roll: 0.23762445, Pitch: 2.5501714, Yaw: 0.05128745
+Roll Cmd: 0.6676822, Pitch Cmd: -11.306121, Yaw Cmd: -0.7054877
+Roll: 0.26557004, Pitch: 2.5568328, Yaw: 0.05298067
+Roll Cmd: -3.2396905, Pitch Cmd: -11.129049, Yaw Cmd: -0.46249995
+Roll: 0.29120755, Pitch: 2.543527, Yaw: 0.054418463
+Roll Cmd: -2.4633198, Pitch Cmd: -10.981491, Yaw Cmd: -0.34115848
+Roll: 0.2771057, Pitch: 2.5181742, Yaw: 0.053779136
+Roll Cmd: -1.2948914, Pitch Cmd: -6.6109715, Yaw Cmd: -0.097256035
+Roll: 0.2577009, Pitch: 2.497091, Yaw: 0.053067546
+Roll Cmd: -0.2663951, Pitch Cmd: -10.53401, Yaw Cmd: -0.21951213
+Roll: 0.28385583, Pitch: 2.4838736, Yaw: 0.054791268
+Roll Cmd: -3.28927, Pitch Cmd: -8.684702, Yaw Cmd: -0.5865853
+Roll: 0.27481428, Pitch: 2.4563127, Yaw: 0.05484961
+Roll Cmd: 0.68580055, Pitch Cmd: -8.697938, Yaw Cmd: -0.46554872
+Roll: 0.271659, Pitch: 2.4839737, Yaw: 0.055464916
+Roll Cmd: -1.0568838, Pitch Cmd: -9.914515, Yaw Cmd: -0.7109755
+Roll: 0.24367525, Pitch: 2.4783213, Yaw: 0.055006903
+Roll Cmd: 0.19815958, Pitch Cmd: -12.106914, Yaw Cmd: -0.7125
+Roll: 0.2351925, Pitch: 2.5053022, Yaw: 0.055087097
+Roll Cmd: -0.7212863, Pitch Cmd: -11.580063, Yaw Cmd: -0.46951213
+Roll: 0.24759786, Pitch: 2.530499, Yaw: 0.055934172
+Roll Cmd: -0.9891088, Pitch Cmd: -10.055357, Yaw Cmd: -0.34817067
+Roll: 0.26887977, Pitch: 2.5103679, Yaw: 0.057164617
+Roll Cmd: -2.970525, Pitch Cmd: -8.562931, Yaw Cmd: -0.34878042
+Roll: 0.25524372, Pitch: 2.4848187, Yaw: 0.056561563
+Roll Cmd: -0.5340841, Pitch Cmd: -10.546429, Yaw Cmd: -0.10487798
+Roll: 0.27179548, Pitch: 2.461139, Yaw: 0.05727439
+Roll Cmd: -1.2586055, Pitch Cmd: -9.920675, Yaw Cmd: -0.10487798
+Roll: 0.29289123, Pitch: 2.480856, Yaw: 0.05815628
+Roll Cmd: -5.337535, Pitch Cmd: -11.356081, Yaw Cmd: -0.10487798
+Roll: 0.29687262, Pitch: 2.5086732, Yaw: 0.058194745
+Roll Cmd: 3.7755082, Pitch Cmd: -11.080301, Yaw Cmd: 0.017378122
+Roll: 0.3186899, Pitch: 2.526792, Yaw: 0.059919696
+Roll Cmd: -3.796062, Pitch Cmd: -12.195719, Yaw Cmd: -0.7158536
+Roll: 0.31818485, Pitch: 2.497714, Yaw: 0.06035861
+Roll Cmd: -1.2645075, Pitch Cmd: -8.397252, Yaw Cmd: -0.4728658
+Roll: 0.31694293, Pitch: 2.468668, Yaw: 0.060752492
+Roll Cmd: -2.7677274, Pitch Cmd: -9.097132, Yaw Cmd: -0.47378042
+Roll: 0.32582852, Pitch: 2.4408348, Yaw: 0.06158658
+Roll Cmd: -1.0483499, Pitch Cmd: -8.35596, Yaw Cmd: -0.47469506
+Roll: 0.32313272, Pitch: 2.4116237, Yaw: 0.06221015
+Roll Cmd: -3.5280943, Pitch Cmd: -8.218152, Yaw Cmd: -0.72012186
+Roll: 0.35150996, Pitch: 2.4141045, Yaw: 0.06401703
+Roll Cmd: 0.17554414, Pitch Cmd: -11.280619, Yaw Cmd: -0.59939015
+Roll: 0.37984088, Pitch: 2.4160378, Yaw: 0.065681525
+Roll Cmd: -2.0540047, Pitch Cmd: -14.405206, Yaw Cmd: -0.4783536
+Roll: 0.38641194, Pitch: 2.4432526, Yaw: 0.066571675
+Roll Cmd: -2.5308676, Pitch Cmd: -8.219759, Yaw Cmd: -0.60152435
+Roll: 0.37300515, Pitch: 2.4687889, Yaw: 0.06600467
+Roll Cmd: -0.81341493, Pitch Cmd: -15.737745, Yaw Cmd: -0.11371943
+Roll: 0.35059223, Pitch: 2.4859352, Yaw: 0.06532536
+Roll Cmd: -2.6379242, Pitch Cmd: -9.44959, Yaw Cmd: -0.35823163
+Roll: 0.3218794, Pitch: 2.4816868, Yaw: 0.06439604
+Roll Cmd: 2.9973052, Pitch Cmd: -9.8758135, Yaw Cmd: -0.3588414
+Roll: 0.2936107, Pitch: 2.478692, Yaw: 0.063459836
+Roll Cmd: -2.9610305, Pitch Cmd: -9.159965, Yaw Cmd: -0.35945114
+Roll: 0.29142463, Pitch: 2.5063105, Yaw: 0.06396926
+Roll Cmd: 0.2512945, Pitch Cmd: -11.4270315, Yaw Cmd: -0.60457313
+Roll: 0.3053485, Pitch: 2.481211, Yaw: 0.06488558
+Roll Cmd: -1.2548743, Pitch Cmd: -13.446476, Yaw Cmd: -0.3612804
+Roll: 0.28050882, Pitch: 2.4671023, Yaw: 0.06427097
+Roll Cmd: -0.83881617, Pitch Cmd: -11.85548, Yaw Cmd: -0.48414627
+Roll: 0.25704035, Pitch: 2.483247, Yaw: 0.063255966
+Roll Cmd: -0.12045872, Pitch Cmd: -9.614877, Yaw Cmd: -0.1182926
+Roll: 0.28440833, Pitch: 2.4923124, Yaw: 0.06489419
+Roll Cmd: -3.399081, Pitch Cmd: -13.065918, Yaw Cmd: -0.4850609
+Roll: 0.26106346, Pitch: 2.5083761, Yaw: 0.064476795
+Roll Cmd: -0.18127131, Pitch Cmd: -10.47756, Yaw Cmd: -0.60823166
+Roll: 0.23269364, Pitch: 2.5035892, Yaw: 0.06368975
+Roll Cmd: 0.89281785, Pitch Cmd: -8.660182, Yaw Cmd: -0.48719504
+Roll: 0.2520193, Pitch: 2.4819446, Yaw: 0.06514366
+Roll Cmd: -1.4099149, Pitch Cmd: -10.798807, Yaw Cmd: -0.61036575
+Roll: 0.2566266, Pitch: 2.45334, Yaw: 0.06547978
+Roll Cmd: -3.7553852, Pitch Cmd: -11.237295, Yaw Cmd: -0.24481699
+Roll: 0.26302224, Pitch: 2.4806347, Yaw: 0.06666612
+Roll Cmd: -0.12880969, Pitch Cmd: -11.022259, Yaw Cmd: -0.8564024
+Roll: 0.28844604, Pitch: 2.494467, Yaw: 0.06821325
+Roll Cmd: -4.1079655, Pitch Cmd: -14.983264, Yaw Cmd: -0.49146333
+Roll: 0.26261705, Pitch: 2.4817495, Yaw: 0.06724271
+Roll Cmd: 1.4102216, Pitch Cmd: -9.251709, Yaw Cmd: -0.24786577
+Roll: 0.2612246, Pitch: 2.4525604, Yaw: 0.06717339
+Roll Cmd: -1.9952482, Pitch Cmd: -8.35372, Yaw Cmd: -0.12591454
+Roll: 0.288877, Pitch: 2.4616668, Yaw: 0.06878761
+Roll Cmd: -5.0341816, Pitch Cmd: -12.481699, Yaw Cmd: -0.49268284
+Roll: 0.30808678, Pitch: 2.4829216, Yaw: 0.06992083
+Roll Cmd: 0.5886309, Pitch Cmd: -14.726257, Yaw Cmd: -0.37134138
+Roll: 0.3018272, Pitch: 2.5105119, Yaw: 0.069792196
+Roll Cmd: -1.873697, Pitch Cmd: -11.402068, Yaw Cmd: -0.24969503
+Roll: 0.32862732, Pitch: 2.4997132, Yaw: 0.071565285
+Roll Cmd: -2.7983322, Pitch Cmd: -11.802446, Yaw Cmd: -0.61676824
+Roll: 0.3224618, Pitch: 2.4716437, Yaw: 0.07113808
+Roll Cmd: -1.2062504, Pitch Cmd: -10.211227, Yaw Cmd: -0.0067072213
+Roll: 0.29922214, Pitch: 2.4878874, Yaw: 0.07027658
+Roll Cmd: -0.3356321, Pitch Cmd: -11.645821, Yaw Cmd: -0.25091454
+Roll: 0.27538845, Pitch: 2.50347, Yaw: 0.06969406
+Roll Cmd: 0.51424587, Pitch Cmd: -12.420279, Yaw Cmd: -0.49573162
+Roll: 0.2850642, Pitch: 2.47636, Yaw: 0.07039901
+Roll Cmd: -4.158979, Pitch Cmd: -11.879709, Yaw Cmd: -0.37439016
+Roll: 0.2854272, Pitch: 2.4472845, Yaw: 0.07026004
+Roll Cmd: 0.7828804, Pitch Cmd: -7.9832993, Yaw Cmd: -0.00823161
+Roll: 0.25893712, Pitch: 2.4576197, Yaw: 0.06927578
+Roll Cmd: -0.06360066, Pitch Cmd: -11.362612, Yaw Cmd: -0.25243893
+Roll: 0.23282164, Pitch: 2.4681542, Yaw: 0.06798543
+Roll Cmd: -1.5594416, Pitch Cmd: -12.165271, Yaw Cmd: -0.00823161
+Roll: 0.23133019, Pitch: 2.496411, Yaw: 0.06836334
+Roll Cmd: -1.2783263, Pitch Cmd: -14.657333, Yaw Cmd: -0.49695113
+Roll: 0.20253277, Pitch: 2.4951108, Yaw: 0.06726766
+Roll Cmd: 2.4035435, Pitch Cmd: -12.577537, Yaw Cmd: -0.25335357
+Roll: 0.23135823, Pitch: 2.4933496, Yaw: 0.06866401
+Roll Cmd: -4.1669445, Pitch Cmd: -7.245535, Yaw Cmd: -0.25365844
+Roll: 0.23106904, Pitch: 2.4642766, Yaw: 0.06878868
+Roll Cmd: -2.0775461, Pitch Cmd: -13.364479, Yaw Cmd: -0.25396332
+Roll: 0.22193015, Pitch: 2.4366424, Yaw: 0.068230085
+Roll Cmd: -0.9029077, Pitch Cmd: -9.707745, Yaw Cmd: -0.009755999
+Roll: 0.23204336, Pitch: 2.4631836, Yaw: 0.06941622
+Roll Cmd: -1.0866971, Pitch Cmd: -14.676638, Yaw Cmd: -0.74298775
+Roll: 0.24861136, Pitch: 2.485901, Yaw: 0.07073109
+Roll Cmd: -2.171955, Pitch Cmd: -10.81547, Yaw Cmd: -0.62225604
+Roll: 0.27474836, Pitch: 2.4739726, Yaw: 0.071861364
+Roll Cmd: -1.9298215, Pitch Cmd: -14.429005, Yaw Cmd: -0.13445112
+Roll: 0.29319608, Pitch: 2.4955797, Yaw: 0.07281198
+Roll Cmd: -2.3411188, Pitch Cmd: -12.432441, Yaw Cmd: -0.25670722
+Roll: 0.2918528, Pitch: 2.4663734, Yaw: 0.07290965
+Roll Cmd: -0.6237836, Pitch Cmd: -9.154499, Yaw Cmd: -0.2570121
+Roll: 0.31885067, Pitch: 2.476653, Yaw: 0.07390769
+Roll Cmd: -5.0907793, Pitch Cmd: -14.879699, Yaw Cmd: -0.012804776
+Roll: 0.29112968, Pitch: 2.484521, Yaw: 0.07317542
+Roll Cmd: 2.86664, Pitch Cmd: -11.087697, Yaw Cmd: -0.5015243
+Roll: 0.288035, Pitch: 2.4556096, Yaw: 0.07319201
+Roll Cmd: -2.7757294, Pitch Cmd: -10.752471, Yaw Cmd: -0.25792673
+Roll: 0.25958675, Pitch: 2.458332, Yaw: 0.07227324
+Roll Cmd: -0.030962229, Pitch Cmd: -10.776579, Yaw Cmd: -0.3804877
+Roll: 0.2316531, Pitch: 2.4507682, Yaw: 0.07092909
+Roll Cmd: 0.7764237, Pitch Cmd: -13.300754, Yaw Cmd: -0.014329165
+Roll: 0.22831981, Pitch: 2.478604, Yaw: 0.0707898
+Roll Cmd: -1.131297, Pitch Cmd: -12.871309, Yaw Cmd: -0.13628039
+Roll: 0.2553602, Pitch: 2.4690607, Yaw: 0.07196172
+Roll Cmd: -2.6577315, Pitch Cmd: -12.590537, Yaw Cmd: -0.13628039
+Roll: 0.2558893, Pitch: 2.4972198, Yaw: 0.072585225
+Roll Cmd: -2.9271145, Pitch Cmd: -13.772913, Yaw Cmd: -0.6253048
+Roll: 0.27751464, Pitch: 2.5153937, Yaw: 0.073375866
+Roll Cmd: -1.764086, Pitch Cmd: -12.605771, Yaw Cmd: -0.0152437985
+Roll: 0.2814944, Pitch: 2.4869885, Yaw: 0.07352947
+Roll Cmd: -3.9681468, Pitch Cmd: -14.143974, Yaw Cmd: -0.13719502
+Roll: 0.26105607, Pitch: 2.4668016, Yaw: 0.073559225
+Roll Cmd: 1.7490605, Pitch Cmd: -10.831653, Yaw Cmd: -0.8707316
+Roll: 0.23261487, Pitch: 2.4693623, Yaw: 0.07324478
+Roll Cmd: 0.0028440952, Pitch Cmd: -9.624121, Yaw Cmd: -0.87256086
+Roll: 0.256328, Pitch: 2.4851053, Yaw: 0.07502216
+Roll Cmd: -3.3298426, Pitch Cmd: -14.026146, Yaw Cmd: -0.7521341
+Roll: 0.27853122, Pitch: 2.5029073, Yaw: 0.07598696
+Roll Cmd: -1.8148298, Pitch Cmd: -15.009659, Yaw Cmd: -0.14237794
+Roll: 0.2926855, Pitch: 2.4777439, Yaw: 0.07766063
+Roll Cmd: -2.9670737, Pitch Cmd: -12.228737, Yaw Cmd: -0.9981706
+Roll: 0.27380237, Pitch: 2.455649, Yaw: 0.07776596
+Roll Cmd: 0.9284601, Pitch Cmd: -10.090858, Yaw Cmd: -0.87804866
+Roll: 0.29140538, Pitch: 2.4330935, Yaw: 0.07823606
+Roll Cmd: -0.027115822, Pitch Cmd: -11.513851, Yaw Cmd: 0.09817085
+Roll: 0.29482344, Pitch: 2.4611874, Yaw: 0.07869153
+Roll Cmd: -3.8586369, Pitch Cmd: -14.817195, Yaw Cmd: -0.3902438
+Roll: 0.31620356, Pitch: 2.4801445, Yaw: 0.079902306
+Roll Cmd: -4.887085, Pitch Cmd: -12.960637, Yaw Cmd: -0.39085355
+Roll: 0.3376023, Pitch: 2.4990945, Yaw: 0.081425294
+Roll Cmd: -2.7497332, Pitch Cmd: -13.774286, Yaw Cmd: -0.6359755
+Roll: 0.30961555, Pitch: 2.504632, Yaw: 0.0806569
+Roll Cmd: 1.2198796, Pitch Cmd: -12.412147, Yaw Cmd: -0.51493895
+Roll: 0.33715484, Pitch: 2.5123444, Yaw: 0.08185145
+Roll Cmd: -3.7484605, Pitch Cmd: -12.534994, Yaw Cmd: -0.14908525
+Roll: 0.30895725, Pitch: 2.5154455, Yaw: 0.081058584
+Roll Cmd: -0.27857018, Pitch Cmd: -11.552356, Yaw Cmd: -0.5158535
+Roll: 0.310482, Pitch: 2.4864066, Yaw: 0.08127494
+Roll Cmd: -0.94526374, Pitch Cmd: -14.513134, Yaw Cmd: -0.272256
+Roll: 0.28544334, Pitch: 2.4719632, Yaw: 0.08066197
+Roll Cmd: 1.1909227, Pitch Cmd: -14.594189, Yaw Cmd: -0.51707304
+Roll: 0.30609795, Pitch: 2.4508734, Yaw: 0.081818454
+Roll Cmd: -7.899123, Pitch Cmd: -9.760615, Yaw Cmd: -0.3957316
+Roll: 0.28537542, Pitch: 2.4700198, Yaw: 0.081376776
+Roll Cmd: 2.3273277, Pitch Cmd: -13.969397, Yaw Cmd: -0.5185975
+Roll: 0.29814452, Pitch: 2.495491, Yaw: 0.08192916
+Roll Cmd: -1.4739234, Pitch Cmd: -15.907904, Yaw Cmd: -0.15274379
+Roll: 0.3248313, Pitch: 2.504443, Yaw: 0.08341611
+Roll Cmd: -0.6370406, Pitch Cmd: -12.941872, Yaw Cmd: -0.397256
+Roll: 0.31875724, Pitch: 2.5322905, Yaw: 0.08345959
+Roll Cmd: -2.7861981, Pitch Cmd: -15.453438, Yaw Cmd: -0.39786574
+Roll: 0.28983396, Pitch: 2.5296834, Yaw: 0.08234303
+Roll Cmd: 0.6077945, Pitch Cmd: -9.448777, Yaw Cmd: -0.2762194
+Roll: 0.26137516, Pitch: 2.5274613, Yaw: 0.08168607
+Roll Cmd: -2.3869338, Pitch Cmd: -13.9255085, Yaw Cmd: -0.64329255
+Roll: 0.2446429, Pitch: 2.5036771, Yaw: 0.080782466
+Roll Cmd: -1.4869473, Pitch Cmd: -12.138156, Yaw Cmd: -0.033231586
+Roll: 0.26019537, Pitch: 2.479203, Yaw: 0.08192613
+Roll Cmd: 0.7274926, Pitch Cmd: -12.85087, Yaw Cmd: -0.5219511
+Roll: 0.27108786, Pitch: 2.50538, Yaw: 0.0830076
+Roll Cmd: -3.54245, Pitch Cmd: -16.186941, Yaw Cmd: -0.6451218
+Roll: 0.24447301, Pitch: 2.5166233, Yaw: 0.08216397
+Roll Cmd: 2.0870852, Pitch Cmd: -13.302465, Yaw Cmd: -0.40182915
+Roll: 0.24300767, Pitch: 2.4875827, Yaw: 0.082402624
+Roll Cmd: -3.620215, Pitch Cmd: -12.067479, Yaw Cmd: -0.4024389
+Roll: 0.2343594, Pitch: 2.460204, Yaw: 0.082347155
+Roll Cmd: 0.4739678, Pitch Cmd: -14.423321, Yaw Cmd: -0.40304866
+Roll: 0.2102101, Pitch: 2.4440331, Yaw: 0.081615426
+Roll Cmd: -1.7271752, Pitch Cmd: -8.921423, Yaw Cmd: -0.40365842
+Roll: 0.23810053, Pitch: 2.44991, Yaw: 0.08280339
+Roll Cmd: -2.8321774, Pitch Cmd: -13.687953, Yaw Cmd: -0.15975598
+Roll: 0.25068444, Pitch: 2.4754777, Yaw: 0.08393901
+Roll Cmd: -3.6684704, Pitch Cmd: -17.036041, Yaw Cmd: -0.64878035
+Roll: 0.22855598, Pitch: 2.4931748, Yaw: 0.083276495
+Roll Cmd: 0.27888274, Pitch Cmd: -14.542535, Yaw Cmd: -0.4054877
+Roll: 0.20778385, Pitch: 2.4725356, Yaw: 0.082692064
+Roll Cmd: 1.8341448, Pitch Cmd: -11.15245, Yaw Cmd: -0.40609744
+Roll: 0.23396568, Pitch: 2.4611752, Yaw: 0.08413013
+Roll Cmd: -3.4491773, Pitch Cmd: -16.144064, Yaw Cmd: -0.4067072
+Roll: 0.21899271, Pitch: 2.4364045, Yaw: 0.083481975
+Roll Cmd: -2.2462053, Pitch Cmd: -10.24507, Yaw Cmd: -0.16280475
+Roll: 0.20041661, Pitch: 2.4151766, Yaw: 0.08283624
+Roll Cmd: -1.3370118, Pitch Cmd: -16.437458, Yaw Cmd: -0.28506085
+Roll: 0.1894978, Pitch: 2.3879807, Yaw: 0.08254173
+Roll Cmd: 2.124136, Pitch Cmd: -7.852335, Yaw Cmd: -0.28536573
+Roll: 0.17331088, Pitch: 2.3639, Yaw: 0.08186917
+Roll Cmd: -2.0501595, Pitch Cmd: -13.137368, Yaw Cmd: -0.16341451
+Roll: 0.19558764, Pitch: 2.3811107, Yaw: 0.08264348
+Roll Cmd: -1.7208803, Pitch Cmd: -13.69548, Yaw Cmd: -0.041158408
+Roll: 0.2200873, Pitch: 2.396255, Yaw: 0.08379634
+Roll Cmd: -5.695243, Pitch Cmd: -15.167885, Yaw Cmd: -0.28536573
+Roll: 0.24229224, Pitch: 2.4145513, Yaw: 0.08487418
+Roll Cmd: -1.1788383, Pitch Cmd: -16.972486, Yaw Cmd: -0.2856706
+Roll: 0.2310056, Pitch: 2.4407225, Yaw: 0.08393856
+Roll Cmd: -0.24273849, Pitch Cmd: -14.486254, Yaw Cmd: 0.20304891
+Roll: 0.21688718, Pitch: 2.4656372, Yaw: 0.08395582
+Roll Cmd: 0.72914994, Pitch Cmd: -15.254208, Yaw Cmd: -0.6518291
+Roll: 0.24294001, Pitch: 2.476489, Yaw: 0.08508277
+Roll Cmd: -3.4967175, Pitch Cmd: -11.568069, Yaw Cmd: -0.16402426
+Roll: 0.25106704, Pitch: 2.4484727, Yaw: 0.08558823
+Roll Cmd: -1.9276149, Pitch Cmd: -13.366095, Yaw Cmd: -0.28628036
+Roll: 0.27350503, Pitch: 2.4654658, Yaw: 0.08701805
+Roll Cmd: -1.9037453, Pitch Cmd: -15.640197, Yaw Cmd: -0.5310974
+Roll: 0.2693687, Pitch: 2.4931922, Yaw: 0.08760424
+Roll Cmd: -2.1220615, Pitch Cmd: -14.758438, Yaw Cmd: -0.7765243
+Roll: 0.2925589, Pitch: 2.4769626, Yaw: 0.08816685
+Roll Cmd: -1.9933236, Pitch Cmd: -17.220146, Yaw Cmd: 0.20000014
+Roll: 0.3197799, Pitch: 2.4674547, Yaw: 0.089799814
+Roll Cmd: -3.7566986, Pitch Cmd: -8.519022, Yaw Cmd: -0.53262186
+Roll: 0.34307528, Pitch: 2.4505312, Yaw: 0.091097325
+Roll Cmd: -4.434433, Pitch Cmd: -17.890923, Yaw Cmd: -0.41128036
+Roll: 0.3178868, Pitch: 2.4635992, Yaw: 0.09031372
+Roll Cmd: -0.5883366, Pitch Cmd: -13.471544, Yaw Cmd: -0.41189012
+Roll: 0.32523572, Pitch: 2.490613, Yaw: 0.090786815
+Roll Cmd: -0.6358322, Pitch Cmd: -14.169051, Yaw Cmd: -0.29024377
+Roll: 0.31689787, Pitch: 2.5176415, Yaw: 0.090718746
+Roll Cmd: -2.867841, Pitch Cmd: -17.271933, Yaw Cmd: -0.41280475
+Roll: 0.34464166, Pitch: 2.510924, Yaw: 0.09194501
+Roll Cmd: -0.9027624, Pitch Cmd: -11.904228, Yaw Cmd: -0.16890231
+Roll: 0.33926788, Pitch: 2.4821193, Yaw: 0.09187959
+Roll Cmd: -0.73145604, Pitch Cmd: -13.774645, Yaw Cmd: -0.2911584
+Roll: 0.31055415, Pitch: 2.4778237, Yaw: 0.09125591
+Roll Cmd: -1.0464246, Pitch Cmd: -14.245317, Yaw Cmd: -0.6582316
+Roll: 0.287657, Pitch: 2.460876, Yaw: 0.09055998
+Roll Cmd: -3.6169033, Pitch Cmd: -15.938894, Yaw Cmd: -0.4149389
+Roll: 0.2766928, Pitch: 2.433885, Yaw: 0.090082176
+Roll Cmd: -0.47263002, Pitch Cmd: -10.927654, Yaw Cmd: -0.17103645
+Roll: 0.28784123, Pitch: 2.460023, Yaw: 0.09146398
+Roll Cmd: -2.2970443, Pitch Cmd: -17.308704, Yaw Cmd: -0.9045731
+Roll: 0.26577258, Pitch: 2.478404, Yaw: 0.090812795
+Roll Cmd: -0.6538751, Pitch Cmd: -18.627886, Yaw Cmd: -0.41737792
+Roll: 0.2773748, Pitch: 2.504191, Yaw: 0.09176528
+Roll Cmd: -2.3023117, Pitch Cmd: -12.313835, Yaw Cmd: -0.54024374
+Roll: 0.2737166, Pitch: 2.4755838, Yaw: 0.090969086
+Roll Cmd: -3.8709276, Pitch Cmd: -14.097778, Yaw Cmd: 0.3146343
+Roll: 0.28990605, Pitch: 2.4512846, Yaw: 0.09195417
+Roll Cmd: -1.1355722, Pitch Cmd: -12.782316, Yaw Cmd: -0.4176828
+Roll: 0.28860375, Pitch: 2.479892, Yaw: 0.0922223
+Roll Cmd: 2.0815642, Pitch Cmd: -18.464281, Yaw Cmd: -0.41829255
+Roll: 0.30367813, Pitch: 2.5041409, Yaw: 0.092884324
+Roll Cmd: -3.940141, Pitch Cmd: -16.155704, Yaw Cmd: -0.1743901
+Roll: 0.32834977, Pitch: 2.5177908, Yaw: 0.09428896
+Roll Cmd: -1.4642642, Pitch Cmd: -14.948957, Yaw Cmd: -0.4189023
+Roll: 0.300333, Pitch: 2.5216258, Yaw: 0.09319268
+Roll Cmd: -4.1778183, Pitch Cmd: -12.950794, Yaw Cmd: -0.29725596
+Roll: 0.27261442, Pitch: 2.5289853, Yaw: 0.09243255
+Roll Cmd: 1.8339472, Pitch Cmd: -16.138285, Yaw Cmd: -0.542073
+Roll: 0.2442612, Pitch: 2.53125, Yaw: 0.091017544
+Roll Cmd: -1.8031448, Pitch Cmd: -12.899197, Yaw Cmd: -0.053963274
+Roll: 0.21861126, Pitch: 2.517467, Yaw: 0.09036424
+Roll Cmd: 2.662652, Pitch Cmd: -18.169928, Yaw Cmd: -0.54268277
+Roll: 0.22020687, Pitch: 2.4887207, Yaw: 0.090724535
+Roll Cmd: -5.421016, Pitch Cmd: -13.76127, Yaw Cmd: -0.42134133
+Roll: 0.24832009, Pitch: 2.494605, Yaw: 0.091938354
+Roll Cmd: -2.3384607, Pitch Cmd: -13.937819, Yaw Cmd: -0.17743888
+Roll: 0.2571929, Pitch: 2.5218213, Yaw: 0.09247896
+Roll Cmd: -1.4034839, Pitch Cmd: -18.833187, Yaw Cmd: -0.299695
+Roll: 0.2749935, Pitch: 2.4990683, Yaw: 0.09340956
+Roll Cmd: -2.6105738, Pitch Cmd: -12.685377, Yaw Cmd: -0.29999986
+Roll: 0.28741503, Pitch: 2.5244741, Yaw: 0.093792796
+Roll Cmd: -3.1550243, Pitch Cmd: -15.790274, Yaw Cmd: -0.05579254
+Roll: 0.3067257, Pitch: 2.5030322, Yaw: 0.094778605
+Roll Cmd: -3.5736904, Pitch Cmd: -16.564257, Yaw Cmd: -0.29999986
+Roll: 0.32440585, Pitch: 2.4796326, Yaw: 0.09598743
+Roll Cmd: -2.8114734, Pitch Cmd: -11.182117, Yaw Cmd: -0.544817
+Roll: 0.31443277, Pitch: 2.4522192, Yaw: 0.09614341
+Roll Cmd: -2.2338781, Pitch Cmd: -13.117831, Yaw Cmd: -0.6679877
+Roll: 0.29230672, Pitch: 2.4338787, Yaw: 0.09473517
+Roll Cmd: 0.66624427, Pitch Cmd: -16.581953, Yaw Cmd: 0.18658552
+Roll: 0.27212828, Pitch: 2.452968, Yaw: 0.094466485
+Roll Cmd: -1.6150572, Pitch Cmd: -13.191527, Yaw Cmd: -0.6682925
+Roll: 0.24553722, Pitch: 2.4428635, Yaw: 0.09330828
+Roll Cmd: -1.2843871, Pitch Cmd: -16.265121, Yaw Cmd: -0.18048766
+Roll: 0.27045462, Pitch: 2.4568174, Yaw: 0.09421261
+Roll Cmd: -1.5525897, Pitch Cmd: -16.794449, Yaw Cmd: -0.058231562
+Roll: 0.28002208, Pitch: 2.4838517, Yaw: 0.09477077
+Roll Cmd: -2.3065975, Pitch Cmd: -19.097628, Yaw Cmd: -0.30243888
+Roll: 0.25493038, Pitch: 2.469427, Yaw: 0.09369162
+Roll Cmd: 0.9502547, Pitch Cmd: -13.377858, Yaw Cmd: -0.18048766
+Roll: 0.2444953, Pitch: 2.4957442, Yaw: 0.093403034
+Roll Cmd: -0.42655385, Pitch Cmd: -16.128485, Yaw Cmd: -0.30274376
+Roll: 0.26090407, Pitch: 2.5184338, Yaw: 0.09429103
+Roll Cmd: -1.7210816, Pitch Cmd: -16.77762, Yaw Cmd: -0.30304864
+Roll: 0.250751, Pitch: 2.4912124, Yaw: 0.093845226
+Roll Cmd: -3.4620888, Pitch Cmd: -14.353243, Yaw Cmd: -0.18109742
+Roll: 0.2674039, Pitch: 2.4672272, Yaw: 0.09485492
+Roll Cmd: -4.1346793, Pitch Cmd: -14.487342, Yaw Cmd: -0.42560962
+Roll: 0.23890524, Pitch: 2.468229, Yaw: 0.09362058
+Roll Cmd: 0.32888842, Pitch Cmd: -17.2625, Yaw Cmd: -0.18170717
+Roll: 0.26726457, Pitch: 2.4631886, Yaw: 0.09498978
+Roll Cmd: -2.4357774, Pitch Cmd: -12.459599, Yaw Cmd: -0.30396327
+Roll: 0.27553856, Pitch: 2.4901793, Yaw: 0.09533864
+Roll Cmd: -2.9959052, Pitch Cmd: -18.561945, Yaw Cmd: -0.18201205
+Roll: 0.2500027, Pitch: 2.4770365, Yaw: 0.09453594
+Roll Cmd: 0.18450785, Pitch Cmd: -16.714092, Yaw Cmd: -0.42652425
+Roll: 0.22125062, Pitch: 2.4786513, Yaw: 0.093297504
+Roll Cmd: 0.44138455, Pitch Cmd: -14.4628315, Yaw Cmd: -0.1826218
+Roll: 0.24966373, Pitch: 2.4744945, Yaw: 0.09498155
+Roll Cmd: -3.8744798, Pitch Cmd: -17.212702, Yaw Cmd: -0.5493901
+Roll: 0.2559945, Pitch: 2.446381, Yaw: 0.09600757
+Roll Cmd: -2.8703785, Pitch Cmd: -14.568371, Yaw Cmd: -0.794817
+Roll: 0.28134105, Pitch: 2.432253, Yaw: 0.097077794
+Roll Cmd: -3.1167068, Pitch Cmd: -13.704965, Yaw Cmd: -0.18506083
+Roll: 0.2716838, Pitch: 2.45854, Yaw: 0.096656285
+Roll Cmd: -1.4176518, Pitch Cmd: -16.439077, Yaw Cmd: -0.18506083
+Roll: 0.28561723, Pitch: 2.483425, Yaw: 0.09785165
+Roll Cmd: -3.356477, Pitch Cmd: -18.736578, Yaw Cmd: -0.67408526
+Roll: 0.3088381, Pitch: 2.4996657, Yaw: 0.09900301
+Roll Cmd: -2.362867, Pitch Cmd: -14.628696, Yaw Cmd: -0.30853644
+Roll: 0.29910526, Pitch: 2.4728596, Yaw: 0.09871979
+Roll Cmd: -2.2626727, Pitch Cmd: -18.571793, Yaw Cmd: -0.30884132
+Roll: 0.28166696, Pitch: 2.4947636, Yaw: 0.098094255
+Roll Cmd: -1.8924556, Pitch Cmd: -15.035761, Yaw Cmd: -0.3091462
+Roll: 0.27578706, Pitch: 2.4662633, Yaw: 0.09799646
+Roll Cmd: 1.3678231, Pitch Cmd: -14.779388, Yaw Cmd: -0.30945107
+Roll: 0.25081807, Pitch: 2.481261, Yaw: 0.09755926
+Roll Cmd: 2.4877467, Pitch Cmd: -17.708347, Yaw Cmd: -0.6765243
+Roll: 0.22300592, Pitch: 2.488069, Yaw: 0.097267315
+Roll Cmd: -4.0806694, Pitch Cmd: -18.173775, Yaw Cmd: -0.922256
+Roll: 0.24574672, Pitch: 2.4706917, Yaw: 0.09887231
+Roll Cmd: -1.3698976, Pitch Cmd: -14.007774, Yaw Cmd: -0.67957306
+Roll: 0.25729135, Pitch: 2.4967313, Yaw: 0.09906736
+Roll Cmd: -3.8640451, Pitch Cmd: -18.423206, Yaw Cmd: 0.05274406
+Roll: 0.22849181, Pitch: 2.4961677, Yaw: 0.09842737
+Roll Cmd: 0.37010002, Pitch Cmd: -15.681898, Yaw Cmd: -0.6801828
+Roll: 0.20715414, Pitch: 2.4772642, Yaw: 0.09794458
+Roll Cmd: -2.977009, Pitch Cmd: -16.293133, Yaw Cmd: -0.55914617
+Roll: 0.22948347, Pitch: 2.458982, Yaw: 0.099209644
+Roll Cmd: -1.3983481, Pitch Cmd: -14.815519, Yaw Cmd: -0.43780473
+Roll: 0.24373402, Pitch: 2.433451, Yaw: 0.099656604
+Roll Cmd: -3.2803628, Pitch Cmd: -13.637001, Yaw Cmd: -0.071646184
+Roll: 0.2179064, Pitch: 2.4450226, Yaw: 0.09915298
+Roll Cmd: -1.3349347, Pitch Cmd: -19.250433, Yaw Cmd: -0.68262184
+Roll: 0.23937894, Pitch: 2.425536, Yaw: 0.10081919
+Roll Cmd: -2.1606958, Pitch Cmd: -14.785393, Yaw Cmd: -0.8060974
+Roll: 0.2129039, Pitch: 2.4135532, Yaw: 0.09986546
+Roll Cmd: 1.774763, Pitch Cmd: -15.884274, Yaw Cmd: -0.3185974
+Roll: 0.18434429, Pitch: 2.4109323, Yaw: 0.0991192
+Roll Cmd: -1.7911057, Pitch Cmd: -16.363052, Yaw Cmd: -0.56341445
+Roll: 0.20234331, Pitch: 2.4333768, Yaw: 0.10033727
+Roll Cmd: -2.6087399, Pitch Cmd: -19.96167, Yaw Cmd: -0.56432915
+Roll: 0.21649219, Pitch: 2.40784, Yaw: 0.1013772
+Roll Cmd: -3.9981816, Pitch Cmd: -12.364407, Yaw Cmd: -0.5652437
+Roll: 0.23289531, Pitch: 2.4306006, Yaw: 0.10222598
+Roll Cmd: -0.38072276, Pitch Cmd: -16.931404, Yaw Cmd: -0.32164618
+Roll: 0.25938678, Pitch: 2.4197648, Yaw: 0.103652194
+Roll Cmd: -3.895848, Pitch Cmd: -19.902458, Yaw Cmd: -0.44420716
+Roll: 0.28801695, Pitch: 2.4157598, Yaw: 0.10500306
+Roll Cmd: -4.1083555, Pitch Cmd: -12.756048, Yaw Cmd: -0.32256082
+Roll: 0.28003365, Pitch: 2.443173, Yaw: 0.105438225
+Roll Cmd: 0.7010958, Pitch Cmd: -20.329735, Yaw Cmd: -0.8118901
+Roll: 0.2703819, Pitch: 2.4160194, Yaw: 0.10533942
+Roll Cmd: -2.1628962, Pitch Cmd: -15.486267, Yaw Cmd: -0.44664618
+Roll: 0.28893277, Pitch: 2.394016, Yaw: 0.10612288
+Roll Cmd: -2.8335428, Pitch Cmd: -14.94783, Yaw Cmd: -0.20274374
+Roll: 0.2604836, Pitch: 2.3904061, Yaw: 0.1047831
+Roll Cmd: -1.2814615, Pitch Cmd: -18.126194, Yaw Cmd: -0.08048764
+Roll: 0.2519569, Pitch: 2.4177213, Yaw: 0.104443826
+Roll Cmd: 0.81621194, Pitch Cmd: -17.48048, Yaw Cmd: -0.20243886
+Roll: 0.26636875, Pitch: 2.392412, Yaw: 0.105649374
+Roll Cmd: -5.5919404, Pitch Cmd: -14.12409, Yaw Cmd: -0.69146323
+Roll: 0.28959227, Pitch: 2.4093175, Yaw: 0.1069127
+Roll Cmd: -3.9169014, Pitch Cmd: -18.45837, Yaw Cmd: -0.44817057
+Roll: 0.3129403, Pitch: 2.4258409, Yaw: 0.10804192
+Roll Cmd: -2.4838376, Pitch Cmd: -17.783901, Yaw Cmd: -0.32652423
+Roll: 0.29091245, Pitch: 2.443381, Yaw: 0.10755893
+Roll Cmd: -0.2207036, Pitch Cmd: -15.605431, Yaw Cmd: -0.5713413
+Roll: 0.2710625, Pitch: 2.4222677, Yaw: 0.10656173
+Roll Cmd: -1.013378, Pitch Cmd: -17.466743, Yaw Cmd: -0.08323154
+Roll: 0.26856688, Pitch: 2.4500196, Yaw: 0.10645204
+Roll Cmd: -1.8444254, Pitch Cmd: -16.914494, Yaw Cmd: -0.20518276
+Roll: 0.24460244, Pitch: 2.4649572, Yaw: 0.105725504
+Roll Cmd: -0.7600765, Pitch Cmd: -17.834503, Yaw Cmd: -0.44969496
+Roll: 0.23455454, Pitch: 2.490878, Yaw: 0.10573161
+Roll Cmd: -2.9445171, Pitch Cmd: -18.460127, Yaw Cmd: -0.5725608
+Roll: 0.2330067, Pitch: 2.5191743, Yaw: 0.10645068
+Roll Cmd: 2.7217867, Pitch Cmd: -20.984268, Yaw Cmd: -0.8179877
+Roll: 0.21931316, Pitch: 2.5440052, Yaw: 0.10630146
+Roll Cmd: -4.1290603, Pitch Cmd: -18.7201, Yaw Cmd: -0.5749998
+Roll: 0.24565111, Pitch: 2.5555427, Yaw: 0.107770376
+Roll Cmd: -3.9591627, Pitch Cmd: -18.916103, Yaw Cmd: -0.45365837
+Roll: 0.24404536, Pitch: 2.5265193, Yaw: 0.10814731
+Roll Cmd: -1.8861905, Pitch Cmd: -14.6684475, Yaw Cmd: -0.57652426
+Roll: 0.27292874, Pitch: 2.5215807, Yaw: 0.110001564
+Roll Cmd: -5.7288723, Pitch Cmd: -19.618786, Yaw Cmd: -0.699695
+Roll: 0.26263568, Pitch: 2.4943635, Yaw: 0.11031714
+Roll Cmd: 2.2091713, Pitch Cmd: -14.020817, Yaw Cmd: -0.82317054
+Roll: 0.23661985, Pitch: 2.5059178, Yaw: 0.10948476
+Roll Cmd: -1.404075, Pitch Cmd: -18.141602, Yaw Cmd: -0.45792666
+Roll: 0.24393554, Pitch: 2.5326, Yaw: 0.10963632
+Roll Cmd: -3.830542, Pitch Cmd: -15.894999, Yaw Cmd: -0.091768116
+Roll: 0.26851243, Pitch: 2.5166893, Yaw: 0.111464284
+Roll Cmd: -3.259134, Pitch Cmd: -19.080904, Yaw Cmd: -0.8249998
+Roll: 0.24318105, Pitch: 2.5029888, Yaw: 0.110505864
+Roll Cmd: 0.73019767, Pitch Cmd: -18.532656, Yaw Cmd: -0.33749983
+Roll: 0.2721337, Pitch: 2.5009854, Yaw: 0.11190617
+Roll Cmd: -4.949465, Pitch Cmd: -16.125908, Yaw Cmd: -0.3378047
+Roll: 0.24381036, Pitch: 2.506623, Yaw: 0.11067998
+Roll Cmd: 2.401147, Pitch Cmd: -18.774824, Yaw Cmd: -0.21585348
+Roll: 0.2414874, Pitch: 2.5348308, Yaw: 0.11072213
+Roll Cmd: -4.076855, Pitch Cmd: -20.000051, Yaw Cmd: -0.33810958
+Roll: 0.22144385, Pitch: 2.5546632, Yaw: 0.110438794
+Roll Cmd: -0.21806765, Pitch Cmd: -17.414738, Yaw Cmd: -0.7051828
+Roll: 0.23064944, Pitch: 2.5267377, Yaw: 0.1111417
+Roll Cmd: -3.1478124, Pitch Cmd: -15.787212, Yaw Cmd: -0.46189007
+Roll: 0.24328011, Pitch: 2.5008807, Yaw: 0.11199965
+Roll Cmd: -1.8461744, Pitch Cmd: -19.66661, Yaw Cmd: -0.46249983
+Roll: 0.22773264, Pitch: 2.5245574, Yaw: 0.11177963
+Roll Cmd: -0.4229145, Pitch Cmd: -17.674818, Yaw Cmd: -0.58536565
+Roll: 0.25500387, Pitch: 2.5335114, Yaw: 0.11267048
+Roll Cmd: -4.81601, Pitch Cmd: -19.25888, Yaw Cmd: 0.025000185
+Roll: 0.2692847, Pitch: 2.5582092, Yaw: 0.114051424
+Roll Cmd: -3.5361173, Pitch Cmd: -19.380058, Yaw Cmd: -0.8301828
+Roll: 0.29177704, Pitch: 2.5397508, Yaw: 0.11534126
+Roll Cmd: -3.2573793, Pitch Cmd: -17.301903, Yaw Cmd: -0.46493885
+Roll: 0.30538574, Pitch: 2.513794, Yaw: 0.11593735
+Roll Cmd: -1.3316188, Pitch Cmd: -14.611359, Yaw Cmd: -0.2210364
+Roll: 0.27804008, Pitch: 2.5206208, Yaw: 0.11563345
+Roll Cmd: -2.304811, Pitch Cmd: -19.201681, Yaw Cmd: -0.95457304
+Roll: 0.290918, Pitch: 2.495034, Yaw: 0.11665383
+Roll Cmd: -1.2708101, Pitch Cmd: -19.963295, Yaw Cmd: -0.58963394
+Roll: 0.27607632, Pitch: 2.4701316, Yaw: 0.11629918
+Roll Cmd: -2.9092515, Pitch Cmd: -13.972528, Yaw Cmd: -0.4682925
+Roll: 0.28618813, Pitch: 2.4426184, Yaw: 0.117021084
+Roll Cmd: -2.672621, Pitch Cmd: -16.743723, Yaw Cmd: -0.46890226
+Roll: 0.3148507, Pitch: 2.4408565, Yaw: 0.11839069
+Roll Cmd: -2.0999832, Pitch Cmd: -17.242731, Yaw Cmd: -0.34725592
+Roll: 0.28799766, Pitch: 2.430555, Yaw: 0.117552415
+Roll Cmd: -0.83852386, Pitch Cmd: -19.88071, Yaw Cmd: -0.4698169
+Roll: 0.27313372, Pitch: 2.454432, Yaw: 0.11735494
+Roll Cmd: -3.6879883, Pitch Cmd: -19.419806, Yaw Cmd: -0.5926827
+Roll: 0.27076146, Pitch: 2.4824789, Yaw: 0.11800553
+Roll Cmd: -0.55447865, Pitch Cmd: -18.955528, Yaw Cmd: -0.8381096
+Roll: 0.28042886, Pitch: 2.4552355, Yaw: 0.11796365
+Roll Cmd: -1.854909, Pitch Cmd: -17.772594, Yaw Cmd: 0.13841483
+Roll: 0.29265335, Pitch: 2.4806824, Yaw: 0.1191108
+Roll Cmd: -1.2060466, Pitch Cmd: -19.66784, Yaw Cmd: -0.7164632
+Roll: 0.26516446, Pitch: 2.474058, Yaw: 0.11835812
+Roll Cmd: -4.5433702, Pitch Cmd: -18.14917, Yaw Cmd: -0.5954267
+Roll: 0.29115072, Pitch: 2.4859314, Yaw: 0.12022666
+Roll Cmd: -2.7505407, Pitch Cmd: -16.028316, Yaw Cmd: -0.84085345
+Roll: 0.29885927, Pitch: 2.4579778, Yaw: 0.1213315
+Roll Cmd: 0.44572735, Pitch Cmd: -19.317408, Yaw Cmd: -0.8423779
+Roll: 0.287302, Pitch: 2.483869, Yaw: 0.12083164
+Roll Cmd: -3.069498, Pitch Cmd: -20.574087, Yaw Cmd: -0.23262176
+Roll: 0.2646159, Pitch: 2.4660566, Yaw: 0.11969816
+Roll Cmd: -1.0214245, Pitch Cmd: -17.738377, Yaw Cmd: -0.11036566
+Roll: 0.29192, Pitch: 2.4738235, Yaw: 0.120726995
+Roll Cmd: -2.7223425, Pitch Cmd: -18.252954, Yaw Cmd: -0.11006078
+Roll: 0.26400366, Pitch: 2.4674907, Yaw: 0.11936236
+Roll Cmd: -2.2772436, Pitch Cmd: -18.329002, Yaw Cmd: -0.1097559
+Roll: 0.23626713, Pitch: 2.475008, Yaw: 0.11817159
+Roll Cmd: 0.77738047, Pitch Cmd: -19.816822, Yaw Cmd: -0.23170713
+Roll: 0.24022171, Pitch: 2.4460242, Yaw: 0.118789144
+Roll Cmd: -3.7571185, Pitch Cmd: -15.762682, Yaw Cmd: -0.59847546
+Roll: 0.26393116, Pitch: 2.4621935, Yaw: 0.11994951
+Roll Cmd: -3.3030264, Pitch Cmd: -21.773827, Yaw Cmd: -0.35487786
+Roll: 0.27919552, Pitch: 2.4855542, Yaw: 0.120306835
+Roll Cmd: -1.4016693, Pitch Cmd: -16.94294, Yaw Cmd: 0.011585563
+Roll: 0.25661972, Pitch: 2.5024958, Yaw: 0.119462036
+Roll Cmd: -3.3037615, Pitch Cmd: -21.944267, Yaw Cmd: -0.35457298
+Roll: 0.23024434, Pitch: 2.512927, Yaw: 0.118147
+Roll Cmd: -0.0983479, Pitch Cmd: -18.730392, Yaw Cmd: -0.11036566
+Roll: 0.23541903, Pitch: 2.4847717, Yaw: 0.11867721
+Roll Cmd: -1.592114, Pitch Cmd: -19.88453, Yaw Cmd: -0.47682908
+Roll: 0.25386164, Pitch: 2.5066109, Yaw: 0.11976315
+Roll Cmd: -5.3143177, Pitch Cmd: -17.873583, Yaw Cmd: -0.47743884
+Roll: 0.28252083, Pitch: 2.5109177, Yaw: 0.12115658
+Roll Cmd: -2.9147768, Pitch Cmd: -21.580038, Yaw Cmd: -0.3557925
+Roll: 0.2758645, Pitch: 2.4828136, Yaw: 0.12101076
+Roll Cmd: -1.1714382, Pitch Cmd: -16.261944, Yaw Cmd: -0.35609737
+Roll: 0.3025426, Pitch: 2.4932973, Yaw: 0.12292153
+Roll Cmd: -3.5719905, Pitch Cmd: -18.871147, Yaw Cmd: -0.8454267
+Roll: 0.32189766, Pitch: 2.471608, Yaw: 0.12389144
+Roll Cmd: -4.809036, Pitch Cmd: -19.579924, Yaw Cmd: -0.35792664
+Roll: 0.30554387, Pitch: 2.4477506, Yaw: 0.123180464
+Roll Cmd: -0.060576916, Pitch Cmd: -16.454638, Yaw Cmd: -0.23597541
+Roll: 0.27750382, Pitch: 2.4548159, Yaw: 0.12229801
+Roll Cmd: 1.4054205, Pitch Cmd: -20.992474, Yaw Cmd: -0.4804876
+Roll: 0.2499917, Pitch: 2.4615624, Yaw: 0.1212601
+Roll Cmd: -3.0578723, Pitch Cmd: -16.492563, Yaw Cmd: -0.35884127
+Roll: 0.2769387, Pitch: 2.4713728, Yaw: 0.123172656
+Roll Cmd: -3.5458417, Pitch Cmd: -21.162971, Yaw Cmd: -0.8481705
+Roll: 0.2530554, Pitch: 2.4542544, Yaw: 0.12230009
+Roll Cmd: 0.48435283, Pitch Cmd: -15.327932, Yaw Cmd: -0.36067054
+Roll: 0.24335897, Pitch: 2.4807355, Yaw: 0.12220413
+Roll Cmd: -0.103143215, Pitch Cmd: -22.752274, Yaw Cmd: -0.4832315
+Roll: 0.2290073, Pitch: 2.5052192, Yaw: 0.12204801
+Roll Cmd: -2.0799305, Pitch Cmd: -21.325209, Yaw Cmd: -0.60609734
+Roll: 0.21377526, Pitch: 2.5292559, Yaw: 0.12153678
+Roll Cmd: -2.0406787, Pitch Cmd: -21.435516, Yaw Cmd: -0.3624998
+Roll: 0.2290326, Pitch: 2.504396, Yaw: 0.122661345
+Roll Cmd: -3.580808, Pitch Cmd: -16.797173, Yaw Cmd: -0.60731685
+Roll: 0.2344075, Pitch: 2.4760346, Yaw: 0.1230593
+Roll Cmd: -0.8541181, Pitch Cmd: -19.597717, Yaw Cmd: -0.3637193
+Roll: 0.2505351, Pitch: 2.499201, Yaw: 0.1242071
+Roll Cmd: -5.1812334, Pitch Cmd: -19.163225, Yaw Cmd: -0.60853636
+Roll: 0.2792074, Pitch: 2.4983182, Yaw: 0.12560879
+Roll Cmd: -2.8929632, Pitch Cmd: -21.812271, Yaw Cmd: -0.36493883
+Roll: 0.2686551, Pitch: 2.5241063, Yaw: 0.12528838
+Roll Cmd: -2.4891186, Pitch Cmd: -17.922802, Yaw Cmd: -0.3652437
+Roll: 0.25732028, Pitch: 2.4978082, Yaw: 0.12538682
+Roll Cmd: -2.465255, Pitch Cmd: -21.396788, Yaw Cmd: -0.73231685
+Roll: 0.24550755, Pitch: 2.4708812, Yaw: 0.12455944
+Roll Cmd: -0.91787577, Pitch Cmd: -14.569386, Yaw Cmd: 2.0861626e-7
+Roll: 0.26058015, Pitch: 2.4461966, Yaw: 0.12611848
+Roll Cmd: -2.2118678, Pitch Cmd: -21.385704, Yaw Cmd: -0.9774388
+Roll: 0.23222184, Pitch: 2.449675, Yaw: 0.124903806
+Roll Cmd: -0.7943163, Pitch Cmd: -17.549778, Yaw Cmd: -0.2457315
+Roll: 0.2607219, Pitch: 2.4479525, Yaw: 0.12627849
+Roll Cmd: -2.827308, Pitch Cmd: -21.063734, Yaw Cmd: -0.3679876
+Roll: 0.287641, Pitch: 2.4364345, Yaw: 0.12770854
+Roll Cmd: -6.625906, Pitch Cmd: -19.138357, Yaw Cmd: -0.49054858
+Roll: 0.2602733, Pitch: 2.4293, Yaw: 0.12698275
+Roll Cmd: -1.0322189, Pitch Cmd: -20.135925, Yaw Cmd: -0.6134144
+Roll: 0.24856345, Pitch: 2.4542787, Yaw: 0.12708172
+Roll Cmd: -0.2230649, Pitch Cmd: -17.199337, Yaw Cmd: -0.73658514
+Roll: 0.22620039, Pitch: 2.4368005, Yaw: 0.12610728
+Roll Cmd: -2.6621149, Pitch Cmd: -23.424074, Yaw Cmd: -0.24878028
+Roll: 0.24722932, Pitch: 2.4564376, Yaw: 0.127296
+Roll Cmd: -2.567861, Pitch Cmd: -20.899117, Yaw Cmd: -0.49329248
+Roll: 0.26364452, Pitch: 2.4320004, Yaw: 0.1278274
+Roll Cmd: -3.1219158, Pitch Cmd: -15.687073, Yaw Cmd: -0.12713394
+Roll: 0.2819952, Pitch: 2.4538465, Yaw: 0.12891349
+Roll Cmd: -1.726505, Pitch Cmd: -23.997671, Yaw Cmd: -0.49359736
+Roll: 0.30706796, Pitch: 2.440161, Yaw: 0.13045746
+Roll Cmd: -1.2717988, Pitch Cmd: -17.063305, Yaw Cmd: -0.6164632
+Roll: 0.33566242, Pitch: 2.4359677, Yaw: 0.13196954
+Roll Cmd: -6.783022, Pitch Cmd: -20.508118, Yaw Cmd: -0.49512175
+Roll: 0.36094216, Pitch: 2.4227908, Yaw: 0.13244775
+Roll Cmd: -0.6893141, Pitch Cmd: -18.580719, Yaw Cmd: 0.2378051
+Roll: 0.343863, Pitch: 2.4451246, Yaw: 0.13202868
+Roll Cmd: -3.0834408, Pitch Cmd: -20.337776, Yaw Cmd: -0.494512
+Roll: 0.33649963, Pitch: 2.4719825, Yaw: 0.13185406
+Roll Cmd: -3.6105752, Pitch Cmd: -21.387035, Yaw Cmd: -0.37286565
+Roll: 0.309786, Pitch: 2.4813824, Yaw: 0.13068953
+Roll Cmd: -1.1591091, Pitch Cmd: -21.376217, Yaw Cmd: -0.25091442
+Roll: 0.32738143, Pitch: 2.5034802, Yaw: 0.13208285
+Roll Cmd: -0.25922775, Pitch Cmd: -23.649233, Yaw Cmd: -0.73993886
+Roll: 0.29881367, Pitch: 2.5002518, Yaw: 0.1308315
+Roll Cmd: -3.211019, Pitch Cmd: -17.193903, Yaw Cmd: -0.25213394
+Roll: 0.2883459, Pitch: 2.5268023, Yaw: 0.13053055
+Roll Cmd: -1.0953805, Pitch Cmd: -24.724682, Yaw Cmd: -0.37439004
+Roll: 0.26116762, Pitch: 2.536125, Yaw: 0.13009754
+Roll Cmd: -0.9634433, Pitch Cmd: -21.031105, Yaw Cmd: -0.86371934
+Roll: 0.25535366, Pitch: 2.5638056, Yaw: 0.13043989
+Roll Cmd: -3.5156236, Pitch Cmd: -21.248436, Yaw Cmd: -0.74298763
+Roll: 0.27532598, Pitch: 2.5430903, Yaw: 0.13178587
+Roll Cmd: -2.5737174, Pitch Cmd: -20.413622, Yaw Cmd: -0.621951
+Roll: 0.2842322, Pitch: 2.5151212, Yaw: 0.1326125
+Roll Cmd: -5.105457, Pitch Cmd: -16.99855, Yaw Cmd: -0.6228657
+Roll: 0.25735375, Pitch: 2.5242221, Yaw: 0.13142192
+Roll Cmd: 0.40433288, Pitch Cmd: -21.800333, Yaw Cmd: -0.25701198
+Roll: 0.24304785, Pitch: 2.4989824, Yaw: 0.1317067
+Roll Cmd: -0.8635788, Pitch Cmd: -19.396505, Yaw Cmd: -0.9905486
+Roll: 0.2325928, Pitch: 2.471841, Yaw: 0.13093282
+Roll Cmd: -3.2955716, Pitch Cmd: -18.507965, Yaw Cmd: -0.014329046
+Roll: 0.25015846, Pitch: 2.4938931, Yaw: 0.1320031
+Roll Cmd: -0.9179497, Pitch Cmd: -22.458881, Yaw Cmd: -0.5027437
+Roll: 0.2760723, Pitch: 2.5059998, Yaw: 0.13312478
+Roll Cmd: -5.1169357, Pitch Cmd: -21.315763, Yaw Cmd: -0.25884125
+Roll: 0.29767534, Pitch: 2.4861944, Yaw: 0.1340375
+Roll Cmd: -5.8087044, Pitch Cmd: -20.541582, Yaw Cmd: -0.25884125
+Roll: 0.29421854, Pitch: 2.5139756, Yaw: 0.13418151
+Roll Cmd: -0.10218191, Pitch Cmd: -20.66092, Yaw Cmd: -0.5033535
+Roll: 0.30596453, Pitch: 2.4879944, Yaw: 0.13501202
+Roll Cmd: -0.75447965, Pitch Cmd: -22.591867, Yaw Cmd: -0.50396323
+Roll: 0.31287527, Pitch: 2.4595659, Yaw: 0.13545272
+Roll Cmd: -5.0438967, Pitch Cmd: -16.44215, Yaw Cmd: -0.38231686
+Roll: 0.32901534, Pitch: 2.4353447, Yaw: 0.1361329
+Roll Cmd: -3.3356824, Pitch Cmd: -20.316929, Yaw Cmd: -0.26036564
+Roll: 0.35691595, Pitch: 2.4270608, Yaw: 0.13760546
+Roll Cmd: -4.741252, Pitch Cmd: -20.366058, Yaw Cmd: -0.5048778
+Roll: 0.35147238, Pitch: 2.4547043, Yaw: 0.13752307
+Roll Cmd: -0.8646457, Pitch Cmd: -22.193048, Yaw Cmd: -0.3832315
+Roll: 0.32428238, Pitch: 2.4631283, Yaw: 0.13680969
+Roll Cmd: -1.2238417, Pitch Cmd: -20.558481, Yaw Cmd: -0.62804854
+Roll: 0.3166937, Pitch: 2.4903808, Yaw: 0.13662577
+Roll Cmd: -2.919766, Pitch Cmd: -23.832832, Yaw Cmd: -0.384451
+Roll: 0.2884909, Pitch: 2.4906015, Yaw: 0.13553014
+Roll Cmd: -2.6724894, Pitch Cmd: -20.340805, Yaw Cmd: -0.38475588
+Roll: 0.26000175, Pitch: 2.489962, Yaw: 0.13504407
+Roll Cmd: 0.4054973, Pitch Cmd: -20.29784, Yaw Cmd: -0.8740852
+Roll: 0.2369471, Pitch: 2.4730797, Yaw: 0.13433585
+Roll Cmd: -2.0357447, Pitch Cmd: -21.782583, Yaw Cmd: -0.5088413
+Roll: 0.26476634, Pitch: 2.4656534, Yaw: 0.13568485
+Roll Cmd: -2.2801335, Pitch Cmd: -20.023243, Yaw Cmd: -0.3871949
+Roll: 0.25895464, Pitch: 2.493272, Yaw: 0.13586925
+Roll Cmd: -4.424767, Pitch Cmd: -23.308636, Yaw Cmd: -0.632012
+Roll: 0.2759864, Pitch: 2.469425, Yaw: 0.13706598
+Roll Cmd: -0.29774666, Pitch Cmd: -17.011837, Yaw Cmd: -0.6329266
+Roll: 0.3024421, Pitch: 2.4578552, Yaw: 0.13834818
+Roll Cmd: -5.2817707, Pitch Cmd: -24.378302, Yaw Cmd: -0.38932905
+Roll: 0.3049266, Pitch: 2.4288545, Yaw: 0.13889551
+Roll Cmd: -3.4470234, Pitch Cmd: -18.312649, Yaw Cmd: -0.6341461
+Roll: 0.28110138, Pitch: 2.413505, Yaw: 0.13817343
+Roll Cmd: -2.1684637, Pitch Cmd: -21.967047, Yaw Cmd: -0.5128046
+Roll: 0.2888521, Pitch: 2.4409728, Yaw: 0.13851452
+Roll Cmd: 0.8665829, Pitch Cmd: -23.42969, Yaw Cmd: -0.2689022
+Roll: 0.26373973, Pitch: 2.4274485, Yaw: 0.13773803
+Roll Cmd: -4.2318397, Pitch Cmd: -19.197273, Yaw Cmd: -0.5134144
+Roll: 0.23511806, Pitch: 2.4225776, Yaw: 0.13684238
+Roll Cmd: 2.00223, Pitch Cmd: -20.331713, Yaw Cmd: -0.51402414
+Roll: 0.2565113, Pitch: 2.4411602, Yaw: 0.13744366
+Roll Cmd: -4.9170904, Pitch Cmd: -22.269722, Yaw Cmd: -0.025609523
+Roll: 0.2296383, Pitch: 2.430341, Yaw: 0.13645834
+Roll Cmd: -0.30732632, Pitch Cmd: -20.86824, Yaw Cmd: -0.39176807
+Roll: 0.23164216, Pitch: 2.4584348, Yaw: 0.13699886
+Roll Cmd: -3.2016985, Pitch Cmd: -22.83968, Yaw Cmd: -0.6365851
+Roll: 0.25464347, Pitch: 2.4410048, Yaw: 0.13783969
+Roll Cmd: -1.9998512, Pitch Cmd: -19.11159, Yaw Cmd: -0.14847538
+Roll: 0.23482342, Pitch: 2.4607744, Yaw: 0.13727523
+Roll Cmd: -5.205941, Pitch Cmd: -23.980846, Yaw Cmd: -0.51493883
+Roll: 0.2600733, Pitch: 2.4455807, Yaw: 0.13894244
+Roll Cmd: -3.7759504, Pitch Cmd: -19.301685, Yaw Cmd: -0.7600608
+Roll: 0.27415177, Pitch: 2.4207492, Yaw: 0.13971122
+Roll Cmd: 1.3328185, Pitch Cmd: -23.352137, Yaw Cmd: -0.39451197
+Roll: 0.30004314, Pitch: 2.4333723, Yaw: 0.14109005
+Roll Cmd: -8.301524, Pitch Cmd: -19.984142, Yaw Cmd: -0.5170729
+Roll: 0.27504453, Pitch: 2.4195035, Yaw: 0.14062555
+Roll Cmd: -0.6448574, Pitch Cmd: -21.678253, Yaw Cmd: -0.7621949
+Roll: 0.24763232, Pitch: 2.4098892, Yaw: 0.13962568
+Roll Cmd: 1.1064713, Pitch Cmd: -19.62612, Yaw Cmd: -0.3966461
+Roll: 0.22082296, Pitch: 2.399471, Yaw: 0.13880414
+Roll Cmd: -1.8248496, Pitch Cmd: -23.366358, Yaw Cmd: -0.5192071
+Roll: 0.24814788, Pitch: 2.4087563, Yaw: 0.14008869
+Roll Cmd: -5.2979345, Pitch Cmd: -22.174953, Yaw Cmd: -0.39756075
+Roll: 0.24994725, Pitch: 2.4370158, Yaw: 0.14077266
+Roll Cmd: -1.0807734, Pitch Cmd: -23.18964, Yaw Cmd: -0.7646339
+Roll: 0.27708566, Pitch: 2.4461613, Yaw: 0.14268114
+Roll Cmd: -4.598275, Pitch Cmd: -20.793308, Yaw Cmd: -0.88810956
+Roll: 0.2804325, Pitch: 2.4742994, Yaw: 0.14296912
+Roll Cmd: -2.7370377, Pitch Cmd: -24.809143, Yaw Cmd: -0.40060952
+Roll: 0.28572318, Pitch: 2.4458573, Yaw: 0.14365159
+Roll Cmd: -2.0790312, Pitch Cmd: -20.597843, Yaw Cmd: -0.64542663
+Roll: 0.30869812, Pitch: 2.4622486, Yaw: 0.14449456
+Roll Cmd: -2.1823137, Pitch Cmd: -22.825663, Yaw Cmd: -0.15731683
+Roll: 0.30097806, Pitch: 2.4344897, Yaw: 0.14401816
+Roll Cmd: -2.9264174, Pitch Cmd: -21.444412, Yaw Cmd: -0.15701196
+Roll: 0.28312328, Pitch: 2.4568841, Yaw: 0.14416438
+Roll Cmd: -3.2064548, Pitch Cmd: -24.747492, Yaw Cmd: -1.0124998
+Roll: 0.25680947, Pitch: 2.4684374, Yaw: 0.14350142
+Roll Cmd: 1.0276322, Pitch Cmd: -19.754581, Yaw Cmd: -0.6475607
+Roll: 0.25703073, Pitch: 2.4965997, Yaw: 0.14366123
+Roll Cmd: -3.9821439, Pitch Cmd: -23.583, Yaw Cmd: -0.40396318
+Roll: 0.2745723, Pitch: 2.4733117, Yaw: 0.14442502
+Roll Cmd: -2.6278048, Pitch Cmd: -19.55687, Yaw Cmd: -0.28201196
+Roll: 0.24801178, Pitch: 2.462906, Yaw: 0.14372277
+Roll Cmd: -3.4879198, Pitch Cmd: -23.186499, Yaw Cmd: -0.6487802
+Roll: 0.27294964, Pitch: 2.4483168, Yaw: 0.14478928
+Roll Cmd: -2.2920792, Pitch Cmd: -21.523314, Yaw Cmd: -0.2829266
+Roll: 0.24443176, Pitch: 2.444578, Yaw: 0.14356832
+Roll Cmd: -1.1248434, Pitch Cmd: -20.534088, Yaw Cmd: -0.2829266
+Roll: 0.23500162, Pitch: 2.416943, Yaw: 0.1434704
+Roll Cmd: -2.0219471, Pitch Cmd: -21.587809, Yaw Cmd: -0.52743876
+Roll: 0.23239286, Pitch: 2.4446518, Yaw: 0.14380069
+Roll Cmd: -3.8836417, Pitch Cmd: -22.846321, Yaw Cmd: -0.6503047
+Roll: 0.21027517, Pitch: 2.4625144, Yaw: 0.14376636
+Roll Cmd: 0.10271692, Pitch Cmd: -25.489649, Yaw Cmd: -1.0179876
+Roll: 0.22487897, Pitch: 2.4872293, Yaw: 0.14423814
+Roll Cmd: -3.9302754, Pitch Cmd: -25.256645, Yaw Cmd: -0.16402414
+Roll: 0.25215763, Pitch: 2.478148, Yaw: 0.14527112
+Roll Cmd: -2.3393955, Pitch Cmd: -18.343777, Yaw Cmd: -0.16371927
+Roll: 0.23901965, Pitch: 2.5036602, Yaw: 0.1450113
+Roll Cmd: -1.8346384, Pitch Cmd: -27.603058, Yaw Cmd: -0.5301827
+Roll: 0.26752555, Pitch: 2.49888, Yaw: 0.14639908
+Roll Cmd: -5.442787, Pitch Cmd: -20.21092, Yaw Cmd: -0.40853634
+Roll: 0.24144815, Pitch: 2.5096254, Yaw: 0.14539652
+Roll Cmd: -2.0691586, Pitch Cmd: -23.214035, Yaw Cmd: -0.40884122
+Roll: 0.2640597, Pitch: 2.4915042, Yaw: 0.14667967
+Roll Cmd: -2.964685, Pitch Cmd: -22.590153, Yaw Cmd: -0.53140223
+Roll: 0.2368264, Pitch: 2.4829257, Yaw: 0.14654714
+Roll Cmd: -2.0107832, Pitch Cmd: -20.027119, Yaw Cmd: -1.1432924
+Roll: 0.24004711, Pitch: 2.5110765, Yaw: 0.14713645
+Roll Cmd: -1.9841332, Pitch Cmd: -26.394905, Yaw Cmd: -0.65640223
+Roll: 0.26529792, Pitch: 2.496595, Yaw: 0.14853492
+Roll Cmd: -3.8380969, Pitch Cmd: -20.618622, Yaw Cmd: -0.53506076
+Roll: 0.27558827, Pitch: 2.4691029, Yaw: 0.14958636
+Roll Cmd: -2.38053, Pitch Cmd: -20.659145, Yaw Cmd: -0.7801827
+Roll: 0.28278732, Pitch: 2.4963086, Yaw: 0.14990257
+Roll Cmd: -2.216856, Pitch Cmd: -25.654985, Yaw Cmd: -0.2923778
+Roll: 0.2569895, Pitch: 2.5087714, Yaw: 0.14923817
+Roll Cmd: -1.3064244, Pitch Cmd: -24.319298, Yaw Cmd: -0.6591461
+Roll: 0.25879773, Pitch: 2.4795985, Yaw: 0.14916183
+Roll Cmd: -3.4080281, Pitch Cmd: -20.018751, Yaw Cmd: -0.17103633
+Roll: 0.26445466, Pitch: 2.507506, Yaw: 0.15001643
+Roll Cmd: -2.8786025, Pitch Cmd: -26.631247, Yaw Cmd: -0.782012
+Roll: 0.26282385, Pitch: 2.5354393, Yaw: 0.15007415
+Roll Cmd: -4.8343844, Pitch Cmd: -22.23667, Yaw Cmd: -0.41646317
+Roll: 0.26851138, Pitch: 2.507202, Yaw: 0.15046921
+Roll Cmd: -1.4718649, Pitch Cmd: -24.010069, Yaw Cmd: -0.41676804
+Roll: 0.2932225, Pitch: 2.492433, Yaw: 0.15216075
+Roll Cmd: -2.3752987, Pitch Cmd: -20.926115, Yaw Cmd: -0.78384125
+Roll: 0.301963, Pitch: 2.4651237, Yaw: 0.15253213
+Roll Cmd: -4.634449, Pitch Cmd: -24.063896, Yaw Cmd: -0.29603633
+Roll: 0.3056811, Pitch: 2.4930444, Yaw: 0.15253824
+Roll Cmd: -2.175171, Pitch Cmd: -22.318657, Yaw Cmd: -0.17378023
+Roll: 0.28946728, Pitch: 2.4687824, Yaw: 0.15199953
+Roll Cmd: -0.3785348, Pitch Cmd: -21.987133, Yaw Cmd: -0.41798756
+Roll: 0.308579, Pitch: 2.4472663, Yaw: 0.1529765
+Roll Cmd: -4.356135, Pitch Cmd: -22.871843, Yaw Cmd: -0.41829243
+Roll: 0.31418872, Pitch: 2.4185803, Yaw: 0.15366825
+Roll Cmd: -3.7628002, Pitch Cmd: -20.225906, Yaw Cmd: -0.66310954
+Roll: 0.28937232, Pitch: 2.4330153, Yaw: 0.15338023
+Roll Cmd: -1.5154214, Pitch Cmd: -27.671967, Yaw Cmd: -0.9085363
+Roll: 0.28675857, Pitch: 2.4042084, Yaw: 0.1531161
+Roll Cmd: -2.5791764, Pitch Cmd: -19.5994, Yaw Cmd: -0.17652413
+Roll: 0.2867181, Pitch: 2.432524, Yaw: 0.15356976
+Roll Cmd: -2.7068977, Pitch Cmd: -24.64039, Yaw Cmd: -0.6652436
+Roll: 0.2698652, Pitch: 2.4092722, Yaw: 0.15332125
+Roll Cmd: -1.0949821, Pitch Cmd: -23.68208, Yaw Cmd: -0.6661583
+Roll: 0.2642802, Pitch: 2.4371908, Yaw: 0.15338899
+Roll Cmd: -3.1263988, Pitch Cmd: -24.00988, Yaw Cmd: -0.54481685
+Roll: 0.2615284, Pitch: 2.4082587, Yaw: 0.15372099
+Roll Cmd: -3.2965288, Pitch Cmd: -20.442175, Yaw Cmd: -0.66768265
+Roll: 0.26756677, Pitch: 2.4361205, Yaw: 0.15442601
+Roll Cmd: -3.0054815, Pitch Cmd: -26.271463, Yaw Cmd: -0.66859734
+Roll: 0.28239757, Pitch: 2.4599624, Yaw: 0.15476568
+Roll Cmd: -1.1620119, Pitch Cmd: -23.171942, Yaw Cmd: -0.058231443
+Roll: 0.3081265, Pitch: 2.4462013, Yaw: 0.15646583
+Roll Cmd: -6.2517242, Pitch Cmd: -21.296354, Yaw Cmd: -0.7911583
+Roll: 0.2930611, Pitch: 2.4211807, Yaw: 0.15566316
+Roll Cmd: -2.0669408, Pitch Cmd: -22.194435, Yaw Cmd: -0.1810973
+Roll: 0.2732273, Pitch: 2.399907, Yaw: 0.15468079
+Roll Cmd: -0.25773907, Pitch Cmd: -23.895128, Yaw Cmd: -0.18079242
+Roll: 0.2699814, Pitch: 2.4276156, Yaw: 0.1547055
+Roll Cmd: -1.7448854, Pitch Cmd: -23.348045, Yaw Cmd: -0.42499974
+Roll: 0.2962489, Pitch: 2.437985, Yaw: 0.15597568
+Roll Cmd: -4.7287836, Pitch Cmd: -24.03949, Yaw Cmd: -0.42530462
+Roll: 0.3241527, Pitch: 2.4313383, Yaw: 0.15777355
+Roll Cmd: -4.147222, Pitch Cmd: -24.010626, Yaw Cmd: -0.7923778
+Roll: 0.3015004, Pitch: 2.4133914, Yaw: 0.15695852
+Roll Cmd: -3.207502, Pitch Cmd: -22.72871, Yaw Cmd: -0.426829
+Roll: 0.29622364, Pitch: 2.4409387, Yaw: 0.15719518
+Roll Cmd: -1.0330746, Pitch Cmd: -25.014254, Yaw Cmd: -0.6716461
+Roll: 0.32011625, Pitch: 2.455485, Yaw: 0.15899359
+Roll Cmd: -2.4214952, Pitch Cmd: -24.461033, Yaw Cmd: -0.9170729
+Roll: 0.33354124, Pitch: 2.4296536, Yaw: 0.15987349
+Roll Cmd: -4.9560413, Pitch Cmd: -22.496431, Yaw Cmd: -0.551829
+Roll: 0.3054487, Pitch: 2.4233816, Yaw: 0.15898512
+Roll Cmd: -2.2052383, Pitch Cmd: -23.455666, Yaw Cmd: -0.55243874
+Roll: 0.29007286, Pitch: 2.4467332, Yaw: 0.15846805
+Roll Cmd: -3.5884256, Pitch Cmd: -24.969435, Yaw Cmd: -0.43079242
+Roll: 0.2619117, Pitch: 2.4508042, Yaw: 0.15725598
+Roll Cmd: -0.6795931, Pitch Cmd: -24.858097, Yaw Cmd: -0.3088412
+Roll: 0.2532773, Pitch: 2.423105, Yaw: 0.15703255
+Roll Cmd: -2.3318906, Pitch Cmd: -22.570606, Yaw Cmd: -0.4310973
+Roll: 0.28144202, Pitch: 2.42671, Yaw: 0.15839007
+Roll Cmd: -1.8647282, Pitch Cmd: -27.191666, Yaw Cmd: -0.43140218
+Roll: 0.30872676, Pitch: 2.4175596, Yaw: 0.15984629
+Roll Cmd: -5.6243105, Pitch Cmd: -21.361542, Yaw Cmd: -0.5539632
+Roll: 0.31568465, Pitch: 2.4447517, Yaw: 0.16013174
+Roll Cmd: -3.9751658, Pitch Cmd: -23.865538, Yaw Cmd: -0.3100607
+Roll: 0.2874812, Pitch: 2.4412017, Yaw: 0.15921779
+Roll Cmd: -2.261085, Pitch Cmd: -23.88051, Yaw Cmd: -0.55457294
+Roll: 0.2874115, Pitch: 2.4693654, Yaw: 0.15889494
+Roll Cmd: -2.884401, Pitch Cmd: -26.275002, Yaw Cmd: -0.066158265
+Roll: 0.30796972, Pitch: 2.4491153, Yaw: 0.15946512
+Roll Cmd: -3.1604357, Pitch Cmd: -24.743933, Yaw Cmd: -0.06554851
+Roll: 0.28710905, Pitch: 2.4684577, Yaw: 0.15873227
+Roll Cmd: 0.4470594, Pitch Cmd: -22.958624, Yaw Cmd: -0.43170705
+Roll: 0.31608367, Pitch: 2.4685276, Yaw: 0.16026707
+Roll Cmd: -7.288066, Pitch Cmd: -22.727894, Yaw Cmd: -0.554268
+Roll: 0.3156429, Pitch: 2.4969838, Yaw: 0.16069089
+Roll Cmd: -2.9534318, Pitch Cmd: -29.500828, Yaw Cmd: -0.6771339
+Roll: 0.33594608, Pitch: 2.5167475, Yaw: 0.1620258
+Roll Cmd: -3.2348459, Pitch Cmd: -23.204458, Yaw Cmd: -0.6780485
+Roll: 0.35565054, Pitch: 2.537521, Yaw: 0.16273476
+Roll Cmd: -3.9906676, Pitch Cmd: -27.8406, Yaw Cmd: -0.18993875
+Roll: 0.3477915, Pitch: 2.5645487, Yaw: 0.16222307
+Roll Cmd: -2.654203, Pitch Cmd: -24.511763, Yaw Cmd: -0.18963388
+Roll: 0.32923836, Pitch: 2.5425832, Yaw: 0.16154784
+Roll Cmd: -1.3330032, Pitch Cmd: -25.145273, Yaw Cmd: -0.4338412
+Roll: 0.300552, Pitch: 2.5443835, Yaw: 0.16088632
+Roll Cmd: -0.74545884, Pitch Cmd: -21.790794, Yaw Cmd: -0.8009144
+Roll: 0.3119558, Pitch: 2.5175197, Yaw: 0.16198315
+Roll Cmd: -5.7388773, Pitch Cmd: -24.850931, Yaw Cmd: -0.8021339
+Roll: 0.33525997, Pitch: 2.4998114, Yaw: 0.16298644
+Roll Cmd: -4.176388, Pitch Cmd: -23.05278, Yaw Cmd: -0.314329
+Roll: 0.33946177, Pitch: 2.4708908, Yaw: 0.1630128
+Roll Cmd: -1.7380638, Pitch Cmd: -23.213026, Yaw Cmd: -0.1920729
+Roll: 0.31113443, Pitch: 2.469351, Yaw: 0.16177884
+Roll Cmd: -3.1138062, Pitch Cmd: -27.633825, Yaw Cmd: -0.31402412
+Roll: 0.29212338, Pitch: 2.447455, Yaw: 0.16095345
+Roll Cmd: -1.2882645, Pitch Cmd: -20.639969, Yaw Cmd: -0.31402412
+Roll: 0.3134021, Pitch: 2.466343, Yaw: 0.1621687
+Roll Cmd: -3.2413547, Pitch Cmd: -27.142885, Yaw Cmd: -0.5585363
+Roll: 0.3046484, Pitch: 2.4383285, Yaw: 0.16194226
+Roll Cmd: -2.51507, Pitch Cmd: -21.091473, Yaw Cmd: -0.43688998
+Roll: 0.28192943, Pitch: 2.4548433, Yaw: 0.16080959
+Roll Cmd: -2.5629637, Pitch Cmd: -25.499317, Yaw Cmd: -0.19268265
+Roll: 0.270611, Pitch: 2.481031, Yaw: 0.1613941
+Roll Cmd: -0.8185587, Pitch Cmd: -29.13662, Yaw Cmd: -1.1704266
+Roll: 0.24346045, Pitch: 2.471581, Yaw: 0.16067645
+Roll Cmd: -2.2288165, Pitch Cmd: -23.744839, Yaw Cmd: -0.6835363
+Roll: 0.22254588, Pitch: 2.4523704, Yaw: 0.16021454
+Roll Cmd: -4.0551443, Pitch Cmd: -24.766768, Yaw Cmd: -0.684451
+Roll: 0.24843001, Pitch: 2.463915, Yaw: 0.16116177
+Roll Cmd: -2.6358538, Pitch Cmd: -20.964634, Yaw Cmd: -0.19634119
+Roll: 0.26567125, Pitch: 2.4401278, Yaw: 0.16189545
+Roll Cmd: -2.9614763, Pitch Cmd: -24.405376, Yaw Cmd: -0.3182924
+Roll: 0.24427792, Pitch: 2.458335, Yaw: 0.16141723
+Roll Cmd: -4.096612, Pitch Cmd: -28.842676, Yaw Cmd: -0.68506074
+Roll: 0.26775724, Pitch: 2.4738886, Yaw: 0.1631851
+Roll Cmd: -1.8108637, Pitch Cmd: -22.788385, Yaw Cmd: -0.9304875
+Roll: 0.25621888, Pitch: 2.4998507, Yaw: 0.16284192
+Roll Cmd: -1.5327687, Pitch Cmd: -29.387333, Yaw Cmd: -0.44298753
+Roll: 0.26153335, Pitch: 2.5274487, Yaw: 0.16366147
+Roll Cmd: -6.163945, Pitch Cmd: -25.105675, Yaw Cmd: -0.81006074
+Roll: 0.23332727, Pitch: 2.5229332, Yaw: 0.16301909
+Roll Cmd: -0.027579784, Pitch Cmd: -25.822254, Yaw Cmd: -0.81128025
+Roll: 0.2619863, Pitch: 2.5237422, Yaw: 0.16428024
+Roll Cmd: -3.5249343, Pitch Cmd: -26.922276, Yaw Cmd: -0.32347533
+Roll: 0.26660505, Pitch: 2.4948401, Yaw: 0.16416164
+Roll Cmd: -4.65484, Pitch Cmd: -21.695007, Yaw Cmd: -0.07896313
+Roll: 0.29436675, Pitch: 2.4996295, Yaw: 0.16537957
+Roll Cmd: -1.2997, Pitch Cmd: -23.249815, Yaw Cmd: -0.32286558
+Roll: 0.31335282, Pitch: 2.5207646, Yaw: 0.166659
+Roll Cmd: -6.160674, Pitch Cmd: -29.390554, Yaw Cmd: -0.68963385
+Roll: 0.30791563, Pitch: 2.4918728, Yaw: 0.16627148
+Roll Cmd: -1.2479882, Pitch Cmd: -22.492748, Yaw Cmd: -0.20152411
+Roll: 0.28569594, Pitch: 2.509512, Yaw: 0.16529956
+Roll Cmd: -2.625095, Pitch Cmd: -27.805523, Yaw Cmd: -0.32347533
+Roll: 0.27181378, Pitch: 2.5336716, Yaw: 0.1652749
+Roll Cmd: -4.5699143, Pitch Cmd: -25.981882, Yaw Cmd: -0.81249976
+Roll: 0.24309975, Pitch: 2.5305164, Yaw: 0.16401017
+Roll Cmd: 1.4758048, Pitch Cmd: -25.431938, Yaw Cmd: -0.32469484
+Roll: 0.2643539, Pitch: 2.5492709, Yaw: 0.16541436
+Roll Cmd: -3.904244, Pitch Cmd: -28.10298, Yaw Cmd: -0.6914631
+Roll: 0.2750626, Pitch: 2.575854, Yaw: 0.1665166
+Roll Cmd: -2.6591394, Pitch Cmd: -29.422894, Yaw Cmd: -0.81463385
+Roll: 0.30157092, Pitch: 2.5867145, Yaw: 0.16815823
+Roll Cmd: -6.52248, Pitch Cmd: -23.464075, Yaw Cmd: -0.6935973
+Roll: 0.2866896, Pitch: 2.5614097, Yaw: 0.1679496
+Roll Cmd: -0.77242374, Pitch Cmd: -23.094944, Yaw Cmd: -0.6945119
+Roll: 0.26314586, Pitch: 2.576092, Yaw: 0.1667111
+Roll Cmd: -5.609863, Pitch Cmd: -26.550472, Yaw Cmd: -0.20640215
+Roll: 0.24901758, Pitch: 2.5508084, Yaw: 0.1665415
+Roll Cmd: 1.4685955, Pitch Cmd: -26.914116, Yaw Cmd: -0.69512165
+Roll: 0.2294055, Pitch: 2.5718129, Yaw: 0.16612872
+Roll Cmd: -1.8828621, Pitch Cmd: -28.566387, Yaw Cmd: -0.69603634
+Roll: 0.2573493, Pitch: 2.5656228, Yaw: 0.16738608
+Roll Cmd: -4.2362413, Pitch Cmd: -23.5157, Yaw Cmd: -0.33018264
+Roll: 0.2834415, Pitch: 2.5530884, Yaw: 0.16900533
+Roll Cmd: -4.982529, Pitch Cmd: -24.645311, Yaw Cmd: -0.6969509
+Roll: 0.2579582, Pitch: 2.5390935, Yaw: 0.16818167
+Roll Cmd: -0.9493866, Pitch Cmd: -25.31049, Yaw Cmd: -0.57560945
+Roll: 0.27228376, Pitch: 2.5139194, Yaw: 0.16912241
+Roll Cmd: -3.6301558, Pitch Cmd: -25.518778, Yaw Cmd: -0.5762192
+Roll: 0.25132662, Pitch: 2.5331223, Yaw: 0.1688074
+Roll Cmd: -2.658351, Pitch Cmd: -27.769102, Yaw Cmd: -0.82134116
+Roll: 0.2559427, Pitch: 2.5044873, Yaw: 0.16963762
+Roll Cmd: -0.863515, Pitch Cmd: -23.941025, Yaw Cmd: -0.82256067
+Roll: 0.24272086, Pitch: 2.4786527, Yaw: 0.16950367
+Roll Cmd: -6.016242, Pitch Cmd: -24.013138, Yaw Cmd: -0.70152414
+Roll: 0.26239476, Pitch: 2.4988778, Yaw: 0.1708123
+Roll Cmd: -2.4512696, Pitch Cmd: -27.040808, Yaw Cmd: -0.7024387
+Roll: 0.287134, Pitch: 2.4832387, Yaw: 0.17248063
+Roll Cmd: -5.7585464, Pitch Cmd: -25.31813, Yaw Cmd: -0.82560945
+Roll: 0.31123915, Pitch: 2.467249, Yaw: 0.17381305
+Roll Cmd: -4.327673, Pitch Cmd: -28.373096, Yaw Cmd: -0.58231676
+Roll: 0.30005658, Pitch: 2.4928625, Yaw: 0.17346503
+Roll Cmd: -2.6119816, Pitch Cmd: -24.468012, Yaw Cmd: -0.46067044
+Roll: 0.27177978, Pitch: 2.49877, Yaw: 0.17270221
+Roll Cmd: 1.3459568, Pitch Cmd: -28.036737, Yaw Cmd: -0.7054875
+Roll: 0.24504745, Pitch: 2.509158, Yaw: 0.1719964
+Roll Cmd: -2.3625884, Pitch Cmd: -26.850492, Yaw Cmd: -0.7064022
+Roll: 0.26598942, Pitch: 2.4887955, Yaw: 0.17350335
+Roll Cmd: -6.2788353, Pitch Cmd: -24.593958, Yaw Cmd: -0.8295729
+Roll: 0.29069212, Pitch: 2.4733074, Yaw: 0.17440508
+Roll Cmd: -4.3283315, Pitch Cmd: -25.558874, Yaw Cmd: -0.2195119
+Roll: 0.285914, Pitch: 2.5009644, Yaw: 0.1740168
+Roll Cmd: -4.443572, Pitch Cmd: -27.73305, Yaw Cmd: -0.21920702
+Roll: 0.2996139, Pitch: 2.5256495, Yaw: 0.17476755
+Roll Cmd: -0.831306, Pitch Cmd: -27.686842, Yaw Cmd: -0.46341434
+Roll: 0.31867066, Pitch: 2.5038204, Yaw: 0.17604636
+Roll Cmd: -5.602826, Pitch Cmd: -26.97568, Yaw Cmd: -0.70823145
+Roll: 0.29060948, Pitch: 2.497604, Yaw: 0.17542863
+Roll Cmd: -0.27817392, Pitch Cmd: -24.746946, Yaw Cmd: -0.8314022
+Roll: 0.27640957, Pitch: 2.5213335, Yaw: 0.1753856
+Roll Cmd: -5.4510827, Pitch Cmd: -26.204815, Yaw Cmd: -0.8326217
+Roll: 0.2669974, Pitch: 2.4940493, Yaw: 0.17496562
+Roll Cmd: -0.43083382, Pitch Cmd: -27.495924, Yaw Cmd: -0.34481677
+Roll: 0.24518949, Pitch: 2.5126832, Yaw: 0.17402497
+Roll Cmd: 0.32303953, Pitch Cmd: -27.586817, Yaw Cmd: -0.34481677
+Roll: 0.273598, Pitch: 2.5170927, Yaw: 0.17587137
+Roll Cmd: -6.659863, Pitch Cmd: -25.41489, Yaw Cmd: -0.8338412
+Roll: 0.2874378, Pitch: 2.491792, Yaw: 0.1763164
+Roll Cmd: -3.8031988, Pitch Cmd: -27.733505, Yaw Cmd: -0.22378018
+Roll: 0.31561208, Pitch: 2.4967523, Yaw: 0.17799713
+Roll Cmd: -3.7953107, Pitch Cmd: -25.503006, Yaw Cmd: -0.71249974
+Roll: 0.30272445, Pitch: 2.4709737, Yaw: 0.17835814
+Roll Cmd: -1.7611387, Pitch Cmd: -27.002508, Yaw Cmd: -1.0801827
+Roll: 0.27597815, Pitch: 2.4614933, Yaw: 0.17733741
+Roll Cmd: -4.8414345, Pitch Cmd: -24.798302, Yaw Cmd: -0.4707314
+Roll: 0.2705643, Pitch: 2.4895387, Yaw: 0.17724279
+Roll Cmd: -2.1617928, Pitch Cmd: -30.47249, Yaw Cmd: -0.4710363
+Roll: 0.24598417, Pitch: 2.5041344, Yaw: 0.17663921
+Roll Cmd: 1.1554117, Pitch Cmd: -24.630291, Yaw Cmd: -0.71585333
+Roll: 0.23215954, Pitch: 2.478461, Yaw: 0.17649256
+Roll Cmd: -3.7945683, Pitch Cmd: -25.598845, Yaw Cmd: -0.716768
+Roll: 0.23566912, Pitch: 2.4499378, Yaw: 0.17696063
+Roll Cmd: -1.638114, Pitch Cmd: -27.734987, Yaw Cmd: -0.59542656
+Roll: 0.26200533, Pitch: 2.4608364, Yaw: 0.17807926
+Roll Cmd: -6.56945, Pitch Cmd: -24.42088, Yaw Cmd: -0.35152408
+Roll: 0.23914638, Pitch: 2.4781015, Yaw: 0.17739895
+Roll Cmd: -1.1933904, Pitch Cmd: -31.573372, Yaw Cmd: -0.5960363
+Roll: 0.22718063, Pitch: 2.5037184, Yaw: 0.17718817
+Roll Cmd: -1.6541426, Pitch Cmd: -26.109186, Yaw Cmd: -0.5966461
+Roll: 0.20377336, Pitch: 2.48695, Yaw: 0.17616056
+Roll Cmd: -3.3203514, Pitch Cmd: -26.26619, Yaw Cmd: -0.3527436
+Roll: 0.19652525, Pitch: 2.4592323, Yaw: 0.17613201
+Roll Cmd: -4.1553965, Pitch Cmd: -27.247353, Yaw Cmd: -0.5972558
+Roll: 0.22348414, Pitch: 2.4482524, Yaw: 0.17773396
+Roll Cmd: -2.8656185, Pitch Cmd: -23.52341, Yaw Cmd: -0.7201216
+Roll: 0.22764057, Pitch: 2.4757195, Yaw: 0.1777371
+Roll Cmd: -4.7851734, Pitch Cmd: -27.629086, Yaw Cmd: -0.23201188
+Roll: 0.22926486, Pitch: 2.4468524, Yaw: 0.17858031
+Roll Cmd: 0.63436556, Pitch Cmd: -28.696888, Yaw Cmd: -0.9652436
+Roll: 0.22210237, Pitch: 2.4742868, Yaw: 0.1787096
+Roll Cmd: -6.430696, Pitch Cmd: -29.34354, Yaw Cmd: -0.7222558
+Roll: 0.19696395, Pitch: 2.487882, Yaw: 0.17792535
+Roll Cmd: 0.45294213, Pitch Cmd: -28.017273, Yaw Cmd: -0.60091436
+Roll: 0.18234715, Pitch: 2.4628696, Yaw: 0.1774519
+Roll Cmd: -1.446353, Pitch Cmd: -25.37229, Yaw Cmd: -0.47926798
+Roll: 0.21066901, Pitch: 2.4636686, Yaw: 0.17822392
+Roll Cmd: -3.541499, Pitch Cmd: -26.612818, Yaw Cmd: 0.009451538
+Roll: 0.18259868, Pitch: 2.468391, Yaw: 0.17777051
+Roll Cmd: -3.8068578, Pitch Cmd: -29.117567, Yaw Cmd: -0.9676826
+Roll: 0.15416077, Pitch: 2.4665778, Yaw: 0.17714882
+Roll Cmd: -1.5283813, Pitch Cmd: -28.141394, Yaw Cmd: -0.8469509
+Roll: 0.17896077, Pitch: 2.4519973, Yaw: 0.17897405
+Roll Cmd: -3.3777106, Pitch Cmd: -26.03011, Yaw Cmd: -0.97042656
+Roll: 0.20417312, Pitch: 2.4652152, Yaw: 0.18066338
+Roll Cmd: -4.192785, Pitch Cmd: -26.627577, Yaw Cmd: -0.84969485
+Roll: 0.17610268, Pitch: 2.4651132, Yaw: 0.17927638
+Roll Cmd: -4.6445694, Pitch Cmd: -28.256205, Yaw Cmd: -0.23963383
+Roll: 0.19108869, Pitch: 2.4406872, Yaw: 0.18067923
+Roll Cmd: -0.75011134, Pitch Cmd: -27.871513, Yaw Cmd: -0.9728656
+Roll: 0.19434258, Pitch: 2.411602, Yaw: 0.18141118
+Roll Cmd: -4.6615677, Pitch Cmd: -23.076748, Yaw Cmd: -0.85213387
+Roll: 0.16928783, Pitch: 2.4242, Yaw: 0.18048565
+Roll Cmd: -2.5507226, Pitch Cmd: -28.838566, Yaw Cmd: -0.48658505
+Roll: 0.18110704, Pitch: 2.4499836, Yaw: 0.18174887
+Roll Cmd: -1.31517, Pitch Cmd: -29.60624, Yaw Cmd: -0.97591436
+Roll: 0.20208067, Pitch: 2.4698293, Yaw: 0.18278132
+Roll Cmd: -6.3086367, Pitch Cmd: -29.442245, Yaw Cmd: -0.48841432
+Roll: 0.22735493, Pitch: 2.4562688, Yaw: 0.18432435
+Roll Cmd: -2.0791347, Pitch Cmd: -27.879642, Yaw Cmd: -0.7332314
+Roll: 0.1991371, Pitch: 2.458638, Yaw: 0.18370938
+Roll Cmd: -3.178946, Pitch Cmd: -26.41808, Yaw Cmd: -0.85640216
+Roll: 0.19530037, Pitch: 2.4862356, Yaw: 0.1839981
+Roll Cmd: -1.3429562, Pitch Cmd: -26.889963, Yaw Cmd: -0.7353655
+Roll: 0.22342236, Pitch: 2.4884887, Yaw: 0.18569425
+Roll Cmd: -2.1056738, Pitch Cmd: -30.215708, Yaw Cmd: -0.7362802
+Roll: 0.2473183, Pitch: 2.5033388, Yaw: 0.18719539
+Roll Cmd: -5.6953583, Pitch Cmd: -26.392406, Yaw Cmd: -0.7371948
+Roll: 0.24243532, Pitch: 2.5308988, Yaw: 0.18758087
+Roll Cmd: -4.379291, Pitch Cmd: -30.069098, Yaw Cmd: -0.8603655
+Roll: 0.23379938, Pitch: 2.5579848, Yaw: 0.18749467
+Roll Cmd: -2.7187405, Pitch Cmd: -31.722652, Yaw Cmd: -0.6170728
+Roll: 0.26000863, Pitch: 2.546014, Yaw: 0.18911728
+Roll Cmd: -3.6898177, Pitch Cmd: -26.89353, Yaw Cmd: -0.73993874
+Roll: 0.2884916, Pitch: 2.5473044, Yaw: 0.19069213
+Roll Cmd: -3.834832, Pitch Cmd: -27.534084, Yaw Cmd: -0.61859727
+Roll: 0.31006762, Pitch: 2.5653687, Yaw: 0.19227482
+Roll Cmd: -3.5226886, Pitch Cmd: -29.152094, Yaw Cmd: -0.8637192
+Roll: 0.2925657, Pitch: 2.5426178, Yaw: 0.19192885
+Roll Cmd: -6.183187, Pitch Cmd: -27.17582, Yaw Cmd: -0.7426826
+Roll: 0.31327054, Pitch: 2.5621283, Yaw: 0.19330622
+Roll Cmd: -2.108087, Pitch Cmd: -30.057463, Yaw Cmd: -0.74359727
+Roll: 0.2970229, Pitch: 2.5378466, Yaw: 0.19304365
+Roll Cmd: -1.7264318, Pitch Cmd: -25.666016, Yaw Cmd: -0.74451184
+Roll: 0.3134865, Pitch: 2.5137317, Yaw: 0.1940579
+Roll Cmd: -6.3778276, Pitch Cmd: -27.88487, Yaw Cmd: -0.6231704
+Roll: 0.31376785, Pitch: 2.4851139, Yaw: 0.19454043
+Roll Cmd: -0.33771205, Pitch Cmd: -29.2105, Yaw Cmd: -0.7460363
+Roll: 0.3396702, Pitch: 2.472182, Yaw: 0.19595696
+Roll Cmd: -6.8667173, Pitch Cmd: -26.237309, Yaw Cmd: -0.6246948
+Roll: 0.34175697, Pitch: 2.4436328, Yaw: 0.19635099
+Roll Cmd: -2.7702856, Pitch Cmd: -28.455809, Yaw Cmd: -0.6253046
+Roll: 0.3436292, Pitch: 2.4146202, Yaw: 0.19689102
+Roll Cmd: -2.7328255, Pitch Cmd: -24.631168, Yaw Cmd: -0.7481704
+Roll: 0.31658658, Pitch: 2.404185, Yaw: 0.19622302
+Roll Cmd: -1.2477157, Pitch Cmd: -29.265392, Yaw Cmd: -0.74908507
+Roll: 0.29828984, Pitch: 2.4257507, Yaw: 0.19590643
+Roll Cmd: -3.8963704, Pitch Cmd: -27.888891, Yaw Cmd: -0.74999964
+Roll: 0.2894903, Pitch: 2.4525366, Yaw: 0.19552958
+Roll Cmd: -2.8720474, Pitch Cmd: -29.703259, Yaw Cmd: -0.384146
+Roll: 0.26133135, Pitch: 2.4567325, Yaw: 0.1944678
+Roll Cmd: -2.6476564, Pitch Cmd: -29.433704, Yaw Cmd: -0.50640213
+Roll: 0.24678442, Pitch: 2.4808526, Yaw: 0.19383259
+Roll Cmd: -2.5383425, Pitch Cmd: -28.984468, Yaw Cmd: -0.38445088
+Roll: 0.2551956, Pitch: 2.508108, Yaw: 0.19434369
+Roll Cmd: -3.6645746, Pitch Cmd: -31.506063, Yaw Cmd: -0.50670695
+Roll: 0.24521817, Pitch: 2.480764, Yaw: 0.19391407
+Roll Cmd: -1.2248396, Pitch Cmd: -25.856197, Yaw Cmd: -0.38475576
+Roll: 0.25943702, Pitch: 2.505497, Yaw: 0.19527957
+Roll Cmd: -6.1930294, Pitch Cmd: -30.684093, Yaw Cmd: -0.9960363
+Roll: 0.280757, Pitch: 2.524356, Yaw: 0.19619901
+Roll Cmd: -4.394598, Pitch Cmd: -28.21605, Yaw Cmd: -0.38628015
+Roll: 0.28209716, Pitch: 2.4951532, Yaw: 0.19671157
+Roll Cmd: -1.9064267, Pitch Cmd: -27.338932, Yaw Cmd: -0.7530484
+Roll: 0.29318836, Pitch: 2.4681644, Yaw: 0.19763319
+Roll Cmd: -5.4059544, Pitch Cmd: -28.185051, Yaw Cmd: -0.7539631
+Roll: 0.30328375, Pitch: 2.440697, Yaw: 0.1985127
+Roll Cmd: -3.155454, Pitch Cmd: -26.631855, Yaw Cmd: -0.7548777
+Roll: 0.29385135, Pitch: 2.4675272, Yaw: 0.19812022
+Roll Cmd: -0.6262603, Pitch Cmd: -31.607378, Yaw Cmd: -0.38902405
+Roll: 0.26519233, Pitch: 2.4668841, Yaw: 0.19718952
+Roll Cmd: -3.370286, Pitch Cmd: -28.860252, Yaw Cmd: -0.6335362
+Roll: 0.24841051, Pitch: 2.4433334, Yaw: 0.19646198
+Roll Cmd: -3.2089522, Pitch Cmd: -26.971827, Yaw Cmd: -0.3896338
+Roll: 0.25777027, Pitch: 2.4702394, Yaw: 0.19747172
+Roll Cmd: -2.9900723, Pitch Cmd: -31.763445, Yaw Cmd: -0.8786582
+Roll: 0.24436462, Pitch: 2.4946866, Yaw: 0.19733796
+Roll Cmd: -3.3690581, Pitch Cmd: -27.203793, Yaw Cmd: -0.75762165
+Roll: 0.25156358, Pitch: 2.4659185, Yaw: 0.19734037
+Roll Cmd: -2.879126, Pitch Cmd: -26.006046, Yaw Cmd: -0.14725575
+Roll: 0.2690536, Pitch: 2.442259, Yaw: 0.1986761
+Roll Cmd: -6.4563837, Pitch Cmd: -29.99849, Yaw Cmd: -0.8801826
+Roll: 0.27234873, Pitch: 2.470368, Yaw: 0.19973618
+Roll Cmd: -0.5184994, Pitch Cmd: -31.928886, Yaw Cmd: -1.1259143
+Roll: 0.2529149, Pitch: 2.491123, Yaw: 0.19888766
+Roll Cmd: -3.8483071, Pitch Cmd: -30.967728, Yaw Cmd: -0.39420697
+Roll: 0.28042188, Pitch: 2.4808967, Yaw: 0.19975299
+Roll Cmd: -6.2455425, Pitch Cmd: -25.687283, Yaw Cmd: -0.14969477
+Roll: 0.2555664, Pitch: 2.4665935, Yaw: 0.19867209
+Roll Cmd: -0.6765559, Pitch Cmd: -30.72551, Yaw Cmd: -0.39359722
+Roll: 0.28425083, Pitch: 2.462298, Yaw: 0.20004399
+Roll Cmd: -5.5517416, Pitch Cmd: -29.805435, Yaw Cmd: -0.5158533
+Roll: 0.2644977, Pitch: 2.482569, Yaw: 0.1995
+Roll Cmd: -0.14648414, Pitch Cmd: -28.033037, Yaw Cmd: -0.63841426
+Roll: 0.28533635, Pitch: 2.5020974, Yaw: 0.20101464
+Roll Cmd: -5.112597, Pitch Cmd: -32.581543, Yaw Cmd: -0.8835362
+Roll: 0.27794728, Pitch: 2.5292978, Yaw: 0.20053576
+Roll Cmd: -3.0123954, Pitch Cmd: -29.32064, Yaw Cmd: -0.27347526
+Roll: 0.25169742, Pitch: 2.5173614, Yaw: 0.20014751
+Roll Cmd: -1.2793329, Pitch Cmd: -30.45095, Yaw Cmd: -1.006707
+Roll: 0.26739058, Pitch: 2.5408587, Yaw: 0.2009903
+Roll Cmd: -4.8342705, Pitch Cmd: -29.245594, Yaw Cmd: -0.519207
+Roll: 0.29444334, Pitch: 2.5513453, Yaw: 0.20246673
+Roll Cmd: -7.7912536, Pitch Cmd: -29.37873, Yaw Cmd: -0.641768
+Roll: 0.26713517, Pitch: 2.5593963, Yaw: 0.20154624
+Roll Cmd: 0.11108017, Pitch Cmd: -32.35587, Yaw Cmd: -0.64237773
+Roll: 0.28901175, Pitch: 2.5406094, Yaw: 0.20206122
+Roll Cmd: -3.7334514, Pitch Cmd: -28.096819, Yaw Cmd: -0.03170696
+Roll: 0.28899547, Pitch: 2.569371, Yaw: 0.20264341
+Roll Cmd: -6.492686, Pitch Cmd: -33.52353, Yaw Cmd: -0.886585
+Roll: 0.286671, Pitch: 2.5973973, Yaw: 0.20266813
+Roll Cmd: -2.6861787, Pitch Cmd: -28.32547, Yaw Cmd: -0.52103627
+Roll: 0.3008603, Pitch: 2.5723572, Yaw: 0.20376411
+Roll Cmd: -1.9442327, Pitch Cmd: -30.219957, Yaw Cmd: -0.7658533
+Roll: 0.28154808, Pitch: 2.5511563, Yaw: 0.20242116
+Roll Cmd: -4.7947235, Pitch Cmd: -27.390945, Yaw Cmd: -0.033231348
+Roll: 0.30003047, Pitch: 2.528844, Yaw: 0.20307964
+Roll Cmd: -2.9262438, Pitch Cmd: -29.553242, Yaw Cmd: -0.2768289
+Roll: 0.2782629, Pitch: 2.546501, Yaw: 0.20225154
+Roll Cmd: -3.178341, Pitch Cmd: -29.283115, Yaw Cmd: -0.52103627
+Roll: 0.2508057, Pitch: 2.5379465, Yaw: 0.20103215
+Roll Cmd: -0.57480884, Pitch Cmd: -31.042051, Yaw Cmd: -0.39908502
+Roll: 0.25247395, Pitch: 2.509061, Yaw: 0.20109752
+Roll Cmd: -4.2125616, Pitch Cmd: -28.57061, Yaw Cmd: -0.39908502
+Roll: 0.26307938, Pitch: 2.4818547, Yaw: 0.20170891
+Roll Cmd: -3.1709409, Pitch Cmd: -27.085632, Yaw Cmd: -0.5213411
+Roll: 0.23678981, Pitch: 2.493417, Yaw: 0.2011829
+Roll Cmd: -1.3036268, Pitch Cmd: -32.77974, Yaw Cmd: -0.88841426
+Roll: 0.23010163, Pitch: 2.5210557, Yaw: 0.20118769
+Roll Cmd: -4.500416, Pitch Cmd: -31.46021, Yaw Cmd: -0.6451216
+Roll: 0.25874507, Pitch: 2.5225337, Yaw: 0.20260023
+Roll Cmd: -4.0372477, Pitch Cmd: -31.014177, Yaw Cmd: -0.5234753
+Roll: 0.28203362, Pitch: 2.505272, Yaw: 0.20377725
+Roll Cmd: -3.803525, Pitch Cmd: -25.5365, Yaw Cmd: -0.5237801
+Roll: 0.3070544, Pitch: 2.4910827, Yaw: 0.20547627
+Roll Cmd: -5.4513264, Pitch Cmd: -32.41877, Yaw Cmd: -0.8908533
+Roll: 0.27952933, Pitch: 2.498479, Yaw: 0.20442718
+Roll Cmd: -2.135552, Pitch Cmd: -28.277493, Yaw Cmd: -0.52530456
+Roll: 0.3074616, Pitch: 2.4921975, Yaw: 0.20656219
+Roll Cmd: -4.100632, Pitch Cmd: -31.374516, Yaw Cmd: -1.1368899
+Roll: 0.32548437, Pitch: 2.469578, Yaw: 0.20720002
+Roll Cmd: -3.6360712, Pitch Cmd: -27.572132, Yaw Cmd: -0.28292647
+Roll: 0.32011265, Pitch: 2.4973617, Yaw: 0.20680669
+Roll Cmd: -5.541859, Pitch Cmd: -33.09516, Yaw Cmd: -0.2826216
+Roll: 0.34695435, Pitch: 2.5073774, Yaw: 0.20812166
+Roll Cmd: -4.962834, Pitch Cmd: -30.071554, Yaw Cmd: -0.5268289
+Roll: 0.32478952, Pitch: 2.5254493, Yaw: 0.20715912
+Roll Cmd: -0.25686073, Pitch Cmd: -31.270533, Yaw Cmd: -0.4048777
+Roll: 0.2998878, Pitch: 2.5107164, Yaw: 0.20637465
+Roll Cmd: -3.03341, Pitch Cmd: -30.46605, Yaw Cmd: -0.64938986
+Roll: 0.27200815, Pitch: 2.5041463, Yaw: 0.20544967
+Roll Cmd: -3.6327467, Pitch Cmd: -28.610443, Yaw Cmd: -0.6499996
+Roll: 0.27686346, Pitch: 2.5318956, Yaw: 0.20596537
+Roll Cmd: -2.9881196, Pitch Cmd: -32.593365, Yaw Cmd: -0.6506094
+Roll: 0.274381, Pitch: 2.502926, Yaw: 0.20585413
+Roll Cmd: -3.365775, Pitch Cmd: -29.106491, Yaw Cmd: -0.40670696
+Roll: 0.2888953, Pitch: 2.4779968, Yaw: 0.20740378
+Roll Cmd: -3.4522657, Pitch Cmd: -30.045603, Yaw Cmd: -1.1402435
+Roll: 0.31719345, Pitch: 2.4830358, Yaw: 0.20877193
+Roll Cmd: -6.4550858, Pitch Cmd: -30.03272, Yaw Cmd: -0.53079236
+Roll: 0.2978758, Pitch: 2.4614625, Yaw: 0.207951
+Roll Cmd: -0.358881, Pitch Cmd: -31.008543, Yaw Cmd: -0.4088411
+Roll: 0.31886256, Pitch: 2.4804971, Yaw: 0.20901306
+Roll Cmd: -5.3118305, Pitch Cmd: -30.808458, Yaw Cmd: -0.5310972
+Roll: 0.3336903, Pitch: 2.504533, Yaw: 0.20965536
+Roll Cmd: -5.093374, Pitch Cmd: -31.106491, Yaw Cmd: -0.40914598
+Roll: 0.3069984, Pitch: 2.515556, Yaw: 0.20926517
+Roll Cmd: -0.003708601, Pitch Cmd: -31.277088, Yaw Cmd: -1.0204265
+Roll: 0.32592824, Pitch: 2.4938703, Yaw: 0.21040207
+Roll Cmd: -5.9753466, Pitch Cmd: -30.460262, Yaw Cmd: -0.6551826
+Roll: 0.34295154, Pitch: 2.4702857, Yaw: 0.21173349
+Roll Cmd: -6.771756, Pitch Cmd: -29.617405, Yaw Cmd: -0.90030456
+Roll: 0.33890587, Pitch: 2.4421492, Yaw: 0.21154787
+Roll Cmd: -3.5611544, Pitch Cmd: -31.67313, Yaw Cmd: -0.41249964
+Roll: 0.31072167, Pitch: 2.4402165, Yaw: 0.21017292
+Roll Cmd: -3.108501, Pitch Cmd: -27.693892, Yaw Cmd: -0.29024354
+Roll: 0.28276008, Pitch: 2.4466608, Yaw: 0.20944177
+Roll Cmd: 0.7487855, Pitch Cmd: -31.074299, Yaw Cmd: -0.7789631
+Roll: 0.25557557, Pitch: 2.4380488, Yaw: 0.2084291
+Roll Cmd: -3.6907492, Pitch Cmd: -32.672386, Yaw Cmd: -0.53536546
+Roll: 0.26583028, Pitch: 2.4109032, Yaw: 0.20962887
+Roll Cmd: -2.5161994, Pitch Cmd: -27.253086, Yaw Cmd: -1.0246948
+Roll: 0.29496363, Pitch: 2.411394, Yaw: 0.21129003
+Roll Cmd: -8.033992, Pitch Cmd: -30.811419, Yaw Cmd: -0.7817069
+Roll: 0.29294798, Pitch: 2.4393234, Yaw: 0.21134746
+Roll Cmd: -2.0752115, Pitch Cmd: -31.462902, Yaw Cmd: -0.5381094
+Roll: 0.29069084, Pitch: 2.4677017, Yaw: 0.21155468
+Roll Cmd: -2.7576816, Pitch Cmd: -34.625908, Yaw Cmd: -0.6606704
+Roll: 0.31523806, Pitch: 2.4820719, Yaw: 0.21246816
+Roll Cmd: -4.071121, Pitch Cmd: -31.829897, Yaw Cmd: -0.29451182
+Roll: 0.31472847, Pitch: 2.510231, Yaw: 0.21290697
+Roll Cmd: -3.6033707, Pitch Cmd: -31.05973, Yaw Cmd: -0.7832314
+Roll: 0.28896546, Pitch: 2.4979, Yaw: 0.21253529
+Roll Cmd: -3.8705254, Pitch Cmd: -32.123844, Yaw Cmd: -1.0286582
+Roll: 0.26443595, Pitch: 2.5122478, Yaw: 0.21176545
+Roll Cmd: -1.6431175, Pitch Cmd: -30.475864, Yaw Cmd: -0.66341424
+Roll: 0.28868368, Pitch: 2.52693, Yaw: 0.21313316
+Roll Cmd: -4.77866, Pitch Cmd: -31.259275, Yaw Cmd: -0.664024
+Roll: 0.29139432, Pitch: 2.497536, Yaw: 0.21340638
+Roll Cmd: -2.9872355, Pitch Cmd: -28.304268, Yaw Cmd: -0.5423777
+Roll: 0.31671065, Pitch: 2.5110815, Yaw: 0.21464926
+Roll Cmd: -7.174861, Pitch Cmd: -34.203148, Yaw Cmd: -0.5426825
+Roll: 0.29281327, Pitch: 2.4959989, Yaw: 0.21388994
+Roll Cmd: -3.3334966, Pitch Cmd: -32.940006, Yaw Cmd: -0.6652435
+Roll: 0.27758682, Pitch: 2.4714484, Yaw: 0.21338083
+Roll Cmd: -0.68073606, Pitch Cmd: -28.731537, Yaw Cmd: -0.5435972
+Roll: 0.2995152, Pitch: 2.489893, Yaw: 0.21448225
+Roll Cmd: -4.716411, Pitch Cmd: -33.876904, Yaw Cmd: -0.54390204
+Roll: 0.31613514, Pitch: 2.5131898, Yaw: 0.21578787
+Roll Cmd: -7.5803223, Pitch Cmd: -30.434446, Yaw Cmd: -0.9109752
+Roll: 0.3065525, Pitch: 2.4854598, Yaw: 0.21582268
+Roll Cmd: -0.3041973, Pitch Cmd: -28.613285, Yaw Cmd: -0.7899387
+Roll: 0.32410887, Pitch: 2.5081463, Yaw: 0.2173275
+Roll Cmd: -6.886261, Pitch Cmd: -34.893185, Yaw Cmd: -1.0353655
+Roll: 0.3046123, Pitch: 2.5285184, Yaw: 0.21706496
+Roll Cmd: -2.1025405, Pitch Cmd: -32.673332, Yaw Cmd: -0.91463375
+Roll: 0.28714138, Pitch: 2.5053442, Yaw: 0.21659236
+Roll Cmd: -2.125791, Pitch Cmd: -29.027569, Yaw Cmd: -0.67134106
+Roll: 0.27669027, Pitch: 2.531637, Yaw: 0.21597263
+Roll Cmd: -3.1737452, Pitch Cmd: -34.502605, Yaw Cmd: -0.30518255
+Roll: 0.28325915, Pitch: 2.5037017, Yaw: 0.21655229
+Roll Cmd: -4.7794685, Pitch Cmd: -31.943342, Yaw Cmd: -0.671646
+Roll: 0.29664135, Pitch: 2.4780674, Yaw: 0.21742441
+Roll Cmd: -4.411825, Pitch Cmd: -29.797497, Yaw Cmd: -0.67225575
+Roll: 0.29279894, Pitch: 2.5059292, Yaw: 0.2173941
+Roll Cmd: -3.580671, Pitch Cmd: -31.664213, Yaw Cmd: -0.55060935
+Roll: 0.32146588, Pitch: 2.5010717, Yaw: 0.21923976
+Roll Cmd: -5.2152004, Pitch Cmd: -31.582268, Yaw Cmd: -0.9176825
+Roll: 0.31007755, Pitch: 2.4739213, Yaw: 0.21921138
+Roll Cmd: -0.19623828, Pitch Cmd: -28.946432, Yaw Cmd: -0.796646
+Roll: 0.29429513, Pitch: 2.449426, Yaw: 0.2188348
+Roll Cmd: -4.4152718, Pitch Cmd: -31.28262, Yaw Cmd: -0.67530453
+Roll: 0.26677984, Pitch: 2.45731, Yaw: 0.21780851
+Roll Cmd: -2.3266459, Pitch Cmd: -34.465538, Yaw Cmd: -0.5536581
+Roll: 0.24051724, Pitch: 2.4459689, Yaw: 0.21697381
+Roll Cmd: -3.8643978, Pitch Cmd: -29.051306, Yaw Cmd: -0.6762191
+Roll: 0.25422704, Pitch: 2.4198267, Yaw: 0.21738078
+Roll Cmd: -5.12535, Pitch Cmd: -29.740086, Yaw Cmd: -0.3100606
+Roll: 0.27065822, Pitch: 2.3957047, Yaw: 0.21790385
+Roll Cmd: -3.7999306, Pitch Cmd: -32.082706, Yaw Cmd: -0.3097557
+Roll: 0.2511516, Pitch: 2.416514, Yaw: 0.21754108
+Roll Cmd: -1.2269866, Pitch Cmd: -34.398537, Yaw Cmd: -0.79847527
+Roll: 0.2689717, Pitch: 2.4386292, Yaw: 0.21829458
+Roll Cmd: -4.5288897, Pitch Cmd: -32.318726, Yaw Cmd: -0.43262157
+Roll: 0.24682239, Pitch: 2.4564798, Yaw: 0.21780416
+Roll Cmd: -2.5608997, Pitch Cmd: -32.924957, Yaw Cmd: -0.79938984
+Roll: 0.2625788, Pitch: 2.4321065, Yaw: 0.21847421
+Roll Cmd: -4.4221287, Pitch Cmd: -30.107208, Yaw Cmd: -0.4335362
+Roll: 0.23912013, Pitch: 2.448066, Yaw: 0.21716298
+Roll Cmd: -3.2556155, Pitch Cmd: -33.61776, Yaw Cmd: -0.189024
+Roll: 0.25715688, Pitch: 2.4704955, Yaw: 0.21821421
+Roll Cmd: -6.868622, Pitch Cmd: -33.287037, Yaw Cmd: -0.6774386
+Roll: 0.28569165, Pitch: 2.46992, Yaw: 0.21975248
+Roll Cmd: -1.408484, Pitch Cmd: -30.680965, Yaw Cmd: -0.6780484
+Roll: 0.3113945, Pitch: 2.4573581, Yaw: 0.22116773
+Roll Cmd: -4.997217, Pitch Cmd: -33.880394, Yaw Cmd: -0.6786581
+Roll: 0.28400925, Pitch: 2.4508972, Yaw: 0.22011961
+Roll Cmd: -6.2299004, Pitch Cmd: -31.230637, Yaw Cmd: -0.55701184
+Roll: 0.25631118, Pitch: 2.4450274, Yaw: 0.21891473
+Roll Cmd: -1.7261128, Pitch Cmd: -31.244308, Yaw Cmd: -0.4350606
+Roll: 0.28412184, Pitch: 2.4521372, Yaw: 0.22024666
+Roll Cmd: -3.6568909, Pitch Cmd: -32.65221, Yaw Cmd: -0.55731666
+Roll: 0.3022985, Pitch: 2.4293253, Yaw: 0.22099964
+Roll Cmd: -6.2432995, Pitch Cmd: -31.965496, Yaw Cmd: -0.43536547
+Roll: 0.30568615, Pitch: 2.4572709, Yaw: 0.22160502
+Roll Cmd: -1.0093312, Pitch Cmd: -33.00508, Yaw Cmd: -0.8021338
+Roll: 0.30815184, Pitch: 2.485646, Yaw: 0.22170398
+Roll Cmd: -5.4392614, Pitch Cmd: -35.39916, Yaw Cmd: -0.4362801
+Roll: 0.289179, Pitch: 2.506653, Yaw: 0.22087522
+Roll Cmd: -2.1373034, Pitch Cmd: -32.132824, Yaw Cmd: -0.4362801
+Roll: 0.31205648, Pitch: 2.488975, Yaw: 0.22293086
+Roll Cmd: -5.7059393, Pitch Cmd: -33.270615, Yaw Cmd: -1.2920728
+Roll: 0.28785092, Pitch: 2.5045104, Yaw: 0.22158338
+Roll Cmd: -0.35513163, Pitch Cmd: -32.707554, Yaw Cmd: -0.19390205
+Roll: 0.31002808, Pitch: 2.5223753, Yaw: 0.222547
+Roll Cmd: -7.1396084, Pitch Cmd: -32.8628, Yaw Cmd: -0.4378045
+Roll: 0.30612054, Pitch: 2.4933927, Yaw: 0.22207487
+Roll Cmd: -2.1508183, Pitch Cmd: -30.544472, Yaw Cmd: -0.19329229
+Roll: 0.2771542, Pitch: 2.4928925, Yaw: 0.22113024
+Roll Cmd: -1.5773008, Pitch Cmd: -33.447124, Yaw Cmd: -0.6817069
+Roll: 0.27253556, Pitch: 2.4643412, Yaw: 0.22108132
+Roll Cmd: -5.007284, Pitch Cmd: -32.105247, Yaw Cmd: -0.5600606
+Roll: 0.30075294, Pitch: 2.4696465, Yaw: 0.22260123
+Roll Cmd: -5.192232, Pitch Cmd: -35.353542, Yaw Cmd: -0.6826216
+Roll: 0.27417025, Pitch: 2.4788911, Yaw: 0.2209796
+Roll Cmd: -4.0391874, Pitch Cmd: -28.79597, Yaw Cmd: -0.07195082
+Roll: 0.2479312, Pitch: 2.4897826, Yaw: 0.22029622
+Roll Cmd: -0.9964242, Pitch Cmd: -34.096134, Yaw Cmd: -0.8045728
+Roll: 0.2758236, Pitch: 2.4953759, Yaw: 0.2219708
+Roll Cmd: -4.360708, Pitch Cmd: -33.928566, Yaw Cmd: -0.8054874
+Roll: 0.27082446, Pitch: 2.5231464, Yaw: 0.22237216
+Roll Cmd: -2.736937, Pitch Cmd: -34.36518, Yaw Cmd: -0.9286581
+Roll: 0.25789577, Pitch: 2.5483904, Yaw: 0.2217987
+Roll Cmd: -4.597448, Pitch Cmd: -35.11056, Yaw Cmd: -0.44085327
+Roll: 0.25796178, Pitch: 2.5193098, Yaw: 0.22256777
+Roll Cmd: -2.9932876, Pitch Cmd: -30.97028, Yaw Cmd: -1.0521338
+Roll: 0.25831935, Pitch: 2.490536, Yaw: 0.22288062
+Roll Cmd: -5.2805376, Pitch Cmd: -33.22138, Yaw Cmd: -0.6868899
+Roll: 0.23067465, Pitch: 2.4838972, Yaw: 0.22197089
+Roll Cmd: -3.178875, Pitch Cmd: -32.07303, Yaw Cmd: -0.68749964
+Roll: 0.2023597, Pitch: 2.4849517, Yaw: 0.22088012
+Roll Cmd: -2.350533, Pitch Cmd: -31.676315, Yaw Cmd: -0.56585324
+Roll: 0.22690055, Pitch: 2.4994118, Yaw: 0.22224306
+Roll Cmd: -4.181849, Pitch Cmd: -33.854477, Yaw Cmd: -0.6884142
+Roll: 0.2029667, Pitch: 2.4835434, Yaw: 0.22164382
+Roll Cmd: -3.3011234, Pitch Cmd: -32.39696, Yaw Cmd: -0.81128013
+Roll: 0.22960038, Pitch: 2.4929073, Yaw: 0.222964
+Roll Cmd: -1.9903944, Pitch Cmd: -34.435577, Yaw Cmd: -0.5676825
+Roll: 0.24903132, Pitch: 2.5139563, Yaw: 0.22396497
+Roll Cmd: -6.158446, Pitch Cmd: -36.65787, Yaw Cmd: -0.56798744
+Roll: 0.24156925, Pitch: 2.485871, Yaw: 0.22424673
+Roll Cmd: -3.3898828, Pitch Cmd: -29.768616, Yaw Cmd: -0.9350606
+Roll: 0.25373918, Pitch: 2.5117047, Yaw: 0.22492237
+Roll Cmd: -5.1337557, Pitch Cmd: -36.187878, Yaw Cmd: -0.5695118
+Roll: 0.2772121, Pitch: 2.4950879, Yaw: 0.22625151
+Roll Cmd: -4.236789, Pitch Cmd: -32.684162, Yaw Cmd: -0.69207275
+Roll: 0.29940376, Pitch: 2.476092, Yaw: 0.22795992
+Roll Cmd: -6.501792, Pitch Cmd: -31.024258, Yaw Cmd: -1.0594509
+Roll: 0.27773684, Pitch: 2.49403, Yaw: 0.22700489
+Roll Cmd: -2.8857877, Pitch Cmd: -34.34026, Yaw Cmd: -0.44969472
+Roll: 0.30528095, Pitch: 2.4873853, Yaw: 0.2280636
+Roll Cmd: -2.2449744, Pitch Cmd: -36.255066, Yaw Cmd: -0.32743862
+Roll: 0.3070051, Pitch: 2.5158103, Yaw: 0.22813141
+Roll Cmd: -6.246296, Pitch Cmd: -33.580704, Yaw Cmd: -0.44938985
+Roll: 0.3103823, Pitch: 2.543807, Yaw: 0.22841695
+Roll Cmd: -4.9120297, Pitch Cmd: -33.591656, Yaw Cmd: -0.571646
+Roll: 0.3063931, Pitch: 2.571516, Yaw: 0.22838117
+Roll Cmd: -3.0536933, Pitch Cmd: -34.37713, Yaw Cmd: -0.5719508
+Roll: 0.33445516, Pitch: 2.5764294, Yaw: 0.23010348
+Roll Cmd: -3.8594127, Pitch Cmd: -35.6012, Yaw Cmd: -0.81676793
+Roll: 0.36281845, Pitch: 2.5719597, Yaw: 0.23168103
+Roll Cmd: -6.179093, Pitch Cmd: -34.483315, Yaw Cmd: -0.69542646
+Roll: 0.33472547, Pitch: 2.5741832, Yaw: 0.23100746
+Roll Cmd: -4.9806485, Pitch Cmd: -34.116604, Yaw Cmd: -0.9405484
+Roll: 0.32155114, Pitch: 2.5484633, Yaw: 0.23009779
+Roll Cmd: -2.7069912, Pitch Cmd: -31.214554, Yaw Cmd: -0.2082313
+Roll: 0.3305399, Pitch: 2.575128, Yaw: 0.2306349
+Roll Cmd: -4.5295153, Pitch Cmd: -34.52585, Yaw Cmd: -0.5743898
+Roll: 0.34130573, Pitch: 2.5480137, Yaw: 0.2314043
+Roll Cmd: -4.6462283, Pitch Cmd: -33.416897, Yaw Cmd: -0.6969508
+Roll: 0.31620526, Pitch: 2.5338876, Yaw: 0.22999372
+Roll Cmd: -0.5640409, Pitch Cmd: -35.617622, Yaw Cmd: -0.20853618
+Roll: 0.32305443, Pitch: 2.5615993, Yaw: 0.23058839
+Roll Cmd: -6.6193666, Pitch Cmd: -34.767113, Yaw Cmd: -0.6969508
+Roll: 0.3287287, Pitch: 2.5333235, Yaw: 0.23162076
+Roll Cmd: -0.54424906, Pitch Cmd: -32.012825, Yaw Cmd: -1.0643289
+Roll: 0.33511034, Pitch: 2.5049524, Yaw: 0.23250781
+Roll Cmd: -6.561957, Pitch Cmd: -31.940449, Yaw Cmd: -0.9435972
+Roll: 0.31795174, Pitch: 2.4814281, Yaw: 0.23221469
+Roll Cmd: -3.2004948, Pitch Cmd: -32.11637, Yaw Cmd: -0.82256055
+Roll: 0.3059355, Pitch: 2.5070913, Yaw: 0.23200701
+Roll Cmd: -1.8860369, Pitch Cmd: -36.075867, Yaw Cmd: -0.7012191
+Roll: 0.2841615, Pitch: 2.4887655, Yaw: 0.2321024
+Roll Cmd: -6.6752315, Pitch Cmd: -33.993885, Yaw Cmd: -1.3131094
+Roll: 0.2595401, Pitch: 2.50247, Yaw: 0.23131432
+Roll Cmd: -2.8255076, Pitch Cmd: -35.63811, Yaw Cmd: -0.70396304
+Roll: 0.24227434, Pitch: 2.5248866, Yaw: 0.23100589
+Roll Cmd: -1.6044192, Pitch Cmd: -34.647522, Yaw Cmd: -0.82682884
+Roll: 0.22590701, Pitch: 2.5010467, Yaw: 0.23058417
+Roll Cmd: -3.075293, Pitch Cmd: -32.370224, Yaw Cmd: -0.7054874
+Roll: 0.20523144, Pitch: 2.5199373, Yaw: 0.23012578
+Roll Cmd: -2.8221831, Pitch Cmd: -33.698414, Yaw Cmd: -0.8283533
+Roll: 0.22305621, Pitch: 2.4969912, Yaw: 0.23134214
+Roll Cmd: -6.2535944, Pitch Cmd: -36.20899, Yaw Cmd: -0.82926786
+Roll: 0.2480853, Pitch: 2.5111008, Yaw: 0.23348664
+Roll Cmd: -4.4319468, Pitch Cmd: -33.595097, Yaw Cmd: -1.319207
+Roll: 0.25130817, Pitch: 2.4823337, Yaw: 0.2342282
+Roll Cmd: -3.360394, Pitch Cmd: -33.73646, Yaw Cmd: -0.9545728
+Roll: 0.25338584, Pitch: 2.453613, Yaw: 0.23445612
+Roll Cmd: -4.814668, Pitch Cmd: -33.742912, Yaw Cmd: -0.58902395
+Roll: 0.24928616, Pitch: 2.481416, Yaw: 0.23410569
+Roll Cmd: -4.5493274, Pitch Cmd: -34.291023, Yaw Cmd: -0.34481665
+Roll: 0.22570907, Pitch: 2.4643116, Yaw: 0.23324469
+Roll Cmd: 0.24389529, Pitch Cmd: -32.825596, Yaw Cmd: -0.58902395
+Roll: 0.25379884, Pitch: 2.456851, Yaw: 0.23489328
+Roll Cmd: -7.5395036, Pitch Cmd: -35.57527, Yaw Cmd: -0.8338411
+Roll: 0.23263827, Pitch: 2.4364793, Yaw: 0.2341375
+Roll Cmd: -1.3964815, Pitch Cmd: -29.636719, Yaw Cmd: -0.59024346
+Roll: 0.21425214, Pitch: 2.4582872, Yaw: 0.23350409
+Roll Cmd: -2.952158, Pitch Cmd: -40.018616, Yaw Cmd: -0.5905484
+Roll: 0.24307801, Pitch: 2.4609592, Yaw: 0.23518324
+Roll Cmd: -6.828205, Pitch Cmd: -33.215908, Yaw Cmd: -0.8353654
+Roll: 0.24893507, Pitch: 2.4327662, Yaw: 0.23466465
+Roll Cmd: -3.5120156, Pitch Cmd: -34.702984, Yaw Cmd: 0.14176872
+Roll: 0.27652636, Pitch: 2.4241168, Yaw: 0.23643965
+Roll Cmd: -4.589036, Pitch Cmd: -31.118961, Yaw Cmd: -0.9570118
+Roll: 0.30383462, Pitch: 2.4145994, Yaw: 0.23773679
+Roll Cmd: -6.145781, Pitch Cmd: -36.321922, Yaw Cmd: -0.59146297
+Roll: 0.2927031, Pitch: 2.4405077, Yaw: 0.2378721
+Roll Cmd: -2.7783422, Pitch Cmd: -35.157032, Yaw Cmd: -0.95853615
+Roll: 0.29063085, Pitch: 2.4685853, Yaw: 0.23792684
+Roll Cmd: -4.712806, Pitch Cmd: -36.096607, Yaw Cmd: -0.5929874
+Roll: 0.27389374, Pitch: 2.4909854, Yaw: 0.237491
+Roll Cmd: -4.0098724, Pitch Cmd: -35.14601, Yaw Cmd: -0.7155484
+Roll: 0.2923156, Pitch: 2.4681349, Yaw: 0.23888688
+Roll Cmd: -4.24633, Pitch Cmd: -32.91842, Yaw Cmd: -0.96067035
+Roll: 0.28622416, Pitch: 2.439712, Yaw: 0.23892838
+Roll Cmd: -3.0227766, Pitch Cmd: -34.88694, Yaw Cmd: -0.71737766
+Roll: 0.30628708, Pitch: 2.4592464, Yaw: 0.23993354
+Roll Cmd: -5.0626416, Pitch Cmd: -33.503, Yaw Cmd: -0.59573126
+Roll: 0.27779967, Pitch: 2.4606476, Yaw: 0.23870434
+Roll Cmd: -3.4365463, Pitch Cmd: -39.47775, Yaw Cmd: -0.47378007
+Roll: 0.30588788, Pitch: 2.4667885, Yaw: 0.2399037
+Roll Cmd: -5.4926953, Pitch Cmd: -33.829716, Yaw Cmd: -0.47378007
+Roll: 0.28295213, Pitch: 2.4836287, Yaw: 0.23952073
+Roll Cmd: -2.2244487, Pitch Cmd: -35.883907, Yaw Cmd: -0.96280444
+Roll: 0.28597775, Pitch: 2.4543555, Yaw: 0.24008438
+Roll Cmd: -6.51942, Pitch Cmd: -31.330994, Yaw Cmd: -0.8417679
+Roll: 0.25986224, Pitch: 2.4658844, Yaw: 0.23911916
+Roll Cmd: 0.20665574, Pitch Cmd: -36.31667, Yaw Cmd: -0.5981703
+Roll: 0.258397, Pitch: 2.4363766, Yaw: 0.23982045
+Roll Cmd: -3.9035177, Pitch Cmd: -32.042957, Yaw Cmd: -1.0874996
+Roll: 0.24534653, Pitch: 2.4102201, Yaw: 0.23986793
+Roll Cmd: -4.856601, Pitch Cmd: -34.40776, Yaw Cmd: -0.9667679
+Roll: 0.24848667, Pitch: 2.4384375, Yaw: 0.24088119
+Roll Cmd: -7.255911, Pitch Cmd: -38.694725, Yaw Cmd: -1.2124996
+Roll: 0.25737035, Pitch: 2.4653494, Yaw: 0.24171682
+Roll Cmd: -0.7884884, Pitch Cmd: -36.538055, Yaw Cmd: -0.8475605
+Roll: 0.2366271, Pitch: 2.4852679, Yaw: 0.24098568
+Roll Cmd: -1.4416585, Pitch Cmd: -37.055508, Yaw Cmd: -0.603963
+Roll: 0.22471651, Pitch: 2.5108476, Yaw: 0.2409089
+Roll Cmd: -6.3774533, Pitch Cmd: -35.925858, Yaw Cmd: -0.84878004
+Roll: 0.1965594, Pitch: 2.516334, Yaw: 0.23998289
+Roll Cmd: -0.30105448, Pitch Cmd: -34.206497, Yaw Cmd: -0.72743857
+Roll: 0.17320213, Pitch: 2.4986708, Yaw: 0.2392841
+Roll Cmd: -1.1358399, Pitch Cmd: -35.32141, Yaw Cmd: -0.7280483
+Roll: 0.18872163, Pitch: 2.4742928, Yaw: 0.24010877
+Roll Cmd: -6.810292, Pitch Cmd: -35.013847, Yaw Cmd: -0.60640204
+Roll: 0.21642587, Pitch: 2.4825482, Yaw: 0.24220645
+Roll Cmd: -6.80682, Pitch Cmd: -35.90514, Yaw Cmd: -1.2179874
+Roll: 0.24366198, Pitch: 2.4735243, Yaw: 0.24399808
+Roll Cmd: -3.0848486, Pitch Cmd: -34.32219, Yaw Cmd: -0.9753045
+Roll: 0.24243127, Pitch: 2.4446478, Yaw: 0.24377188
+Roll Cmd: -6.988104, Pitch Cmd: -34.83618, Yaw Cmd: -0.36524346
+Roll: 0.2688807, Pitch: 2.4333706, Yaw: 0.2461204
+Roll Cmd: -2.3840318, Pitch Cmd: -34.18969, Yaw Cmd: -1.4652435
+Roll: 0.26427174, Pitch: 2.4612634, Yaw: 0.24606156
+Roll Cmd: -6.118298, Pitch Cmd: -37.673264, Yaw Cmd: -0.61188984
+Roll: 0.26331148, Pitch: 2.4893925, Yaw: 0.24599831
+Roll Cmd: -4.8689356, Pitch Cmd: -36.28876, Yaw Cmd: -0.4899386
+Roll: 0.2604472, Pitch: 2.5180357, Yaw: 0.24618512
+Roll Cmd: -0.96946955, Pitch Cmd: -40.22507, Yaw Cmd: -0.7344508
+Roll: 0.23208481, Pitch: 2.5231235, Yaw: 0.2452523
+Roll Cmd: -1.8390515, Pitch Cmd: -31.606731, Yaw Cmd: -0.7350606
+Roll: 0.24502994, Pitch: 2.4970496, Yaw: 0.24581067
+Roll Cmd: -6.8933697, Pitch Cmd: -36.011993, Yaw Cmd: -0.4911581
+Roll: 0.2519862, Pitch: 2.468412, Yaw: 0.24593651
+Roll Cmd: -5.968528, Pitch Cmd: -32.856087, Yaw Cmd: -0.368902
+Roll: 0.22630645, Pitch: 2.4798546, Yaw: 0.24557891
+Roll Cmd: -1.343993, Pitch Cmd: -35.53836, Yaw Cmd: -1.1021338
+Roll: 0.19812584, Pitch: 2.475344, Yaw: 0.24450575
+Roll Cmd: -2.6229317, Pitch Cmd: -39.37183, Yaw Cmd: -0.6146337
+Roll: 0.20911345, Pitch: 2.5016105, Yaw: 0.24588236
+Roll Cmd: -5.301263, Pitch Cmd: -36.52243, Yaw Cmd: -1.226219
+Roll: 0.23719622, Pitch: 2.5075047, Yaw: 0.24725296
+Roll Cmd: -4.6930165, Pitch Cmd: -34.79052, Yaw Cmd: -0.6167679
+Roll: 0.25307307, Pitch: 2.5305316, Yaw: 0.24839723
+Roll Cmd: -4.880969, Pitch Cmd: -35.631573, Yaw Cmd: -0.8615849
+Roll: 0.22733241, Pitch: 2.5179813, Yaw: 0.24755199
+Roll Cmd: -3.5937104, Pitch Cmd: -36.93059, Yaw Cmd: -0.74024343
+Roll: 0.23831707, Pitch: 2.4910488, Yaw: 0.248163
+Roll Cmd: -5.4237347, Pitch Cmd: -36.28569, Yaw Cmd: -0.61859715
+Roll: 0.24268223, Pitch: 2.4624522, Yaw: 0.24865493
+Roll Cmd: -2.0835302, Pitch Cmd: -34.710243, Yaw Cmd: -0.7411581
+Roll: 0.26188275, Pitch: 2.4834776, Yaw: 0.24945399
+Roll Cmd: -8.114844, Pitch Cmd: -34.87379, Yaw Cmd: -0.49725565
+Roll: 0.27899033, Pitch: 2.4602911, Yaw: 0.2508062
+Roll Cmd: -1.2911057, Pitch Cmd: -37.23243, Yaw Cmd: -0.9862801
+Roll: 0.28521156, Pitch: 2.48772, Yaw: 0.25166133
+Roll Cmd: -7.5201635, Pitch Cmd: -36.032486, Yaw Cmd: -0.9874996
+Roll: 0.31330255, Pitch: 2.4793448, Yaw: 0.25315592
+Roll Cmd: -6.4844065, Pitch Cmd: -38.099033, Yaw Cmd: -0.7442069
+Roll: 0.31432083, Pitch: 2.450124, Yaw: 0.25349438
+Roll Cmd: -2.1557217, Pitch Cmd: -32.564167, Yaw Cmd: -0.74481666
+Roll: 0.29613432, Pitch: 2.4278347, Yaw: 0.25316912
+Roll Cmd: -3.3900342, Pitch Cmd: -36.611042, Yaw Cmd: -0.8676825
+Roll: 0.29246596, Pitch: 2.4553907, Yaw: 0.25359878
+Roll Cmd: -5.619758, Pitch Cmd: -35.337143, Yaw Cmd: -0.99085325
+Roll: 0.31498733, Pitch: 2.4730449, Yaw: 0.25500864
+Roll Cmd: -4.704394, Pitch Cmd: -38.672344, Yaw Cmd: -0.86981666
+Roll: 0.31120926, Pitch: 2.500567, Yaw: 0.25481412
+Roll Cmd: -5.7068267, Pitch Cmd: -36.24843, Yaw Cmd: -0.503963
+Roll: 0.2906191, Pitch: 2.519714, Yaw: 0.25421283
+Roll Cmd: -0.31820488, Pitch Cmd: -37.392452, Yaw Cmd: -0.7484752
+Roll: 0.26322886, Pitch: 2.51141, Yaw: 0.2531449
+Roll Cmd: -4.3938866, Pitch Cmd: -35.322872, Yaw Cmd: -0.62682885
+Roll: 0.23623075, Pitch: 2.520735, Yaw: 0.25211057
+Roll Cmd: -1.3514531, Pitch Cmd: -40.033672, Yaw Cmd: -0.6271337
+Roll: 0.20806581, Pitch: 2.5254784, Yaw: 0.25163022
+Roll Cmd: -2.6943872, Pitch Cmd: -36.16721, Yaw Cmd: -1.116463
+Roll: 0.20172593, Pitch: 2.4972296, Yaw: 0.25151038
+Roll Cmd: -2.9612796, Pitch Cmd: -36.0528, Yaw Cmd: -0.628963
+Roll: 0.20100436, Pitch: 2.5256844, Yaw: 0.25147158
+Roll Cmd: -5.5007634, Pitch Cmd: -38.917095, Yaw Cmd: -0.5070118
+Roll: 0.22399674, Pitch: 2.508102, Yaw: 0.25278425
+Roll Cmd: -4.465864, Pitch Cmd: -34.43376, Yaw Cmd: -0.751524
+Roll: 0.24995966, Pitch: 2.496292, Yaw: 0.2537721
+Roll Cmd: -4.637699, Pitch Cmd: -38.488243, Yaw Cmd: -0.38536543
+Roll: 0.27140868, Pitch: 2.476826, Yaw: 0.25454244
+Roll Cmd: -6.745103, Pitch Cmd: -34.379005, Yaw Cmd: -0.38506055
+Roll: 0.25359446, Pitch: 2.4987018, Yaw: 0.2539069
+Roll Cmd: -4.12685, Pitch Cmd: -37.916363, Yaw Cmd: -0.6292679
+Roll: 0.22466785, Pitch: 2.496708, Yaw: 0.25326535
+Roll Cmd: 0.27793312, Pitch Cmd: -34.497253, Yaw Cmd: -0.99634105
+Roll: 0.24549997, Pitch: 2.4765813, Yaw: 0.25432572
+Roll Cmd: -5.859059, Pitch Cmd: -36.57824, Yaw Cmd: -0.63079226
+Roll: 0.261743, Pitch: 2.452123, Yaw: 0.25514814
+Roll Cmd: -8.792363, Pitch Cmd: -36.38428, Yaw Cmd: -0.63109714
+Roll: 0.29021126, Pitch: 2.448027, Yaw: 0.2574298
+Roll Cmd: -2.7201433, Pitch Cmd: -37.4247, Yaw Cmd: -1.3649386
+Roll: 0.28826833, Pitch: 2.476407, Yaw: 0.2574848
+Roll Cmd: -5.723941, Pitch Cmd: -39.125164, Yaw Cmd: -0.63353616
+Roll: 0.30768657, Pitch: 2.4546206, Yaw: 0.2584511
+Roll Cmd: -6.106058, Pitch Cmd: -35.201256, Yaw Cmd: -0.63384104
+Roll: 0.30192855, Pitch: 2.481799, Yaw: 0.2583318
+Roll Cmd: -4.157287, Pitch Cmd: -36.079693, Yaw Cmd: -0.6341459
+Roll: 0.27725407, Pitch: 2.4959848, Yaw: 0.25710058
+Roll Cmd: -1.6578817, Pitch Cmd: -40.79561, Yaw Cmd: -0.3899386
+Roll: 0.3050481, Pitch: 2.4880984, Yaw: 0.25876227
+Roll Cmd: -4.9427695, Pitch Cmd: -33.75339, Yaw Cmd: -0.8786581
+Roll: 0.32502255, Pitch: 2.5083292, Yaw: 0.25978363
+Roll Cmd: -5.3519526, Pitch Cmd: -40.420444, Yaw Cmd: -0.63506055
+Roll: 0.34946454, Pitch: 2.4928648, Yaw: 0.26130435
+Roll Cmd: -5.630298, Pitch Cmd: -35.74325, Yaw Cmd: -0.8798776
+Roll: 0.33388737, Pitch: 2.468541, Yaw: 0.2609328
+Roll Cmd: -3.6770015, Pitch Cmd: -36.796192, Yaw Cmd: -0.75853616
+Roll: 0.35585365, Pitch: 2.4863126, Yaw: 0.26234317
+Roll Cmd: -4.768623, Pitch Cmd: -37.396034, Yaw Cmd: -0.881402
+Roll: 0.33042547, Pitch: 2.4744039, Yaw: 0.26166466
+Roll Cmd: -7.7802258, Pitch Cmd: -37.479458, Yaw Cmd: -0.88231665
+Roll: 0.3118895, Pitch: 2.4953144, Yaw: 0.26176378
+Roll Cmd: -0.60805607, Pitch Cmd: -36.10466, Yaw Cmd: -1.2499995
+Roll: 0.33876216, Pitch: 2.484083, Yaw: 0.26291537
+Roll Cmd: -6.5528245, Pitch Cmd: -38.30318, Yaw Cmd: -0.51829225
+Roll: 0.34255037, Pitch: 2.4553483, Yaw: 0.26320928
+Roll Cmd: -5.496272, Pitch Cmd: -36.735313, Yaw Cmd: -0.64054835
+Roll: 0.3191687, Pitch: 2.4387136, Yaw: 0.26264375
+Roll Cmd: -3.4097686, Pitch Cmd: -34.275036, Yaw Cmd: -0.8853654
+Roll: 0.3108098, Pitch: 2.4110496, Yaw: 0.26246098
+Roll Cmd: 0.49497795, Pitch Cmd: -38.983467, Yaw Cmd: -0.64176786
+Roll: 0.33956245, Pitch: 2.4124663, Yaw: 0.26366115
+Roll Cmd: -8.824119, Pitch Cmd: -35.186314, Yaw Cmd: -0.51981664
+Roll: 0.31306514, Pitch: 2.402273, Yaw: 0.26267847
+Roll Cmd: -4.7236633, Pitch Cmd: -37.603317, Yaw Cmd: -0.64207274
+Roll: 0.29619893, Pitch: 2.3790154, Yaw: 0.2621056
+Roll Cmd: -3.687193, Pitch Cmd: -36.223717, Yaw Cmd: -0.6423776
+Roll: 0.2687172, Pitch: 2.3711507, Yaw: 0.26141575
+Roll Cmd: -1.5793667, Pitch Cmd: -37.747105, Yaw Cmd: -0.8871947
+Roll: 0.2670819, Pitch: 2.3992603, Yaw: 0.26149157
+Roll Cmd: -4.283719, Pitch Cmd: -38.076626, Yaw Cmd: -0.6435971
+Roll: 0.25305855, Pitch: 2.3738601, Yaw: 0.260892
+Roll Cmd: -4.427983, Pitch Cmd: -35.445316, Yaw Cmd: -0.5216459
+Roll: 0.26849604, Pitch: 2.397446, Yaw: 0.262605
+Roll Cmd: -2.8463655, Pitch Cmd: -39.38851, Yaw Cmd: -1.3774385
+Roll: 0.24797554, Pitch: 2.4177177, Yaw: 0.26237065
+Roll Cmd: -1.7327058, Pitch Cmd: -40.11901, Yaw Cmd: -1.0128045
+Roll: 0.227775, Pitch: 2.4375706, Yaw: 0.26165956
+Roll Cmd: -6.239811, Pitch Cmd: -37.95096, Yaw Cmd: -0.64725566
+Roll: 0.2492501, Pitch: 2.4182782, Yaw: 0.26256222
+Roll Cmd: -5.368922, Pitch Cmd: -37.561718, Yaw Cmd: -0.52530444
+Roll: 0.2726365, Pitch: 2.4349744, Yaw: 0.26399514
+Roll Cmd: -6.289629, Pitch Cmd: -37.86532, Yaw Cmd: -0.89207274
+Roll: 0.2463607, Pitch: 2.444569, Yaw: 0.26330614
+Roll Cmd: -4.65227, Pitch Cmd: -38.315388, Yaw Cmd: -0.8929874
+Roll: 0.25413182, Pitch: 2.471469, Yaw: 0.26410022
+Roll Cmd: -1.0038786, Pitch Cmd: -37.710167, Yaw Cmd: -0.893902
+Roll: 0.23531413, Pitch: 2.4497151, Yaw: 0.263589
+Roll Cmd: -4.8813353, Pitch Cmd: -38.358868, Yaw Cmd: -0.77256054
+Roll: 0.25710407, Pitch: 2.4679542, Yaw: 0.2645369
+Roll Cmd: -3.1179018, Pitch Cmd: -40.43249, Yaw Cmd: -0.5286581
+Roll: 0.28473923, Pitch: 2.475324, Yaw: 0.2660318
+Roll Cmd: -7.200774, Pitch Cmd: -36.965126, Yaw Cmd: -0.7731703
+Roll: 0.27511606, Pitch: 2.4480548, Yaw: 0.2651601
+Roll Cmd: -3.9299927, Pitch Cmd: -36.73669, Yaw Cmd: -0.16249955
+Roll: 0.2791589, Pitch: 2.4193807, Yaw: 0.2663899
+Roll Cmd: -5.3683743, Pitch Cmd: -36.63627, Yaw Cmd: -1.384146
+Roll: 0.25119185, Pitch: 2.4126713, Yaw: 0.26551336
+Roll Cmd: -2.2685432, Pitch Cmd: -36.941685, Yaw Cmd: -0.77499956
+Roll: 0.26227087, Pitch: 2.3857207, Yaw: 0.2661332
+Roll Cmd: -4.136466, Pitch Cmd: -35.903717, Yaw Cmd: -0.6533532
+Roll: 0.2814833, Pitch: 2.3641589, Yaw: 0.26708025
+Roll Cmd: -6.0772004, Pitch Cmd: -38.413918, Yaw Cmd: -0.6536581
+Roll: 0.2871657, Pitch: 2.392215, Yaw: 0.26792526
+Roll Cmd: -4.7139983, Pitch Cmd: -40.971973, Yaw Cmd: -1.0207312
+Roll: 0.28779906, Pitch: 2.4202273, Yaw: 0.26807567
+Roll Cmd: -7.551567, Pitch Cmd: -36.5359, Yaw Cmd: -0.6551825
+Roll: 0.25933927, Pitch: 2.4227376, Yaw: 0.26747862
+Roll Cmd: -0.09068203, Pitch Cmd: -37.511562, Yaw Cmd: -1.0222557
+Roll: 0.23333628, Pitch: 2.4352448, Yaw: 0.2668457
+Roll Cmd: -1.5394895, Pitch Cmd: -41.86261, Yaw Cmd: -0.90121907
+Roll: 0.20515949, Pitch: 2.4382098, Yaw: 0.26532835
+Roll Cmd: -5.9076414, Pitch Cmd: -36.984173, Yaw Cmd: -0.2908532
+Roll: 0.20335002, Pitch: 2.4659963, Yaw: 0.2661555
+Roll Cmd: -3.4770877, Pitch Cmd: -38.20497, Yaw Cmd: -1.2682922
+Roll: 0.17635743, Pitch: 2.4563022, Yaw: 0.26483586
+Roll Cmd: -2.938096, Pitch Cmd: -39.41879, Yaw Cmd: -0.4143288
+Roll: 0.19277655, Pitch: 2.4793568, Yaw: 0.26570082
+Roll Cmd: -3.5273395, Pitch Cmd: -40.387672, Yaw Cmd: -0.65853614
+Roll: 0.21093802, Pitch: 2.500757, Yaw: 0.26618972
+Roll Cmd: -5.120912, Pitch Cmd: -38.127922, Yaw Cmd: -0.2920727
+Roll: 0.23943105, Pitch: 2.5072074, Yaw: 0.26786378
+Roll Cmd: -9.531179, Pitch Cmd: -40.46296, Yaw Cmd: -0.90274346
+Roll: 0.26811403, Pitch: 2.5109413, Yaw: 0.26940873
+Roll Cmd: -4.4184947, Pitch Cmd: -38.146797, Yaw Cmd: -0.781402
+Roll: 0.2963957, Pitch: 2.5080674, Yaw: 0.27096283
+Roll Cmd: -2.8613381, Pitch Cmd: -38.591377, Yaw Cmd: -0.78201175
+Roll: 0.31672645, Pitch: 2.5280957, Yaw: 0.27199268
+Roll Cmd: -8.533697, Pitch Cmd: -39.775986, Yaw Cmd: -0.6603654
+Roll: 0.312271, Pitch: 2.4994168, Yaw: 0.27223817
+Roll Cmd: -4.411578, Pitch Cmd: -37.406013, Yaw Cmd: -0.9051825
+Roll: 0.31474322, Pitch: 2.470265, Yaw: 0.2726333
+Roll Cmd: -4.755218, Pitch Cmd: -36.5812, Yaw Cmd: -0.783841
+Roll: 0.32373258, Pitch: 2.497032, Yaw: 0.27286145
+Roll Cmd: -4.3264084, Pitch Cmd: -40.866306, Yaw Cmd: -0.41768247
+Roll: 0.30040145, Pitch: 2.480001, Yaw: 0.27291194
+Roll Cmd: -2.6869473, Pitch Cmd: -38.027943, Yaw Cmd: -1.3954264
+Roll: 0.2795581, Pitch: 2.4600384, Yaw: 0.27217913
+Roll Cmd: -1.9551983, Pitch Cmd: -40.1811, Yaw Cmd: -0.66402394
+Roll: 0.25310978, Pitch: 2.4716017, Yaw: 0.27151048
+Roll Cmd: -3.089437, Pitch Cmd: -38.795513, Yaw Cmd: -0.908841
+Roll: 0.27088726, Pitch: 2.4937549, Yaw: 0.27243155
+Roll Cmd: -6.7955875, Pitch Cmd: -39.35737, Yaw Cmd: -0.66524345
+Roll: 0.2666905, Pitch: 2.5212543, Yaw: 0.27268794
+Roll Cmd: -5.808384, Pitch Cmd: -38.143482, Yaw Cmd: -0.9100605
+Roll: 0.2709792, Pitch: 2.4923363, Yaw: 0.27363414
+Roll Cmd: -3.230041, Pitch Cmd: -38.365936, Yaw Cmd: -1.1554873
+Roll: 0.27891824, Pitch: 2.4642813, Yaw: 0.27441886
+Roll Cmd: -6.4289546, Pitch Cmd: -38.412884, Yaw Cmd: -0.91249955
+Roll: 0.26140872, Pitch: 2.4410732, Yaw: 0.2739501
+Roll Cmd: -4.474884, Pitch Cmd: -35.588505, Yaw Cmd: -0.7911581
+Roll: 0.2472349, Pitch: 2.4650052, Yaw: 0.2737839
+Roll Cmd: -3.105147, Pitch Cmd: -40.907898, Yaw Cmd: -0.91402394
+Roll: 0.2751647, Pitch: 2.4607618, Yaw: 0.27515537
+Roll Cmd: -2.0868387, Pitch Cmd: -41.92345, Yaw Cmd: -0.67042637
+Roll: 0.25823587, Pitch: 2.4371707, Yaw: 0.27457485
+Roll Cmd: -6.628804, Pitch Cmd: -35.74209, Yaw Cmd: -0.67073125
+Roll: 0.2867317, Pitch: 2.4407742, Yaw: 0.27592987
+Roll Cmd: -5.9552774, Pitch Cmd: -38.518356, Yaw Cmd: -0.6710361
+Roll: 0.31540823, Pitch: 2.4412136, Yaw: 0.2774543
+Roll Cmd: -5.269212, Pitch Cmd: -41.440292, Yaw Cmd: -0.7935971
+Roll: 0.30048317, Pitch: 2.46552, Yaw: 0.27728358
+Roll Cmd: -2.3396897, Pitch Cmd: -40.485638, Yaw Cmd: -0.91646296
+Roll: 0.28102455, Pitch: 2.4862082, Yaw: 0.27690402
+Roll Cmd: -4.3110704, Pitch Cmd: -39.629936, Yaw Cmd: -0.9173776
+Roll: 0.28566974, Pitch: 2.5140412, Yaw: 0.27739576
+Roll Cmd: -7.057117, Pitch Cmd: -40.808414, Yaw Cmd: -0.7960361
+Roll: 0.2662149, Pitch: 2.5348856, Yaw: 0.2770009
+Roll Cmd: -1.3573866, Pitch Cmd: -41.328857, Yaw Cmd: -0.918902
+Roll: 0.2564845, Pitch: 2.5076177, Yaw: 0.27640498
+Roll Cmd: -6.305113, Pitch Cmd: -37.490936, Yaw Cmd: -0.4307922
+Roll: 0.28460392, Pitch: 2.5025253, Yaw: 0.2776393
+Roll Cmd: -3.6934295, Pitch Cmd: -40.080235, Yaw Cmd: -0.55274343
+Roll: 0.30952197, Pitch: 2.488688, Yaw: 0.27949828
+Roll Cmd: -5.0305834, Pitch Cmd: -39.70094, Yaw Cmd: -1.1640239
+Roll: 0.33682886, Pitch: 2.495989, Yaw: 0.28100115
+Roll Cmd: -5.947086, Pitch Cmd: -38.501575, Yaw Cmd: -0.79878
+Roll: 0.31993148, Pitch: 2.5185513, Yaw: 0.28116056
+Roll Cmd: -6.8631544, Pitch Cmd: -41.557293, Yaw Cmd: -1.2884142
+Roll: 0.29538268, Pitch: 2.502845, Yaw: 0.28055292
+Roll Cmd: -0.44094276, Pitch Cmd: -38.219555, Yaw Cmd: -0.92347515
+Roll: 0.31514603, Pitch: 2.523433, Yaw: 0.28186822
+Roll Cmd: -7.8520217, Pitch Cmd: -41.548492, Yaw Cmd: -0.9243898
+Roll: 0.31483433, Pitch: 2.5511303, Yaw: 0.28198823
+Roll Cmd: -5.46602, Pitch Cmd: -38.188232, Yaw Cmd: -0.6807922
+Roll: 0.30419314, Pitch: 2.5239584, Yaw: 0.28242743
+Roll Cmd: -2.6809359, Pitch Cmd: -39.989655, Yaw Cmd: -1.2923776
+Roll: 0.30645198, Pitch: 2.4951277, Yaw: 0.28314063
+Roll Cmd: -4.00505, Pitch Cmd: -39.95097, Yaw Cmd: -1.0496947
+Roll: 0.2972363, Pitch: 2.4674196, Yaw: 0.28226078
+Roll Cmd: -7.242178, Pitch Cmd: -36.205936, Yaw Cmd: -0.19512147
+Roll: 0.31377122, Pitch: 2.4431899, Yaw: 0.28356203
+Roll Cmd: -4.8279333, Pitch Cmd: -39.3139, Yaw Cmd: -1.0499995
+Roll: 0.31526178, Pitch: 2.4138308, Yaw: 0.28345573
+Roll Cmd: -4.846274, Pitch Cmd: -37.532284, Yaw Cmd: -0.43993855
+Roll: 0.2950286, Pitch: 2.3927832, Yaw: 0.28230572
+Roll Cmd: -1.454293, Pitch Cmd: -39.41571, Yaw Cmd: -0.31737757
+Roll: 0.3043063, Pitch: 2.365599, Yaw: 0.28252587
+Roll Cmd: -7.3981047, Pitch Cmd: -41.43285, Yaw Cmd: -0.4390239
+Roll: 0.29208654, Pitch: 2.3391788, Yaw: 0.28202814
+Roll Cmd: -1.8410506, Pitch Cmd: -36.208813, Yaw Cmd: -0.56097513
+Roll: 0.2892047, Pitch: 2.3671868, Yaw: 0.28174898
+Roll Cmd: -6.01863, Pitch Cmd: -41.118526, Yaw Cmd: -0.43871903
+Roll: 0.26245987, Pitch: 2.3572946, Yaw: 0.28108862
+Roll Cmd: -4.1182904, Pitch Cmd: -39.31025, Yaw Cmd: -0.92743856
+Roll: 0.28206068, Pitch: 2.3781822, Yaw: 0.28264597
+Roll Cmd: -5.662904, Pitch Cmd: -41.641327, Yaw Cmd: -1.1728654
+Roll: 0.31012744, Pitch: 2.3845131, Yaw: 0.2844136
+Roll Cmd: -5.373218, Pitch Cmd: -40.2614, Yaw Cmd: -1.0521337
+Roll: 0.29375997, Pitch: 2.4073832, Yaw: 0.28386095
+Roll Cmd: -5.4744763, Pitch Cmd: -41.145817, Yaw Cmd: -0.6865849
+Roll: 0.26510003, Pitch: 2.4063478, Yaw: 0.2829573
+Roll Cmd: -1.051338, Pitch Cmd: -36.95742, Yaw Cmd: -0.80914587
+Roll: 0.27417484, Pitch: 2.4331925, Yaw: 0.28333902
+Roll Cmd: -5.083621, Pitch Cmd: -44.396133, Yaw Cmd: -0.5652434
+Roll: 0.2895748, Pitch: 2.456816, Yaw: 0.28383437
+Roll Cmd: -6.1970553, Pitch Cmd: -39.87074, Yaw Cmd: -0.44298732
+Roll: 0.31817734, Pitch: 2.4595625, Yaw: 0.28489843
+Roll Cmd: -6.172717, Pitch Cmd: -39.606106, Yaw Cmd: -0.44268245
+Roll: 0.29073226, Pitch: 2.4669833, Yaw: 0.2844761
+Roll Cmd: -2.6526299, Pitch Cmd: -40.61585, Yaw Cmd: -1.1759142
+Roll: 0.3015478, Pitch: 2.4930935, Yaw: 0.28508753
+Roll Cmd: -6.019852, Pitch Cmd: -43.1489, Yaw Cmd: -0.68841416
+Roll: 0.30879286, Pitch: 2.4647825, Yaw: 0.2858546
+Roll Cmd: -4.3704853, Pitch Cmd: -38.273094, Yaw Cmd: -0.93323123
+Roll: 0.28152838, Pitch: 2.456247, Yaw: 0.28574204
+Roll Cmd: -4.153049, Pitch Cmd: -41.50651, Yaw Cmd: -1.4231703
+Roll: 0.26580074, Pitch: 2.4797199, Yaw: 0.28521484
+Roll Cmd: -3.1730533, Pitch Cmd: -40.904034, Yaw Cmd: -0.6917678
+Roll: 0.28330007, Pitch: 2.4563491, Yaw: 0.28610536
+Roll Cmd: -7.0829487, Pitch Cmd: -39.36733, Yaw Cmd: -0.6920727
+Roll: 0.28515485, Pitch: 2.4275098, Yaw: 0.2868117
+Roll Cmd: -1.0351744, Pitch Cmd: -39.839874, Yaw Cmd: -1.0591459
+Roll: 0.27354106, Pitch: 2.4529998, Yaw: 0.28646
+Roll Cmd: -7.0968494, Pitch Cmd: -40.276443, Yaw Cmd: -0.6935971
+Roll: 0.25746325, Pitch: 2.4762654, Yaw: 0.28669253
+Roll Cmd: -1.6156855, Pitch Cmd: -41.72515, Yaw Cmd: -1.3051825
+Roll: 0.24356553, Pitch: 2.5005193, Yaw: 0.2868472
+Roll Cmd: -5.4223356, Pitch Cmd: -41.09886, Yaw Cmd: -1.1847556
+Roll: 0.21840863, Pitch: 2.5130382, Yaw: 0.2861879
+Roll Cmd: -4.898425, Pitch Cmd: -42.102417, Yaw Cmd: -0.9417678
+Roll: 0.2424187, Pitch: 2.4970596, Yaw: 0.28754073
+Roll Cmd: -4.3196974, Pitch Cmd: -41.538063, Yaw Cmd: -0.82042634
+Roll: 0.26464105, Pitch: 2.515117, Yaw: 0.2887872
+Roll Cmd: -8.8286915, Pitch Cmd: -39.483418, Yaw Cmd: -0.8210361
+Roll: 0.2833519, Pitch: 2.4929535, Yaw: 0.28945616
+Roll Cmd: -1.9407749, Pitch Cmd: -40.49953, Yaw Cmd: -0.45487756
+Roll: 0.29761717, Pitch: 2.4678838, Yaw: 0.29006615
+Roll Cmd: -6.9614396, Pitch Cmd: -41.90981, Yaw Cmd: -0.5768288
+Roll: 0.29206482, Pitch: 2.4953153, Yaw: 0.2904252
+Roll Cmd: -4.5380616, Pitch Cmd: -40.03223, Yaw Cmd: -1.0658531
+Roll: 0.2637101, Pitch: 2.4953458, Yaw: 0.28948048
+Roll Cmd: -4.1482024, Pitch Cmd: -42.485733, Yaw Cmd: -0.8225605
+Roll: 0.2777436, Pitch: 2.5197508, Yaw: 0.29087436
+Roll Cmd: -1.6468267, Pitch Cmd: -42.288204, Yaw Cmd: -1.1899385
+Roll: 0.2491288, Pitch: 2.520666, Yaw: 0.29007006
+Roll Cmd: -5.4981813, Pitch Cmd: -39.663193, Yaw Cmd: -0.94695073
+Roll: 0.22936754, Pitch: 2.4987314, Yaw: 0.2895114
+Roll Cmd: -2.9155245, Pitch Cmd: -37.708187, Yaw Cmd: -0.82560927
+Roll: 0.21557817, Pitch: 2.473038, Yaw: 0.2893677
+Roll Cmd: -4.6723127, Pitch Cmd: -42.002277, Yaw Cmd: -0.9484751
+Roll: 0.18781246, Pitch: 2.4672217, Yaw: 0.28814846
+Roll Cmd: -5.511487, Pitch Cmd: -40.014866, Yaw Cmd: -0.58262146
+Roll: 0.16281603, Pitch: 2.4815629, Yaw: 0.28723976
+Roll Cmd: 1.2187004, Pitch Cmd: -43.32167, Yaw Cmd: -0.70487756
+Roll: 0.19136049, Pitch: 2.483807, Yaw: 0.28877914
+Roll Cmd: -8.117758, Pitch Cmd: -40.551056, Yaw Cmd: -0.82743853
+Roll: 0.19380619, Pitch: 2.4546812, Yaw: 0.28873017
+Roll Cmd: -4.6786737, Pitch Cmd: -39.74299, Yaw Cmd: -0.46128
+Roll: 0.19054876, Pitch: 2.4258053, Yaw: 0.28873566
+Roll Cmd: -5.1684885, Pitch Cmd: -40.489677, Yaw Cmd: -0.7054873
+Roll: 0.16371739, Pitch: 2.4353566, Yaw: 0.28835773
+Roll Cmd: -2.4749954, Pitch Cmd: -41.661247, Yaw Cmd: -1.1948166
+Roll: 0.15958463, Pitch: 2.4633958, Yaw: 0.28833908
+Roll Cmd: -3.5201924, Pitch Cmd: -43.420757, Yaw Cmd: -0.7073166
+Roll: 0.17833842, Pitch: 2.484781, Yaw: 0.28976396
+Roll Cmd: -5.3979096, Pitch Cmd: -43.2263, Yaw Cmd: -1.0743897
+Roll: 0.20638587, Pitch: 2.4782414, Yaw: 0.29158607
+Roll Cmd: -6.682706, Pitch Cmd: -39.638416, Yaw Cmd: -1.0756092
+Roll: 0.1961781, Pitch: 2.451565, Yaw: 0.2919019
+Roll Cmd: -4.8617167, Pitch Cmd: -42.41289, Yaw Cmd: -1.1990849
+Roll: 0.18286651, Pitch: 2.425457, Yaw: 0.29148525
+Roll Cmd: -3.1835248, Pitch Cmd: -36.376163, Yaw Cmd: -0.71158487
+Roll: 0.15511811, Pitch: 2.4172528, Yaw: 0.29047018
+Roll Cmd: -2.3894768, Pitch Cmd: -42.446556, Yaw Cmd: -0.71188974
+Roll: 0.1821818, Pitch: 2.4079473, Yaw: 0.29160988
+Roll Cmd: -6.5881414, Pitch Cmd: -44.017475, Yaw Cmd: -0.5899385
+Roll: 0.21115518, Pitch: 2.4084797, Yaw: 0.2931176
+Roll Cmd: -7.557847, Pitch Cmd: -38.526398, Yaw Cmd: -0.8344507
+Roll: 0.23017605, Pitch: 2.4292994, Yaw: 0.294375
+Roll Cmd: -4.1292267, Pitch Cmd: -41.74423, Yaw Cmd: -0.9573166
+Roll: 0.25125873, Pitch: 2.4099464, Yaw: 0.29528266
+Roll Cmd: -3.4404151, Pitch Cmd: -41.304947, Yaw Cmd: -0.5914629
+Roll: 0.27329344, Pitch: 2.3909895, Yaw: 0.29619718
+Roll Cmd: -8.811614, Pitch Cmd: -40.58194, Yaw Cmd: -0.5914629
+Roll: 0.2448465, Pitch: 2.3889825, Yaw: 0.29530844
+Roll Cmd: -3.3972945, Pitch Cmd: -42.962906, Yaw Cmd: -0.8359751
+Roll: 0.24737275, Pitch: 2.41687, Yaw: 0.29526582
+Roll Cmd: -3.356966, Pitch Cmd: -40.731834, Yaw Cmd: -0.46981657
+Roll: 0.25676414, Pitch: 2.4433503, Yaw: 0.29597947
+Roll Cmd: -4.4075503, Pitch Cmd: -43.727196, Yaw Cmd: -0.83628
+Roll: 0.2305059, Pitch: 2.4327188, Yaw: 0.29545084
+Roll Cmd: -7.2106595, Pitch Cmd: -41.992947, Yaw Cmd: -1.081402
+Roll: 0.20199148, Pitch: 2.4323854, Yaw: 0.29438457
+Roll Cmd: -1.8420694, Pitch Cmd: -41.02225, Yaw Cmd: -0.71585315
+Roll: 0.22047465, Pitch: 2.4539542, Yaw: 0.29577366
+Roll Cmd: -5.609261, Pitch Cmd: -42.893154, Yaw Cmd: -1.0829263
+Roll: 0.24704947, Pitch: 2.4652917, Yaw: 0.2967404
+Roll Cmd: -7.602415, Pitch Cmd: -42.465557, Yaw Cmd: -0.47286534
+Roll: 0.24951279, Pitch: 2.4933846, Yaw: 0.29712987
+Roll Cmd: -4.991992, Pitch Cmd: -43.373947, Yaw Cmd: -0.83932877
+Roll: 0.24067311, Pitch: 2.4659069, Yaw: 0.29671898
+Roll Cmd: -5.2010493, Pitch Cmd: -40.676918, Yaw Cmd: -0.5954263
+Roll: 0.258892, Pitch: 2.4878154, Yaw: 0.2971939
+Roll Cmd: -3.5111141, Pitch Cmd: -43.905197, Yaw Cmd: -0.35091412
+Roll: 0.25856775, Pitch: 2.5161266, Yaw: 0.29732406
+Roll Cmd: -4.8194923, Pitch Cmd: -43.58605, Yaw Cmd: -0.71707267
+Roll: 0.26682928, Pitch: 2.5436244, Yaw: 0.29813215
+Roll Cmd: -6.0241895, Pitch Cmd: -45.187733, Yaw Cmd: -0.96188974
+Roll: 0.2906651, Pitch: 2.5267742, Yaw: 0.2996277
+Roll Cmd: -6.1020713, Pitch Cmd: -39.28751, Yaw Cmd: -0.9628044
+Roll: 0.31935358, Pitch: 2.5259452, Yaw: 0.301193
+Roll Cmd: -4.8720555, Pitch Cmd: -40.749825, Yaw Cmd: -0.8414629
+Roll: 0.31881207, Pitch: 2.4967148, Yaw: 0.30178174
+Roll Cmd: -4.167394, Pitch Cmd: -41.584656, Yaw Cmd: -1.0865848
+Roll: 0.29864544, Pitch: 2.4763772, Yaw: 0.3008843
+Roll Cmd: -6.987031, Pitch Cmd: -42.035732, Yaw Cmd: -0.59878
+Roll: 0.28070903, Pitch: 2.4979317, Yaw: 0.30055892
+Roll Cmd: -1.8235373, Pitch Cmd: -41.866325, Yaw Cmd: -0.9655483
+Roll: 0.29181287, Pitch: 2.4709685, Yaw: 0.3005678
+Roll Cmd: -6.9806623, Pitch Cmd: -42.509136, Yaw Cmd: -0.23292631
+Roll: 0.3113272, Pitch: 2.4496665, Yaw: 0.30215964
+Roll Cmd: -5.20439, Pitch Cmd: -42.839436, Yaw Cmd: -1.2100605
+Roll: 0.33569765, Pitch: 2.464381, Yaw: 0.30381933
+Roll Cmd: -4.695901, Pitch Cmd: -43.17687, Yaw Cmd: -1.0893288
+Roll: 0.34231174, Pitch: 2.491386, Yaw: 0.30454367
+Roll Cmd: -7.6333556, Pitch Cmd: -40.02617, Yaw Cmd: -0.9682922
+Roll: 0.31520852, Pitch: 2.4819496, Yaw: 0.30381438
+Roll Cmd: -2.9914193, Pitch Cmd: -43.485764, Yaw Cmd: -0.9692068
+Roll: 0.32189974, Pitch: 2.4536254, Yaw: 0.30394104
+Roll Cmd: -5.366375, Pitch Cmd: -41.852165, Yaw Cmd: -0.48109704
+Roll: 0.33095613, Pitch: 2.4259505, Yaw: 0.3047744
+Roll Cmd: -5.506831, Pitch Cmd: -41.120907, Yaw Cmd: -0.96981657
+Roll: 0.34480667, Pitch: 2.4508352, Yaw: 0.30522433
+Roll Cmd: -3.470028, Pitch Cmd: -46.045135, Yaw Cmd: -0.4817068
+Roll: 0.34069, Pitch: 2.4786983, Yaw: 0.3055014
+Roll Cmd: -6.334538, Pitch Cmd: -41.791454, Yaw Cmd: -0.9704263
+Roll: 0.31183425, Pitch: 2.4764252, Yaw: 0.304725
+Roll Cmd: -2.0820327, Pitch Cmd: -45.64515, Yaw Cmd: -0.97134095
+Roll: 0.28725255, Pitch: 2.4615147, Yaw: 0.30396155
+Roll Cmd: -6.0010204, Pitch Cmd: -39.03899, Yaw Cmd: -0.8499995
+Roll: 0.2752084, Pitch: 2.487104, Yaw: 0.30389044
+Roll Cmd: -4.3831515, Pitch Cmd: -44.776375, Yaw Cmd: -0.97286534
+Roll: 0.29712144, Pitch: 2.5047293, Yaw: 0.30547225
+Roll Cmd: -2.996286, Pitch Cmd: -43.741806, Yaw Cmd: -1.0960361
+Roll: 0.31954992, Pitch: 2.4857101, Yaw: 0.30719292
+Roll Cmd: -9.8484, Pitch Cmd: -39.66849, Yaw Cmd: -1.2195117
+Roll: 0.29279408, Pitch: 2.4951491, Yaw: 0.3060211
+Roll Cmd: -3.0011306, Pitch Cmd: -44.825584, Yaw Cmd: -0.6097556
+Roll: 0.28355357, Pitch: 2.467664, Yaw: 0.3057437
+Roll Cmd: -6.8614397, Pitch Cmd: -40.791664, Yaw Cmd: -0.7320117
+Roll: 0.25589362, Pitch: 2.4605126, Yaw: 0.30499375
+Roll Cmd: -2.1835146, Pitch Cmd: -40.981174, Yaw Cmd: -0.97682875
+Roll: 0.22717243, Pitch: 2.4565363, Yaw: 0.3037741
+Roll Cmd: -0.45683718, Pitch Cmd: -46.465515, Yaw Cmd: -0.6109751
+Roll: 0.21807353, Pitch: 2.42904, Yaw: 0.30339164
+Roll Cmd: -5.075033, Pitch Cmd: -40.87973, Yaw Cmd: -0.6109751
+Roll: 0.1908558, Pitch: 2.4359515, Yaw: 0.30297685
+Roll Cmd: -6.4850197, Pitch Cmd: -42.547153, Yaw Cmd: -1.2222556
+Roll: 0.21812871, Pitch: 2.4451241, Yaw: 0.30443585
+Roll Cmd: -4.706113, Pitch Cmd: -44.982445, Yaw Cmd: -0.8570117
+Roll: 0.23105548, Pitch: 2.4707432, Yaw: 0.3048314
+Roll Cmd: -5.5156307, Pitch Cmd: -45.175304, Yaw Cmd: -0.49085313
+Roll: 0.25101015, Pitch: 2.449863, Yaw: 0.3059973
+Roll Cmd: -4.3678102, Pitch Cmd: -39.8927, Yaw Cmd: -0.85731655
+Roll: 0.26341835, Pitch: 2.4755833, Yaw: 0.30652332
+Roll Cmd: -7.039542, Pitch Cmd: -45.95987, Yaw Cmd: -0.6134141
+Roll: 0.27313465, Pitch: 2.4479985, Yaw: 0.3064744
+Roll Cmd: -5.47456, Pitch Cmd: -39.60254, Yaw Cmd: -0.24664581
+Roll: 0.2944252, Pitch: 2.4283419, Yaw: 0.30752444
+Roll Cmd: -6.0858655, Pitch Cmd: -43.70358, Yaw Cmd: -0.7347556
+Roll: 0.30712494, Pitch: 2.4023726, Yaw: 0.3080581
+Roll Cmd: -4.9402995, Pitch Cmd: -41.910416, Yaw Cmd: -0.61280435
+Roll: 0.29034802, Pitch: 2.425365, Yaw: 0.30811778
+Roll Cmd: -3.4526987, Pitch Cmd: -44.35168, Yaw Cmd: -1.2240849
+Roll: 0.27785188, Pitch: 2.45082, Yaw: 0.30773696
+Roll Cmd: -5.1323514, Pitch Cmd: -44.567284, Yaw Cmd: -0.73658484
+Roll: 0.26051906, Pitch: 2.473004, Yaw: 0.30820203
+Roll Cmd: -4.899317, Pitch Cmd: -43.731636, Yaw Cmd: -1.5926824
+Roll: 0.2821189, Pitch: 2.4923337, Yaw: 0.30880603
+Roll Cmd: -8.398236, Pitch Cmd: -45.94646, Yaw Cmd: -0.37256044
+Roll: 0.2623629, Pitch: 2.471299, Yaw: 0.30839854
+Roll Cmd: -1.869911, Pitch Cmd: -40.994877, Yaw Cmd: -0.9832312
+Roll: 0.28945404, Pitch: 2.4618673, Yaw: 0.30987355
+Roll Cmd: -4.846238, Pitch Cmd: -43.028847, Yaw Cmd: -0.8618897
+Roll: 0.2617929, Pitch: 2.4691334, Yaw: 0.30852976
+Roll Cmd: -4.3873763, Pitch Cmd: -44.652653, Yaw Cmd: -0.49573117
+Roll: 0.29064998, Pitch: 2.4694939, Yaw: 0.31052798
+Roll Cmd: -7.2106853, Pitch Cmd: -45.163963, Yaw Cmd: -1.2289629
+Roll: 0.26253965, Pitch: 2.4748101, Yaw: 0.3094663
+Roll Cmd: -2.9127183, Pitch Cmd: -42.451267, Yaw Cmd: -0.7414629
+Roll: 0.26224852, Pitch: 2.4458854, Yaw: 0.30945238
+Roll Cmd: -4.9829836, Pitch Cmd: -42.237926, Yaw Cmd: -0.61951166
+Roll: 0.28128013, Pitch: 2.4238756, Yaw: 0.3104046
+Roll Cmd: -6.7288947, Pitch Cmd: -41.78439, Yaw Cmd: -0.74176776
+Roll: 0.25266826, Pitch: 2.4173243, Yaw: 0.30952433
+Roll Cmd: 0.19696093, Pitch Cmd: -43.277966, Yaw Cmd: -0.86432874
+Roll: 0.2538192, Pitch: 2.4456334, Yaw: 0.30955258
+Roll Cmd: -10.275497, Pitch Cmd: -45.823727, Yaw Cmd: -0.6204263
+Roll: 0.24114293, Pitch: 2.4709182, Yaw: 0.30929327
+Roll Cmd: -4.46372, Pitch Cmd: -45.812653, Yaw Cmd: -0.8649385
+Roll: 0.22717229, Pitch: 2.4950452, Yaw: 0.30866575
+Roll Cmd: -4.3721533, Pitch Cmd: -42.814926, Yaw Cmd: -0.62103605
+Roll: 0.20713167, Pitch: 2.515021, Yaw: 0.30869573
+Roll Cmd: -2.499449, Pitch Cmd: -46.432583, Yaw Cmd: -1.3545727
+[DEBUG] HCLK: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:53)
+[DEBUG] PCLK1: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:54)
+[DEBUG] PCLK2: 48 MHz (fiddlesticks fiddlesticks/src/main.rs:55)
+[DEBUG] Max duty cycles: ch1: 800, ch2: 800, ch3: 800, ch4: 800 (fiddlesticks fiddlesticks/src/main.rs:73)
+[DEBUG] PWM channels configured (fiddlesticks fiddlesticks/src/main.rs:79)
+[DEBUG] USB device configured (fiddlesticks fiddlesticks/src/main.rs:119)
+[DEBUG] WHO_AM_I: 0x70 (fiddlesticks fiddlesticks/src/mpu_spi.rs:88)
+[DEBUG] PWR_MGMT_1: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:89)
+[DEBUG] SMPLRT_DIV: 0x0 (fiddlesticks fiddlesticks/src/mpu_spi.rs:90)
+[DEBUG] CONFIG: 0x1 (fiddlesticks fiddlesticks/src/mpu_spi.rs:91)
+[DEBUG] GYRO_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:92)
+[DEBUG] ACCEL_CONFIG: 0x18 (fiddlesticks fiddlesticks/src/mpu_spi.rs:93)
+[DEBUG] ACCEL_CONFIG2: 0x2 (fiddlesticks fiddlesticks/src/mpu_spi.rs:94)
+[DEBUG] Starting gyro calibration... (fiddlesticks fiddlesticks/src/mpu_spi.rs:192)
+[INFO ] MPU6050 initialized and gyro calibrated. Gyro biases: x: -2.1341465, y: 0.6707317, z: -0.12195122 (fiddlesticks fiddlesticks/src/main.rs:146)
+[DEBUG] m1: 10.455513, m2: 9.386143, m3: 10.646622, m4: 9.511723 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 10.591259, m2: 9.126041, m3: 10.515448, m4: 9.767252 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 10.65339, m2: 9.990571, m3: 9.355756, m4: 10.000283 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 10.543202, m2: 10.160974, m3: 9.098565, m4: 10.197259 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 10.793048, m2: 9.699929, m3: 9.214574, m4: 10.292449 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 11.384153, m2: 9.205389, m3: 8.990847, m4: 10.419611 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 11.14386, m2: 9.280884, m3: 8.497908, m4: 11.077349 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 10.820984, m2: 10.328974, m3: 8.451881, m4: 10.398161 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 11.328736, m2: 8.886088, m3: 8.6758375, m4: 11.109338 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 11.921068, m2: 9.163301, m3: 8.450884, m4: 10.464746 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 12.23436, m2: 8.334801, m3: 8.5064945, m4: 10.924345 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.228911, m2: 8.325614, m3: 7.882369, m4: 10.563106 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 12.168143, m2: 7.9858885, m3: 8.2129545, m4: 11.633014 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.489358, m2: 7.41755, m3: 7.9953985, m4: 11.097693 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 12.082545, m2: 7.933055, m3: 8.306174, m4: 11.6782255 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.554409, m2: 7.1144185, m3: 7.9379697, m4: 11.393204 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.197574, m2: 7.835614, m3: 6.8313894, m4: 12.135423 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.021438, m2: 7.749949, m3: 6.6401477, m4: 12.588466 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 12.942044, m2: 8.343085, m3: 6.3506384, m4: 12.364232 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.439881, m2: 8.008975, m3: 6.217131, m4: 12.334012 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.287384, m2: 7.534984, m3: 6.3681035, m4: 12.809528 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 13.20531, m2: 8.0218725, m3: 5.3465195, m4: 13.426299 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 14.57561, m2: 7.070775, m3: 5.8070116, m4: 12.546603 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 14.014395, m2: 7.3792768, m3: 5.634996, m4: 12.971333 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 14.383505, m2: 6.902248, m3: 5.264361, m4: 13.449886 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 14.892238, m2: 6.702478, m3: 5.856239, m4: 12.5490465 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 14.923821, m2: 6.0438333, m3: 5.827702, m4: 13.204642 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 15.322174, m2: 6.4672093, m3: 4.6976438, m4: 13.512974 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 15.92108, m2: 5.562788, m3: 5.5682497, m4: 12.947882 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 15.512183, m2: 5.860479, m3: 4.8811097, m4: 13.746228 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.152094, m2: 5.9458685, m3: 4.2427225, m4: 13.659314 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 15.862767, m2: 5.724713, m3: 4.1661954, m4: 14.246324 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 15.822204, m2: 6.123864, m3: 3.839382, m4: 14.214551 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.623194, m2: 5.9595804, m3: 3.7716243, m4: 13.645602 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.357328, m2: 5.0890255, m3: 4.039013, m4: 14.514633 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.786938, m2: 5.3749566, m3: 3.2435508, m4: 14.594556 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.89165, m2: 4.8089786, m3: 3.5062163, m4: 14.793156 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 16.435305, m2: 5.8339863, m3: 2.1271954, m4: 15.603514 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 17.140074, m2: 4.6663404, m3: 2.5184615, m4: 15.675122 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 17.634384, m2: 4.740109, m3: 2.3900065, m4: 15.2355 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 17.791542, m2: 4.119279, m3: 2.6002274, m4: 15.488954 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 19.098581, m2: 3.802285, m3: 2.7642224, m4: 14.33491 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 18.951286, m2: 3.1825023, m3: 2.551762, m4: 15.314449 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 18.53375, m2: 3.7995195, m3: 1.8732625, m4: 15.793468 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 18.926592, m2: 3.4592857, m3: 2.2167006, m4: 15.397422 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 19.94875, m2: 3.1223936, m3: 2.3012514, m4: 14.627606 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 18.7793, m2: 3.9956996, m3: 0.17344397, m4: 17.051556 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 19.577667, m2: 4.146484, m3: 0.47263694, m4: 15.803211 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 18.697367, m2: 4.0624084, m3: 0.25080395, m4: 16.989422 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 19.268562, m2: 3.746152, m3: -0.6923438, m4: 17.67763 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 19.205399, m2: 3.8706644, m3: -1.0026548, m4: 17.926592 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 20.526115, m2: 2.8225093, m3: -0.12672375, m4: 16.7781 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 20.592524, m2: 2.9811296, m3: -0.9263659, m4: 17.352713 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 20.453947, m2: 2.717106, m3: -0.78931266, m4: 17.61826 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 21.510145, m2: 0.76918805, m3: 0.72461116, m4: 16.996056 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 20.989408, m2: 2.634207, m3: -1.3171523, m4: 17.693537 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 21.928265, m2: 1.3026723, m3: -0.4206437, m4: 17.189705 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 21.339445, m2: 1.3687454, m3: -1.2952381, m4: 18.587046 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 22.453745, m2: 1.5044785, m3: -1.3074036, m4: 17.34918 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 21.376904, m2: 1.5607555, m3: -2.0628784, m4: 19.12522 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 21.806122, m2: 1.8035489, m3: -2.862526, m4: 19.252853 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 22.2497, m2: 1.5334653, m3: -2.9432974, m4: 19.160131 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 22.745739, m2: 1.264068, m3: -3.0750074, m4: 19.0652 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 22.351843, m2: 1.4672751, m3: -3.050014, m4: 19.230894 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 23.46679, m2: 1.0967818, m3: -3.433254, m4: 18.869682 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 23.580088, m2: 0.28008485, m3: -3.1791728, m4: 19.319002 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 23.654634, m2: -0.0035829097, m3: -3.2521963, m4: 19.601145 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 24.147764, m2: -0.12962835, m3: -3.7438004, m4: 19.725664 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 23.312569, m2: -0.12014627, m3: -3.2744594, m4: 20.082037 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 24.49868, m2: -0.4266191, m3: -4.827949, m4: 20.755888 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 24.885857, m2: -0.47926253, m3: -4.4818926, m4: 20.075298 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 25.284584, m2: -1.5412991, m3: -4.1443415, m4: 20.401054 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 24.734484, m2: -0.5780575, m3: -5.0591784, m4: 20.902752 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 24.655413, m2: -1.1173142, m3: -4.614255, m4: 21.076157 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 25.248354, m2: -0.66860485, m3: -5.5745726, m4: 20.994823 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 25.67889, m2: -1.0196464, m3: -5.639255, m4: 20.980011 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 25.60714, m2: -1.3519409, m3: -5.934882, m4: 21.679684 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 26.109581, m2: -0.8534152, m3: -6.806228, m4: 21.550062 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 26.44157, m2: -1.9401246, m3: -6.7738876, m4: 22.272442 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 26.899038, m2: -2.395433, m3: -5.763369, m4: 21.259764 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 26.637573, m2: -1.8110977, m3: -6.9668427, m4: 22.140368 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 27.881748, m2: -3.2487373, m3: -6.3756523, m4: 21.742641 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 27.346987, m2: -2.601777, m3: -6.936927, m4: 22.191717 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 27.642794, m2: -3.254904, m3: -7.2312064, m4: 22.843317 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 28.311626, m2: -2.9258838, m3: -7.898515, m4: 22.512775 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 27.811382, m2: -2.9735556, m3: -8.498883, m4: 23.661057 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 28.348894, m2: -3.5609343, m3: -8.3046875, m4: 23.516726 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 28.047853, m2: -3.360517, m3: -8.738401, m4: 24.051065 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 28.47712, m2: -3.4731715, m3: -9.538094, m4: 24.534145 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 29.418505, m2: -3.560654, m3: -9.38192, m4: 23.524069 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 29.524004, m2: -3.9987462, m3: -9.487418, m4: 23.96216 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 30.096119, m2: -4.031497, m3: -9.692155, m4: 23.627533 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 30.569412, m2: -5.3678446, m3: -9.0617895, m4: 23.860222 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 30.668833, m2: -4.7849374, m3: -10.257246, m4: 24.37335 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 30.545, m2: -4.8959336, m3: -10.131891, m4: 24.482824 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 31.089182, m2: -5.1132674, m3: -10.674547, m4: 24.698633 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 31.908304, m2: -5.7016973, m3: -11.124768, m4: 24.918161 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 31.345407, m2: -5.955981, m3: -10.558821, m4: 25.169394 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.461918, m2: -6.1833844, m3: -10.937527, m4: 24.658993 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 31.162445, m2: -5.1682463, m3: -12.203603, m4: 26.209404 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.41903, m2: -6.096183, m3: -11.995248, m4: 25.672401 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.588047, m2: -5.3993926, m3: -12.897498, m4: 25.708845 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.551117, m2: -5.8939543, m3: -12.494714, m4: 25.837551 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.813095, m2: -6.4002304, m3: -12.756691, m4: 26.343826 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 32.00561, m2: -5.8395123, m3: -14.153476, m4: 27.987377 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 33.897865, m2: -7.144337, m3: -12.381096, m4: 25.627567 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 33.72068, m2: -6.9899282, m3: -14.034703, m4: 27.303953 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 34.369797, m2: -7.563743, m3: -13.950593, m4: 27.144535 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 34.38625, m2: -8.135845, m3: -13.598141, m4: 27.347736 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 34.943848, m2: -7.6366377, m3: -15.254823, m4: 27.947613 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 34.135937, m2: -7.364688, m3: -14.815816, m4: 28.044567 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 35.8136, m2: -8.872127, m3: -14.659635, m4: 27.718163 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 35.811485, m2: -8.797517, m3: -14.652949, m4: 27.63898 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 35.509502, m2: -8.214742, m3: -15.815906, m4: 28.521145 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 35.553715, m2: -8.232407, m3: -15.861645, m4: 28.540333 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 35.95937, m2: -8.770541, m3: -15.901441, m4: 28.712614 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 36.36693, m2: -9.265879, m3: -16.309, m4: 29.207952 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 37.06929, m2: -9.846531, m3: -15.909229, m4: 28.68647 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 37.03517, m2: -9.319977, m3: -16.972672, m4: 29.257477 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 36.641426, m2: -9.15422, m3: -18.048439, m4: 30.561234 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 38.001858, m2: -10.601153, m3: -17.2107, m4: 29.809996 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 37.766136, m2: -9.611805, m3: -18.44144, m4: 30.28711 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 38.39821, m2: -11.152012, m3: -17.239672, m4: 29.993475 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 39.122833, m2: -11.1900215, m3: -17.959724, m4: 30.026913 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 38.764114, m2: -11.062548, m3: -18.331186, m4: 30.629622 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 39.783752, m2: -11.54087, m3: -18.614544, m4: 30.371662 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 38.693176, m2: -10.889505, m3: -19.723661, m4: 31.919992 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 38.898834, m2: -10.713677, m3: -19.566519, m4: 31.381361 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 39.54751, m2: -11.75529, m3: -19.85086, m4: 32.058643 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 40.496506, m2: -12.112298, m3: -20.066628, m4: 31.682419 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 40.404106, m2: -12.249972, m3: -19.972702, m4: 31.81857 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 40.74462, m2: -12.047421, m3: -21.413826, m4: 32.71663 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 40.762634, m2: -12.713169, m3: -20.700134, m4: 32.65067 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 41.284523, m2: -12.804468, m3: -21.222025, m4: 32.741966 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 41.845528, m2: -12.917964, m3: -21.41565, m4: 32.488087 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 41.568626, m2: -13.290864, m3: -22.239355, m4: 33.961597 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 42.4973, m2: -13.576907, m3: -21.70157, m4: 32.781174 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 42.902134, m2: -14.208476, m3: -21.735975, m4: 33.042316 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 42.965836, m2: -13.936143, m3: -22.529861, m4: 33.500168 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 42.77057, m2: -14.131897, m3: -23.067825, m4: 34.429153 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 43.200348, m2: -13.548329, m3: -23.49913, m4: 33.84711 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 44.344746, m2: -14.803454, m3: -23.54292, m4: 34.00163 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 43.085045, m2: -14.2995615, m3: -24.851814, m4: 36.06633 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 44.643585, m2: -14.956993, m3: -24.213707, m4: 34.527115 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 45.13966, m2: -15.51453, m3: -24.708256, m4: 35.083126 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 45.037495, m2: -15.116044, m3: -25.339321, m4: 35.417873 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 45.19325, m2: -15.443584, m3: -26.231358, m4: 36.481693 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 44.69695, m2: -15.233103, m3: -25.372255, m4: 35.90841 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 47.086365, m2: -17.024414, m3: -25.927826, m4: 35.86588 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 45.6381, m2: -15.589612, m3: -26.311882, m4: 36.263393 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 46.619587, m2: -17.327002, m3: -25.826902, m4: 36.534317 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 47.190327, m2: -16.787075, m3: -26.394596, m4: 35.991344 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 47.089634, m2: -16.796104, m3: -27.025608, m4: 36.73208 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 47.666576, m2: -17.918713, m3: -26.867794, m4: 37.11993 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 48.13947, m2: -17.324224, m3: -27.705019, m4: 36.889774 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 48.254604, m2: -18.17674, m3: -27.45125, m4: 37.373386 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 48.14824, m2: -17.211119, m3: -29.178728, m4: 38.241604 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 48.817875, m2: -18.145714, m3: -28.750801, m4: 38.07864 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 49.137577, m2: -18.540625, m3: -28.703127, m4: 38.106174 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 49.24656, m2: -18.513794, m3: -29.545341, m4: 38.812576 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 50.14889, m2: -18.27893, m3: -30.081818, m4: 38.211857 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 49.7764, m2: -19.102911, m3: -30.076708, m4: 39.403217 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 51.06463, m2: -20.061543, m3: -30.264324, m4: 39.26124 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 51.006714, m2: -20.12899, m3: -30.203362, m4: 39.325638 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 51.906807, m2: -20.26706, m3: -30.733025, m4: 39.093277 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 50.750046, m2: -19.585398, m3: -31.77596, m4: 40.611313 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 52.618725, m2: -21.270906, m3: -30.710188, m4: 39.36237 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 52.34896, m2: -20.704636, m3: -32.26969, m4: 40.625366 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 52.29387, m2: -20.400343, m3: -32.214603, m4: 40.32107 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 52.671246, m2: -21.15653, m3: -32.224598, m4: 40.70988 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 52.788685, m2: -21.088608, m3: -33.075268, m4: 41.375195 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 53.22763, m2: -21.229212, m3: -33.883118, m4: 41.884697 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 53.384632, m2: -21.55496, m3: -34.04317, m4: 42.213497 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 53.97984, m2: -22.01288, m3: -33.539288, m4: 41.57233 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 54.49349, m2: -22.646606, m3: -34.05142, m4: 42.204533 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 54.727486, m2: -22.955595, m3: -34.651268, m4: 42.87938 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 55.27557, m2: -23.163786, m3: -34.097218, m4: 41.98543 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 56.106056, m2: -23.538076, m3: -34.923126, m4: 42.35515 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 56.927937, m2: -24.159702, m3: -35.00568, m4: 42.237446 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 55.756313, m2: -24.205534, m3: -35.295948, m4: 43.745167 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 57.65561, m2: -24.47396, m3: -36.091583, m4: 42.909935 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 57.050095, m2: -24.066149, m3: -36.582108, m4: 43.59816 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 57.26158, m2: -24.604774, m3: -37.159447, m4: 44.50264 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 57.42466, m2: -24.58119, m3: -37.689903, m4: 44.846436 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 57.796806, m2: -24.864235, m3: -36.96144, m4: 44.02887 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 58.13308, m2: -24.898651, m3: -38.396797, m4: 45.16237 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 58.672897, m2: -25.603096, m3: -38.570763, m4: 45.50096 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 58.527164, m2: -25.106802, m3: -39.159782, m4: 45.739426 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 59.057796, m2: -26.433697, m3: -38.958714, m4: 46.334614 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 60.03358, m2: -26.499084, m3: -39.19974, m4: 45.66524 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 60.286884, m2: -25.966059, m3: -40.18475, m4: 45.863926 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 60.649994, m2: -27.052282, m3: -40.18048, m4: 46.58277 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 61.11085, m2: -27.482094, m3: -40.272434, m4: 46.64368 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 62.15001, m2: -27.95877, m3: -40.206413, m4: 46.015175 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 61.071037, m2: -27.50998, m3: -41.32409, m4: 47.76303 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 60.554794, m2: -26.966673, m3: -42.278877, m4: 48.690758 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 61.766953, m2: -27.833197, m3: -41.661766, m4: 47.728012 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 62.04144, m2: -28.483942, m3: -41.936253, m4: 48.378757 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 63.65525, m2: -28.651752, m3: -43.182686, m4: 48.17919 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 62.62482, m2: -28.02147, m3: -43.620247, m4: 49.0169 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 62.79555, m2: -28.042269, m3: -44.16293, m4: 49.40965 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 64.33551, m2: -29.272234, m3: -44.239468, m4: 49.176197 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 63.79297, m2: -29.095694, m3: -44.06431, m4: 49.367035 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 65.08974, m2: -30.406307, m3: -44.62785, m4: 49.944416 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 64.548065, m2: -30.138477, m3: -44.452026, m4: 50.042442 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 65.52919, m2: -30.930952, m3: -44.698395, m4: 50.10016 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 65.79249, m2: -31.10239, m3: -45.326027, m4: 50.635925 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 66.4503, m2: -31.24961, m3: -45.982315, m4: 50.781624 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 66.85379, m2: -31.234707, m3: -46.384274, m4: 50.765194 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 67.22821, m2: -32.658104, m3: -45.65504, m4: 51.084934 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 67.11946, m2: -31.582542, m3: -47.377083, m4: 51.840164 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 68.07471, m2: -32.376434, m3: -47.23172, m4: 51.533447 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 67.84989, m2: -31.678234, m3: -47.738613, m4: 51.56695 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 67.90582, m2: -32.144768, m3: -48.529293, m4: 52.768246 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 68.17282, m2: -32.425823, m3: -48.799343, m4: 53.05235 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 68.386765, m2: -32.701675, m3: -49.383713, m4: 53.698624 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 69.88771, m2: -33.84905, m3: -49.05234, m4: 53.013683 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 69.43177, m2: -33.551773, m3: -49.328117, m4: 53.448112 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 70.66485, m2: -34.640488, m3: -49.459053, m4: 53.434692 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 71.38964, m2: -35.270195, m3: -49.811897, m4: 53.69245 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 71.27947, m2: -34.852676, m3: -50.797768, m4: 54.37097 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 72.21689, m2: -35.319283, m3: -50.9989, m4: 54.101295 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 72.55692, m2: -35.443, m3: -51.33436, m4: 54.220436 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 72.47499, m2: -35.511917, m3: -51.982613, m4: 55.01954 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 73.07069, m2: -36.165882, m3: -52.209408, m4: 55.3046 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 72.85562, m2: -36.22183, m3: -52.35867, m4: 55.72488 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 72.65545, m2: -36.03677, m3: -52.891735, m4: 56.273052 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 73.00481, m2: -36.030334, m3: -53.242615, m4: 56.268143 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 74.7486, m2: -37.304466, m3: -53.15103, m4: 55.7069 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 74.41143, m2: -36.961967, m3: -54.277283, m4: 56.82782 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 74.7761, m2: -37.22374, m3: -54.641953, m4: 57.089592 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 75.2188, m2: -37.143932, m3: -55.819416, m4: 57.74454 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 75.75216, m2: -38.085052, m3: -55.253685, m4: 57.58658 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 76.50905, m2: -38.42827, m3: -55.641678, m4: 57.56089 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 76.59337, m2: -38.87416, m3: -56.090317, m4: 58.37111 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 76.38515, m2: -38.6744, m3: -57.350082, m4: 59.639336 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 77.463974, m2: -39.815247, m3: -56.596596, m4: 58.94787 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 77.54337, m2: -39.326473, m3: -57.407703, m4: 59.1908 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 77.07386, m2: -38.85141, m3: -58.04032, m4: 59.81787 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 77.8287, m2: -39.500816, m3: -58.43235, m4: 60.104477 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 77.779854, m2: -39.976295, m3: -58.38656, m4: 60.583 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 78.950485, m2: -40.695293, m3: -58.82548, m4: 60.570293 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 79.82607, m2: -41.308777, m3: -58.598938, m4: 60.081642 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 80.75349, m2: -41.759293, m3: -59.521782, m4: 60.527588 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 80.48964, m2: -41.2717, m3: -60.355495, m4: 61.137554 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 80.60781, m2: -41.326824, m3: -60.841038, m4: 61.560055 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 81.300316, m2: -42.328003, m3: -60.800316, m4: 61.828003 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 82.15082, m2: -42.76722, m3: -61.649292, m4: 62.265694 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 81.4688, m2: -42.653183, m3: -61.70051, m4: 62.884888 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 81.86357, m2: -42.377193, m3: -62.831554, m4: 63.34518 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 82.273155, m2: -42.9878, m3: -62.510963, m4: 63.22561 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 83.72289, m2: -44.074554, m3: -62.860085, m4: 63.211746 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 84.06499, m2: -44.359013, m3: -63.56651, m4: 63.860535 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 84.53755, m2: -44.30327, m3: -64.03755, m4: 63.80327 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 84.170975, m2: -43.70916, m3: -64.77159, m4: 64.30977 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 84.18615, m2: -44.71104, m3: -64.42243, m4: 64.94732 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 86.02817, m2: -45.5753, m3: -65.16383, m4: 64.71097 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 85.88335, m2: -45.46759, m3: -65.38335, m4: 64.96759 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 86.350235, m2: -46.03412, m3: -65.84871, m4: 65.53259 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 86.979355, m2: -46.296352, m3: -66.47631, m4: 65.7933 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 86.82743, m2: -46.502384, m3: -66.32285, m4: 65.99781 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 87.0268, m2: -46.28524, m3: -67.62284, m4: 66.88128 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 87.92, m2: -47.750965, m3: -67.049576, m4: 66.88054 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 88.23204, m2: -47.393127, m3: -68.09332, m4: 67.25441 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 88.10505, m2: -47.25853, m3: -68.33371, m4: 67.48718 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 89.09611, m2: -48.14106, m3: -68.958916, m4: 68.00387 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 89.78864, m2: -47.884933, m3: -70.01882, m4: 68.11512 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 89.780876, m2: -48.586544, m3: -70.01257, m4: 68.81825 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 91.12, m2: -49.04081, m3: -69.88372, m4: 67.80453 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 90.55641, m2: -49.346725, m3: -70.417694, m4: 69.20801 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 91.23654, m2: -50.145535, m3: -70.36307, m4: 69.272064 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 90.97751, m2: -49.262802, m3: -71.570496, m4: 69.85579 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 91.794716, m2: -50.070564, m3: -72.02337, m4: 70.29922 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 93.06694, m2: -50.60369, m3: -72.56237, m4: 70.09911 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 92.56786, m2: -50.974163, m3: -72.42914, m4: 70.83545 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 93.64293, m2: -51.536873, m3: -73.13683, m4: 71.03077 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 93.66452, m2: -51.28621, m3: -74.25903, m4: 71.88072 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 94.419075, m2: -51.97777, m3: -74.28188, m4: 71.84058 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 95.09231, m2: -52.5409, m3: -73.85297, m4: 71.301575 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 95.184204, m2: -52.099674, m3: -75.40982, m4: 72.32529 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 95.26212, m2: -52.57749, m3: -75.856636, m4: 73.172005 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 95.80401, m2: -52.697723, m3: -76.03419, m4: 72.92791 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 95.63766, m2: -53.5134, m3: -75.86937, m4: 73.7451 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 96.637596, m2: -53.534004, m3: -76.87083, m4: 73.767235 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 97.4785, m2: -53.566875, m3: -77.34587, m4: 73.43425 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 97.42949, m2: -54.64106, m3: -77.29686, m4: 74.50844 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 97.861755, m2: -54.930584, m3: -77.729126, m4: 74.79796 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 98.98108, m2: -55.47548, m3: -77.74632, m4: 74.24072 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 98.87635, m2: -55.145695, m3: -79.10653, m4: 75.37588 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 99.142235, m2: -54.712914, m3: -80.47608, m4: 76.04676 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 99.440094, m2: -55.66418, m3: -80.04527, m4: 76.26936 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 101.03382, m2: -57.2056, m3: -80.17254, m4: 76.34432 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 101.15184, m2: -56.530636, m3: -81.02226, m4: 76.40106 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 101.23944, m2: -57.06419, m3: -80.7425, m4: 76.56724 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 101.60054, m2: -57.421894, m3: -81.102066, m4: 76.923416 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 102.23081, m2: -57.675068, m3: -82.09818, m4: 77.54244 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 102.53103, m2: -57.907204, m3: -82.765785, m4: 78.14196 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 103.53778, m2: -58.58644, m3: -83.03931, m4: 78.08797 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 104.05278, m2: -58.609177, m3: -83.55278, m4: 78.10918 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 103.6998, m2: -58.651962, m3: -83.93303, m4: 78.88519 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 104.54265, m2: -59.273525, m3: -84.41002, m4: 79.1409 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 105.4229, m2: -60.031418, m3: -84.18814, m4: 78.79666 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 105.48852, m2: -60.605743, m3: -85.7187, m4: 80.83593 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 105.27345, m2: -59.9186, m3: -85.87254, m4: 80.517685 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 106.40581, m2: -60.772385, m3: -86.27318, m4: 80.639755 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 106.818375, m2: -61.536175, m3: -86.685745, m4: 81.40355 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 106.8877, m2: -60.971657, m3: -87.12246, m4: 81.20641 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 107.947945, m2: -62.220184, m3: -87.082085, m4: 81.35433 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 107.965355, m2: -62.072243, m3: -88.198586, m4: 82.30547 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 108.665955, m2: -62.446777, m3: -88.165955, m4: 81.94678 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 109.78659, m2: -63.28427, m3: -89.285065, m4: 82.782745 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 109.4302, m2: -63.064945, m3: -89.6619, m4: 83.29665 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 109.81321, m2: -64.12116, m3: -89.31168, m4: 83.61964 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 110.45248, m2: -63.61542, m3: -90.68418, m4: 83.84713 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 111.29643, m2: -64.11397, m3: -90.79491, m4: 83.61244 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 110.93261, m2: -63.93014, m3: -92.26646, m4: 85.263985 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 111.87738, m2: -64.91293, m3: -91.38043, m4: 84.415985 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 113.38965, m2: -66.2585, m3: -91.42166, m4: 84.29051 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 112.84714, m2: -66.01422, m3: -91.97366, m4: 85.14075 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 113.546974, m2: -66.711784, m3: -93.037834, m4: 86.202644 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 113.71317, m2: -65.873955, m3: -94.304634, m4: 86.465416 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 114.6404, m2: -67.08572, m3: -93.7654, m4: 86.21072 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 114.511894, m2: -66.78628, m3: -94.735985, m4: 87.01037 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 115.407104, m2: -67.1375, m3: -95.265335, m4: 86.99573 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 115.23457, m2: -67.77611, m3: -95.46019, m4: 88.001724 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 116.38558, m2: -67.98322, m3: -95.87795, m4: 87.47559 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 116.89476, m2: -68.51601, m3: -96.018234, m4: 87.63948 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 117.32249, m2: -68.81628, m3: -96.810295, m4: 88.304085 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 117.59894, m2: -69.38275, m3: -97.45259, m4: 89.236404 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 118.23916, m2: -69.59289, m3: -97.358055, m4: 88.711784 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 118.35003, m2: -70.46967, m3: -97.46589, m4: 89.58553 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 119.846436, m2: -70.60416, m3: -98.59186, m4: 89.34958 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 120.08567, m2: -71.38227, m3: -99.19389, m4: 90.49051 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 119.94743, m2: -71.44502, m3: -99.420006, m4: 90.91758 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 120.74011, m2: -71.39378, m3: -100.21115, m4: 90.86482 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 121.15299, m2: -72.25042, m3: -100.25511, m4: 91.352554 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 122.21605, m2: -72.25389, m3: -101.31514, m4: 91.35298 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 122.11814, m2: -72.00771, m3: -101.94894, m4: 91.83851 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 122.71621, m2: -72.9385, m3: -102.17962, m4: 92.40191 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 122.8693, m2: -73.07119, m3: -103.06593, m4: 93.26784 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 123.10164, m2: -72.705505, m3: -104.03456, m4: 93.63843 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 123.912575, m2: -73.9022, m3: -103.74795, m4: 93.73757 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 124.03541, m2: -73.38062, m3: -103.87078, m4: 93.215996 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 125.01867, m2: -74.95841, m3: -104.48666, m4: 94.4264 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 126.226494, m2: -75.68441, m3: -104.59083, m4: 94.048744 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 126.54832, m2: -75.716576, m3: -106.00869, m4: 95.17695 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 126.85007, m2: -76.14711, m3: -106.308914, m4: 95.60596 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 127.24696, m2: -76.577255, m3: -106.3369, m4: 95.66719 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 126.66827, m2: -76.24145, m3: -107.22466, m4: 96.797844 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 127.89169, m2: -76.82579, m3: -108.45114, m4: 97.38524 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 128.43321, m2: -77.12666, m3: -108.62834, m4: 97.32179 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 128.51907, m2: -77.549934, m3: -108.71572, m4: 97.746574 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 129.43471, m2: -77.6094, m3: -109.63288, m4: 97.80756 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 129.36935, m2: -77.55565, m3: -109.93644, m4: 98.12272 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 130.54927, m2: -78.60285, m3: -110.75202, m4: 98.805595 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 130.7235, m2: -78.85541, m3: -110.56038, m4: 98.69229 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 131.32677, m2: -79.9104, m3: -111.16365, m4: 99.747284 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 132.38457, m2: -79.85728, m3: -111.119316, m4: 98.59203 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 132.02841, m2: -80.19257, m3: -111.860725, m4: 100.024895 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 133.3933, m2: -81.287346, m3: -112.49085, m4: 100.38491 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 133.72838, m2: -81.0778, m3: -113.19027, m4: 100.53968 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 133.74516, m2: -81.27072, m3: -113.94029, m4: 101.46585 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 134.5424, m2: -82.10283, m3: -114.00429, m4: 101.56471 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 134.50146, m2: -81.67721, m3: -114.6966, m4: 101.87234 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 136.10918, m2: -83.20665, m3: -114.83632, m4: 101.93378 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 135.92426, m2: -82.89124, m3: -116.11634, m4: 103.08332 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 136.73111, m2: -83.14947, m3: -116.92472, m4: 103.34307 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 137.65175, m2: -84.03273, m3: -117.11212, m4: 103.4931 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 137.86406, m2: -84.1085, m3: -117.690285, m4: 103.934715 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 138.0707, m2: -84.59937, m3: -117.52953, m4: 104.05822 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 139.3936, m2: -85.27628, m3: -118.11616, m4: 103.99885 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 139.29454, m2: -85.13971, m3: -119.11467, m4: 104.95984 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 139.45096, m2: -85.160965, m3: -120.00583, m4: 105.715836 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 139.3707, m2: -85.78452, m3: -120.296, m4: 106.70983 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 141.69275, m2: -87.15571, m3: -120.05099, m4: 105.51394 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 141.36356, m2: -86.83919, m3: -120.817825, m4: 106.29346 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 141.28252, m2: -86.83345, m3: -121.83739, m4: 107.38832 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 142.69684, m2: -87.85684, m3: -122.15263, m4: 107.31264 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 143.6541, m2: -88.51592, m3: -122.74099, m4: 107.602806 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 142.33304, m2: -87.31379, m3: -124.3559, m4: 109.33666 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 143.98395, m2: -88.56921, m3: -124.546455, m4: 109.13171 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 144.6813, m2: -89.38734, m3: -124.14472, m4: 108.850746 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 145.15794, m2: -89.88748, m3: -124.25246, m4: 108.981995 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 144.48013, m2: -89.02121, m3: -126.14325, m4: 110.684326 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 146.13785, m2: -90.5425, m3: -125.97169, m4: 110.37635 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 146.33711, m2: -90.81388, m3: -126.53834, m4: 111.0151 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 146.92389, m2: -90.585075, m3: -127.494026, m4: 111.155205 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 147.88414, m2: -91.76293, m3: -127.72256, m4: 111.60134 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 148.58379, m2: -92.276665, m3: -128.05482, m4: 111.7477 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 148.36453, m2: -91.70955, m3: -128.93619, m4: 112.28119 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 148.92572, m2: -93.01871, m3: -129.13303, m4: 113.22603 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 150.53575, m2: -94.302734, m3: -128.9077, m4: 112.67468 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 150.05905, m2: -92.64094, m3: -130.62918, m4: 113.21107 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 150.65419, m2: -93.54698, m3: -130.85997, m4: 113.75278 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 152.34863, m2: -95.05192, m3: -130.71906, m4: 113.42234 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 152.00975, m2: -94.98977, m3: -131.84358, m4: 114.823616 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 151.92517, m2: -94.66667, m3: -132.86115, m4: 115.602646 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 152.31061, m2: -94.700356, m3: -133.61853, m4: 116.00828 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 153.43146, m2: -95.7299, m3: -134.01071, m4: 116.309166 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 154.2195, m2: -95.95719, m3: -134.43443, m4: 116.17213 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 155.1909, m2: -97.0937, m3: -134.30522, m4: 116.20803 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 154.74513, m2: -96.66514, m3: -135.69331, m4: 117.613304 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 156.00053, m2: -97.732445, m3: -136.21852, m4: 117.95043 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 156.42867, m2: -98.44129, m3: -135.9134, m4: 117.92605 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 157.15767, m2: -99.14573, m3: -136.27351, m4: 118.26159 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 157.47241, m2: -99.068146, m3: -137.31998, m4: 118.91571 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 158.26187, m2: -99.56383, m3: -137.37466, m4: 118.676636 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 158.34135, m2: -99.55389, m3: -137.8185, m4: 119.03101 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 159.17458, m2: -100.46095, m3: -138.65019, m4: 119.93657 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 159.44559, m2: -99.91297, m3: -140.02182, m4: 120.48919 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 160.97743, m2: -101.45115, m3: -140.08717, m4: 120.560905 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 161.65172, m2: -101.77197, m3: -140.39104, m4: 120.51131 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 161.95587, m2: -101.76666, m3: -141.42538, m4: 121.236176 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 161.52751, m2: -102.076004, m3: -142.09764, m4: 122.64613 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 163.05283, m2: -103.05371, m3: -142.52386, m4: 122.52475 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 163.6251, m2: -103.5329, m3: -142.72725, m4: 122.635025 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 164.37437, m2: -104.34934, m3: -142.7387, m4: 122.71368 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 163.96751, m2: -103.54195, m3: -144.16264, m4: 123.737076 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 164.68723, m2: -104.16702, m3: -145.25125, m4: 124.73105 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 165.60133, m2: -104.93627, m3: -144.6989, m4: 124.03384 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 165.61183, m2: -104.80458, m3: -146.17586, m4: 125.36861 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 167.1513, m2: -106.410126, m3: -145.5141, m4: 124.772934 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 166.56653, m2: -105.00267, m3: -147.49487, m4: 125.93103 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 167.872, m2: -106.303635, m3: -147.70277, m4: 126.13443 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 168.02962, m2: -106.31105, m3: -148.59517, m4: 126.8766 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 168.33961, m2: -107.31095, m3: -148.17345, m4: 127.1448 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 169.31487, m2: -107.53316, m3: -148.41396, m4: 126.63225 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 170.90729, m2: -108.65563, m3: -149.26855, m4: 127.016914 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 169.897, m2: -108.22033, m3: -150.08908, m4: 128.41241 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 170.90488, m2: -108.72693, m3: -151.09848, m4: 128.92053 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 172.06259, m2: -109.78711, m3: -151.15558, m4: 128.8801 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 171.56824, m2: -109.56424, m3: -152.12769, m4: 130.12369 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 172.6879, m2: -110.44294, m3: -152.51566, m4: 130.27069 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 173.13486, m2: -110.74888, m3: -152.96262, m4: 130.57663 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 174.23349, m2: -111.28821, m3: -153.69385, m4: 130.74857 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 174.37534, m2: -111.1691, m3: -154.56894, m4: 131.3627 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 175.14194, m2: -112.04129, m3: -154.9697, m4: 131.86905 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 175.30612, m2: -112.42561, m3: -155.13388, m4: 132.25336 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 176.71971, m2: -112.96548, m3: -156.54747, m4: 132.79323 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 176.69142, m2: -113.77182, m3: -156.15178, m4: 133.2322 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 177.34286, m2: -113.66477, m3: -157.1691, m4: 133.491 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 177.40561, m2: -112.83609, m3: -159.06873, m4: 134.4992 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 177.58102, m2: -113.67646, m3: -159.25177, m4: 135.3472 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 179.05206, m2: -115.06, m3: -158.89352, m4: 134.90146 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 179.559, m2: -115.58013, m3: -159.40047, m4: 135.42159 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 181.32591, m2: -116.73207, m3: -159.69786, m4: 135.10402 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 181.40617, m2: -116.54655, m3: -161.24153, m4: 136.38191 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 180.96002, m2: -116.4141, m3: -161.89752, m4: 137.3516 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 182.06764, m2: -117.69756, m3: -161.5402, m4: 137.17012 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 182.67998, m2: -117.01808, m3: -162.88574, m4: 137.22388 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 183.88261, m2: -118.94301, m3: -163.35518, m4: 138.41557 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 183.85944, m2: -118.20332, m3: -164.4326, m4: 138.7765 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 184.8231, m2: -119.53514, m3: -163.19505, m4: 137.90709 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 185.3813, m2: -119.21478, m3: -165.21666, m4: 139.05016 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 185.17719, m2: -119.84019, m3: -165.74731, m4: 140.41031 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 186.29343, m2: -119.77299, m3: -167.23396, m4: 140.71355 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 186.61896, m2: -120.34626, m3: -167.19672, m4: 140.92401 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 187.53102, m2: -120.63262, m3: -168.4792, m4: 141.5808 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 188.56364, m2: -122.235405, m3: -168.04689, m4: 141.71864 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 189.74469, m2: -122.90758, m3: -167.7569, m4: 140.91977 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 189.40668, m2: -122.8818, m3: -169.61551, m4: 143.09064 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 190.38359, m2: -122.978966, m3: -170.22658, m4: 142.82195 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 190.6317, m2: -123.422874, m3: -170.47469, m4: 143.26585 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 190.63123, m2: -123.63618, m3: -171.20898, m4: 144.21393 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 192.09749, m2: -124.640915, m3: -171.94353, m4: 144.48695 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 192.58443, m2: -125.233795, m3: -172.0631, m4: 144.71245 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 193.16568, m2: -125.40347, m3: -173.0102, m4: 145.24799 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 193.01982, m2: -124.72856, m3: -174.33385, m4: 146.04259 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 193.18292, m2: -125.88013, m3: -174.13568, m4: 146.83289 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 195.63965, m2: -128.15628, m3: -174.02534, m4: 146.54195 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 196.1324, m2: -126.9826, m3: -175.61412, m4: 146.46431 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 196.49864, m2: -127.9488, m3: -175.61143, m4: 147.0616 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 196.92691, m2: -128.3338, m3: -176.77142, m4: 148.17831 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 198.04482, m2: -129.45988, m3: -176.41982, m4: 147.83488 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 198.4519, m2: -129.87454, m3: -177.55557, m4: 148.97821 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 198.57649, m2: -129.79802, m3: -178.41185, m4: 149.63338 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 199.00963, m2: -130.29018, m3: -178.84499, m4: 150.12553 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 199.9924, m2: -130.2316, m3: -179.82776, m4: 150.06696 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 200.01736, m2: -130.50183, m3: -181.32225, m4: 151.80669 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 201.14221, m2: -131.00043, m3: -181.35104, m4: 151.20926 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 201.45296, m2: -131.66615, m3: -181.6633, m4: 151.87653 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 201.86162, m2: -132.02696, m3: -182.44087, m4: 152.60622 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 202.87544, m2: -132.62608, m3: -182.723, m4: 152.47365 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 203.3685, m2: -133.85, m3: -182.8487, m4: 153.3302 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 204.19576, m2: -133.49266, m3: -184.0418, m4: 153.3387 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 205.03749, m2: -134.58165, m3: -184.51616, m4: 154.06032 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 206.03699, m2: -135.37451, m3: -185.14673, m4: 154.48425 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 206.38649, m2: -134.93541, m3: -186.59532, m4: 155.14424 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 206.87018, m2: -135.8197, m3: -185.97842, m4: 154.92795 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 207.88521, m2: -136.15645, m3: -187.35777, m4: 155.62901 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 208.68552, m2: -136.89194, m3: -187.42178, m4: 155.6282 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 208.5078, m2: -136.96992, m3: -188.70903, m4: 157.17116 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 209.3504, m2: -137.76505, m3: -189.18576, m4: 157.6004 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 210.14372, m2: -138.35146, m3: -189.24434, m4: 157.45207 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 210.539, m2: -138.38, m3: -190.00394, m4: 157.84494 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 210.25607, m2: -138.39926, m3: -191.189, m4: 159.33218 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 211.77342, m2: -140.08754, m3: -191.24141, m4: 159.55553 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 213.72266, m2: -141.15936, m3: -191.35223, m4: 158.78894 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 214.37392, m2: -141.38121, m3: -191.99434, m4: 159.00163 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 214.18494, m2: -140.9125, m3: -193.63312, m4: 160.36069 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 214.83295, m2: -141.23221, m3: -194.64699, m4: 161.04622 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 214.77855, m2: -141.68306, m3: -195.69472, m4: 162.59923 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 214.92451, m2: -141.72725, m3: -195.84526, m4: 162.648 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 216.26573, m2: -142.43669, m3: -196.45628, m4: 162.62724 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 217.20288, m2: -143.51724, m3: -196.29282, m4: 162.60718 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 218.13312, m2: -144.65704, m3: -196.11786, m4: 162.64178 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 218.03918, m2: -143.88547, m3: -197.8532, m4: 163.69951 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 219.0262, m2: -145.4374, m3: -198.10545, m4: 164.51665 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 219.62247, m2: -145.51672, m3: -199.43344, m4: 165.3277 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 221.09048, m2: -146.24725, m3: -200.16672, m4: 165.32349 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 220.86668, m2: -146.21071, m3: -201.04198, m4: 166.386 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 222.40941, m2: -147.75154, m3: -201.11671, m4: 166.45885 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 221.6787, m2: -146.60039, m3: -201.85094, m4: 166.77263 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 222.81511, m2: -147.83269, m3: -201.88676, m4: 166.90434 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 223.51674, m2: -147.9005, m3: -204.05486, m4: 168.43861 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 223.37367, m2: -147.89467, m3: -203.91484, m4: 168.43584 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 224.64333, m2: -148.95, m3: -204.45277, m4: 168.75945 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 224.64182, m2: -149.62537, m3: -204.45126, m4: 169.43481 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 225.41168, m2: -149.41089, m3: -206.32327, m4: 170.32248 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 226.54822, m2: -150.31647, m3: -207.09698, m4: 170.86523 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 227.45059, m2: -151.52234, m3: -206.9003, m4: 170.97205 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 227.97525, m2: -151.57867, m3: -207.7908, m4: 171.39423 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 229.16287, m2: -152.2265, m3: -208.97842, m4: 172.04205 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 229.15497, m2: -152.99005, m3: -208.60315, m4: 172.43823 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 230.58922, m2: -153.23082, m3: -209.66847, m4: 172.31007 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 231.05334, m2: -154.14108, m3: -210.12958, m4: 173.21732 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 231.77007, m2: -154.38701, m3: -211.21062, m4: 173.82756 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 231.9695, m2: -154.46846, m3: -211.40852, m4: 173.90749 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 232.73099, m2: -155.2752, m3: -212.16849, m4: 174.7127 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 233.34624, m2: -155.25279, m3: -213.51698, m4: 175.42354 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 233.44408, m2: -155.69576, m3: -213.98372, m4: 176.2354 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 234.89285, m2: -156.66934, m3: -215.06815, m4: 176.84464 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 235.20831, m2: -156.86295, m3: -215.01776, m4: 176.6724 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 235.60847, m2: -157.51515, m3: -216.1527, m4: 178.05937 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 236.96213, m2: -157.9733, m3: -216.77463, m4: 177.7858 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 237.95837, m2: -158.5242, m3: -217.4035, m4: 177.96933 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 238.37875, m2: -159.91766, m3: -217.82236, m4: 179.36127 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 238.73914, m2: -159.23709, m3: -218.91595, m4: 179.41391 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 239.02296, m2: -159.91512, m3: -219.56871, m4: 180.46086 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 239.87859, m2: -160.71342, m3: -219.32524, m4: 180.16008 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 240.31058, m2: -160.50693, m3: -220.85782, m4: 181.05417 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 241.82825, m2: -162.37228, m3: -220.17429, m4: 180.71832 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 241.81955, m2: -162.10101, m3: -221.629, m4: 181.91046 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 242.15573, m2: -162.26776, m3: -223.06732, m4: 183.17935 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 243.93805, m2: -163.2551, m3: -223.3847, m4: 182.70175 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 244.7869, m2: -163.86917, m3: -223.49725, m4: 182.57953 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 245.34108, m2: -164.92613, m3: -224.78163, m4: 184.36668 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 245.5084, m2: -164.56755, m3: -225.68217, m4: 184.74132 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 246.71967, m2: -165.02258, m3: -226.52759, m4: 184.8305 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 246.52394, m2: -165.4247, m3: -226.69923, m4: 185.59999 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 247.40681, m2: -166.62013, m3: -226.84889, m4: 186.06221 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 248.16396, m2: -167.06477, m3: -227.6045, m4: 186.50533 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 249.34628, m2: -168.29474, m3: -228.41794, m4: 187.3664 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 250.33136, m2: -167.80688, m3: -230.1347, m4: 187.61023 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 249.67572, m2: -167.47803, m3: -230.5812, m4: 188.38351 (fiddlesticks fiddlesticks/src/main.rs:328)
+[DEBUG] m1: 250.53969, m2: -168.3232, m3: -231.81712, m4: 189.60063 (fiddlesticks fiddlesticks/src/main.rs:328)
